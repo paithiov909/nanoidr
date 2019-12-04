@@ -1,0 +1,23 @@
+Package: nanoidr
+Type: Package
+Title: Nano ID on V8
+Version: 0.1.0
+Authors@R: person("Kato", "Akiru", email = "paithiov909@gmail.com", role = c("aut", "cre"))
+Author: paithiov909
+Maintainer: Kato Akiru <paithiov909@gmail.com>
+Description: Nano ID (an ID generator for JavaScript) on V8.
+Depends:
+    R (>= 3.2.0)
+License: MIT + file LICENSE
+URL: https://github.com/paithiov909/nanoidr
+BugReports: https://github.com/paithiov909/nanoidr/issues 
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    R6,
+    V8,
+    purrr,
+    dplyr,
+    stringr,
+    stringi
+RoxygenNote: 6.1.1

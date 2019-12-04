@@ -1,0 +1,23 @@
+{
+  "name": "nanoidr",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "paithiov909",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "bundle": "browserify index.js -o js/nanoid.bundle.js -u",
+    "format": "prettier --write index.js",
+    "test": "jasmine"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "nanoid-dictionary": "^2.0.0",
+    "nanoid-good": "^1.3.0"
+  },
+  "devDependencies": {
+    "browserify": "^16.5.0",
+    "jasmine": "^3.5.0",
+    "prettier": "^1.19.1"
+  }
+}

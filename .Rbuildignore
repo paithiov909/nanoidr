@@ -1,0 +1,7 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^inst\node_modules$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+
