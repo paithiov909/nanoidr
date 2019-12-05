@@ -2,11 +2,11 @@
 
 [![GitHub last commit](https://img.shields.io/github/last-commit/paithiov909/nanoidr)](#) [![GitHub license](https://img.shields.io/github/license/paithiov909/nanoidr)](https://github.com/paithiov909/nanoidr/blob/master/LICENSE)
 
-> NanoID on V8
+> NanoID on V8 for R
 
 ## What is {nanoidr}?
 
-[ai/nanoid](https://github.com/ai/nanoid) is a tiny (137 bytes), secure, URL-friendly, unique string ID generator for JavaScript. The {nanoidr} package is a simple wrapper of NanoID library running on [V8](https://github.com/jeroen/V8).
+[ai/nanoid](https://github.com/ai/nanoid) is a tiny (137 bytes), secure, URL-friendly, unique string ID generator for JavaScript. The {nanoidr} package is a simple R wrapper of NanoID library running on [V8 for R](https://github.com/jeroen/V8).
 
 ## Related repositories
 
@@ -23,7 +23,7 @@ remotes::install_github("paithiov909/nanoidr")
 
 ## How to use
 
-Common use case
+### Common use case
 
 ``` R
 > library(nanoidr)
@@ -40,7 +40,7 @@ Common use case
 [1] "iJl1of5I2evR6MsHpPAdv7FhqbE"
 ```
 
-Use custom random bytes generator
+### Use custom random bytes generator
 
 ``` R
 > library(dqrng)

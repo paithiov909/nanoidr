@@ -38,5 +38,4 @@ rsconnect/
 *.log
 
 inst/node_modules/
-inst/bundle/*
 inst/doc
