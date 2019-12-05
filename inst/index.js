@@ -1,4 +1,4 @@
-var globalObj = global;
+let globalObj = require("get-global");
 
 // nanoid-good locales
 const ar = require("nanoid-good/locale/ar");
@@ -34,42 +34,10 @@ const uppercase = require("nanoid-dictionary/uppercase");
 const nolookalikes = require("nanoid-dictionary/nolookalikes");
 
 // nanoid-good
-const format = require("nanoid-good/format");
-const generate = require("nanoid-good/generate");
-const nonsecure = require("nanoid-good/non-secure");
-
-/**
- * lodash/curry
- * @alias global._.curry
- */
 const curry = require("lodash/curry");
-
-/**
- * nanoidr.methods.format_curried
- * @function
- * @param {String[]} locales - set of locales to be enabled.
- */
-function format_curried(locales) {
-  return curry(format(...locales));
-}
-
-/**
- * nanoidr.methods.generate_curried
- * @function
- * @param {String[]} locales - set of locales to be enabled.
- */
-function generate_curried(locales) {
-  return curry(generate(...locales));
-}
-
-/**
- * nanoidr.methods.nonsecure_curried
- * @function
- * @param {String[]} locales - set of locales to be enabled.
- */
-function nonsecure_curried(locales) {
-  return curry(nonsecure(...locales));
-}
+const format = curry(require("nanoid-good/format"));
+const generate = curry(require("nanoid-good/generate"));
+const nonsecure = curry(require("nanoid-good/non-secure"));
 
 /**
  * nanoidr
@@ -79,9 +47,15 @@ function nonsecure_curried(locales) {
  */
 const nanoidr = {
   methods: {
-    format: format_curried,
-    generate: generate_curried,
-    nonsecure: nonsecure_curried
+    cformat (locales) {
+      return format(locales);
+    },
+    cgenerate (locales) {
+      return generate(locales);
+    },
+    cnonsecure (locales) {
+      return nonsecure(locales);
+    }
   },
   locales: {
     ar: ar,
@@ -118,7 +92,14 @@ const nanoidr = {
   }
 };
 
-global.curry = curry;
-global.nanoidr = nanoidr;
+(function(global){
+
+  globalObj.nanoidr = nanoidr;
+  globalObj._ = {
+    curry: curry
+  };
+  Object.assign(global, globalObj);
+
+})(global);
 
 

@@ -19,5 +19,6 @@ Imports:
     purrr,
     dplyr,
     stringr,
-    stringi
+    stringi,
+    dqrng
 RoxygenNote: 6.1.1
