@@ -35,5 +35,8 @@ vignettes/*.pdf
 # Shiny token, see https://shiny.rstudio.com/articles/shinyapps.html
 rsconnect/
 
-inst/node_modules/
+*.log
 
+inst/node_modules/
+inst/bundle/*
+inst/doc

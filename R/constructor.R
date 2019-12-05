@@ -1,4 +1,4 @@
-#' Ready to Use Nano ID
+#' Get ready to use NanoID
 #'
 #' @param ctx Your own V8 context if any.
 #'
@@ -9,25 +9,57 @@
 #'   \item nonsecure()
 #' }
 #'
+#' @seealso \url{https://github.com/ai/nanoid/blob/master/README.md}
+#'
 #' @import R6
 #' @import V8
 #' @import purrr
 #' @importFrom dplyr case_when
-#' @importFrom stringr str_match
-#' @importFrom stringr fixed
+#' @importFrom stringr str_detect
 #' @export
-nanoidr <- function(ctx = NULL)
+nanoid <- function(ctx = NULL)
 {
     if (is.null(ctx)) {
-        ctx <- V8::v8(typed_arrays = TRUE)
+        ctx <- V8::v8()
+        ctx$eval(
+            paste(" // Assign global object
+                  var __global__ = this;"
+            )
+        )
+        ctx$eval(
+            paste(" // Assign self.crypto
+                __global__.self = {
+                    crypto: {
+                        getRandomValues (Uint8Array) {
+                            return console.r.call(
+                                'nanoidr::getRandomValues',
+                                Uint8Array.toString()
+                            );
+                        }
+                    }
+                }
+            ")
+        )
+        ctx$eval(
+            paste(" // Wrapper of do.call(what = func_name, args = c(size = size))
+                function doCall(func_name) {
+                    return function(size) {
+                        return console.r.call(
+                            'do.call',
+                            {
+                                what: func_name,
+                                args: { size: size }
+                            }
+                        );
+                    }
+                }
+            ")
+        )
         ctx$source(file.path(
             system.file(package = "nanoidr"),
             "js",
-            "nanoid.bundle.js"
+            "nanoidr.bundle.js"
         ))
-        ctx$eval("function random(func, args) {
-            return curry(console.r.call)(func, ...args);
-        }")
     } else {
         ctx <- ctx
     }
@@ -39,73 +71,81 @@ nanoidr <- function(ctx = NULL)
             initialize = function(ctx) {
                 self$ctx <- ctx
             },
-            format = function(func = NULL,
+            format = function(size = 10L,
                               dict = c("url",
                                        "numbers",
                                        "lowercase",
                                        "uppercase",
                                        "nolookalikes"),
-                              size = NULL,
                               init.locales = c("en", "ja"),
-                              ...) {
-                #### Assign values ####
-                if (typeof(func) == "NULL") {
-                    self$ctx$assign("func", "nanoidr::randstr")
-                } else {
-                    self$ctx$assign("func", as.character(func)) # func {String}
-                    self$ctx$assign("args", ...) # args {Array}
-                }
-                self$ctx$assign("dict", private$dictionary(dict[1])) # dict {String}
-                self$ctx$assign("size", as.numeric(size)) # size {Number}
-                self$ctx$assign("locales", private$locales(init.locales)) # locales {String[]}
+                              use_func = "randombytes") {
 
-                #### Queue funcions ####
-                return(self$ctx$get("nanoidr.methods.format(locales)(random(func, args))(dict, size);"))
+                pre <- private$dictionary(dict)
+                if (stringr::str_detect(pre[1], stringr::regex("nanoidr.dict.*"))) {
+                    dict <- V8::JS(pre[1])
+                } else {
+                    dict <- pre[1]
+                }
+                self$ctx$assign("func_name", as.character(use_func))
+                self$ctx$assign("locales", V8::JS(private$locales(init.locales)))
+                self$ctx$eval("var func = nanoidr.methods.cformat(locales);")
+
+                return(
+                    self$ctx$call(
+                        "func",
+                        V8::JS("doCall(func_name)"),
+                        dict,
+                        size
+                    )
+                )
             },
-            generate = function(dict = c("url",
+            generate = function(size = 10L,
+                                dict = c("url",
                                          "numbers",
                                          "lowercase",
                                          "uppercase",
                                          "nolookalikes"),
-                                size = NULL,
                                 init.locales = c("en", "ja")) {
-                #### Assign values ####
-                self$ctx$assign("dict", private$dictionary(dict[1])) # dict {String}
-                self$ctx$assign("size", as.numeric(size)) # size {Number}
-                self$ctx$assign("locales", private$locales(init.locales)) # locales {String[]}
 
-                #### Queue funcions ####
-                return(self$ctx$get("nanoidr.methods.generate(locales)(dict, size);"))
+                pre <- private$dictionary(dict)
+                if (stringr::str_detect(pre[1], stringr::regex("nanoidr.dict.*"))) {
+                    dict <- V8::JS(pre[1])
+                } else {
+                    dict <- pre[1]
+                }
+                size <- as.integer(size)
+                self$ctx$assign("locales", V8::JS(private$locales(init.locales)))
+                self$ctx$eval("var func = nanoidr.methods.cgenerate(locales);")
+
+                return(
+                    self$ctx$call("func", dict, size)
+                )
             },
-            nonsecure = function(dict = c("url",
-                                          "numbers",
-                                          "lowercase",
-                                          "uppercase",
-                                          "nolookalikes"),
-                                 size = NULL,
+            nonsecure = function(size = 10L,
                                  init.locales = c("en", "ja")) {
-                #### Assign values ####
-                self$ctx$assign("dict", private$dictionary(dict[1])) # dict {String}
-                self$ctx$assign("size", as.numeric(size)) # size {Number}
-                self$ctx$assign("locales", private$locales(init.locales)) # locales {String[]}
 
-                #### Queue funcions ####
-                return(self$ctx$get("nanoidr.methods.nonsecure(locales)(dict, size);"))
+                size <- as.integer(size)
+                self$ctx$assign("locales", V8::JS(private$locales(init.locales)))
+                self$ctx$eval("var func = nanoidr.methods.cnonsecure(locales);")
+
+                return(
+                    self$ctx$call("func", size)
+                )
             }
         ),
         private = list(
             dictionary = function(dict) {
                 dplyr::case_when(
-                    stringr::str_match(dict, stringr::fixed("url")) ~ "nanoidr.dict.url",
-                    stringr::str_match(dict, stringr::fixed("numbers")) ~ "nanoidr.dict.numbers",
-                    stringr::str_match(dict, stringr::fixed("lowercase")) ~ "nanoidr.dict.lowercase",
-                    stringr::str_match(dict, stringr::fixed("uppercase")) ~ "nanoidr.dict.uppercase",
-                    stringr::str_match(dict, stringr::fixed("nolookalikes")) ~ "nanoidr.dict.nolookalikes",
+                    stringr::str_detect(dict, "url") ~ "nanoidr.dict.url",
+                    stringr::str_detect(dict, "numbers") ~ "nanoidr.dict.numbers",
+                    stringr::str_detect(dict, "lowercase") ~ "nanoidr.dict.lowercase",
+                    stringr::str_detect(dict, "uppercase") ~ "nanoidr.dict.uppercase",
+                    stringr::str_detect(dict, "nolookalikes") ~ "nanoidr.dict.nolookalikes",
                     TRUE ~ as.character(dict)
                 )
             },
             locales = function(init.locales) {
-                purrr::map(init.locales, ~ paste0("nanoidr.locales", ".", .))
+                purrr::map_chr(init.locales, function(x) { paste0("nanoidr.locales", ".", x)} )
             }
         )
     )
@@ -115,7 +155,6 @@ nanoidr <- function(ctx = NULL)
 
 
 }
-
 
 
 
