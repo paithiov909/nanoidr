@@ -4,11 +4,11 @@
 
 > NanoID on V8
 
-## What is nanoidr?
+## What is {nanoidr}?
 
-[ai/nanoid](https://github.com/ai/nanoid) is `a tiny (137 bytes), secure, URL-friendly, unique string ID generator for JavaScript`. The {nanoidr} package is a simple wrapper of NanoID library running on [V8](https://github.com/jeroen/V8).
+[ai/nanoid](https://github.com/ai/nanoid) is a tiny (137 bytes), secure, URL-friendly, unique string ID generator for JavaScript. The {nanoidr} package is a simple wrapper of NanoID library running on [V8](https://github.com/jeroen/V8).
 
-**Related repositories**
+## Related repositories
 
 - [ai/nanoid](https://github.com/ai/nanoid) NanoID
 - [CyberAP/nanoid-dictionary](https://github.com/CyberAP/nanoid-dictionary) Predefined character sets to use with nanoid.

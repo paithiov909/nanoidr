@@ -14,14 +14,14 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup, include = FALSE}
 library(nanoidr)
 library(dqrng)
 ```
 
-## What is nanoidr?
+## What is {nanoidr}?
 
-[ai/nanoid](https://github.com/ai/nanoid) is `a tiny (137 bytes), secure, URL-friendly, unique string ID generator for JavaScript`. The {nanoidr} package is a simple wrapper of NanoID library running on [V8](https://github.com/jeroen/V8).
+[ai/nanoid](https://github.com/ai/nanoid) is a tiny (137 bytes), secure, URL-friendly, unique string ID generator for JavaScript. The {nanoidr} package is a simple wrapper of NanoID library running on [V8](https://github.com/jeroen/V8).
 
 **Related repositories**
 

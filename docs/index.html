@@ -85,9 +85,12 @@
 </blockquote>
 <div id="what-is-nanoidr" class="section level2">
 <h2 class="hasAnchor">
-<a href="#what-is-nanoidr" class="anchor"></a>What is nanoidr?</h2>
-<p><a href="https://github.com/ai/nanoid">ai/nanoid</a> is <code>a tiny (137 bytes), secure, URL-friendly, unique string ID generator for JavaScript</code>. The {nanoidr} package is a simple wrapper of NanoID library running on <a href="https://github.com/jeroen/V8">V8</a>.</p>
-<p><strong>Related repositories</strong></p>
+<a href="#what-is-nanoidr" class="anchor"></a>What is {nanoidr}?</h2>
+<p><a href="https://github.com/ai/nanoid">ai/nanoid</a> is a tiny (137 bytes), secure, URL-friendly, unique string ID generator for JavaScript. The {nanoidr} package is a simple wrapper of NanoID library running on <a href="https://github.com/jeroen/V8">V8</a>.</p>
+</div>
+<div id="related-repositories" class="section level2">
+<h2 class="hasAnchor">
+<a href="#related-repositories" class="anchor"></a>Related repositories</h2>
 <ul>
 <li>
 <a href="https://github.com/ai/nanoid">ai/nanoid</a> NanoID</li>
@@ -109,7 +112,7 @@
 <a href="#how-to-use" class="anchor"></a>How to use</h2>
 <p>Common use case</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(nanoidr)</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="op">&gt;</span><span class="st"> </span>nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw">nanoid</span>()</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="op">&gt;</span><span class="st"> </span>nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/nanoidr/topics/NanoID">nanoid</a></span>()</a>
 <a class="sourceLine" id="cb2-3" title="3"><span class="op">&gt;</span><span class="st"> </span>nano<span class="op">$</span><span class="kw">generate</span>() <span class="co"># the simplest use case</span></a>
 <a class="sourceLine" id="cb2-4" title="4">[<span class="dv">1</span>] <span class="st">"COQSwRLy0Z"</span></a>
 <a class="sourceLine" id="cb2-5" title="5"><span class="op">&gt;</span><span class="st"> </span>nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 13L, <span class="dt">dict =</span> <span class="st">"numbers"</span>) <span class="co"># generate from built in pattern</span></a>
