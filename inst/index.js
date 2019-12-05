@@ -95,9 +95,7 @@ const nanoidr = {
 (function(global){
 
   globalObj.nanoidr = nanoidr;
-  globalObj._ = {
-    curry: curry
-  };
+
   Object.assign(global, globalObj);
 
 })(global);

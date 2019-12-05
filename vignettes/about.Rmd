@@ -1,8 +1,10 @@
 ---
-title: "about"
+title: "About nanoidr package"
+author: "Kato Akiru"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{about}
+  %\VignetteIndexEntry{About nanoidr package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,9 +23,9 @@ library(dqrng)
 
 ## What is {nanoidr}?
 
-[ai/nanoid](https://github.com/ai/nanoid) is a tiny (137 bytes), secure, URL-friendly, unique string ID generator for JavaScript. The {nanoidr} package is a simple wrapper of NanoID library running on [V8](https://github.com/jeroen/V8).
+[ai/nanoid](https://github.com/ai/nanoid) is a tiny (137 bytes), secure, URL-friendly, unique string ID generator for JavaScript. The {nanoidr} package is a simple R wrapper of NanoID library running on [V8 for R](https://github.com/jeroen/V8).
 
-**Related repositories**
+## Related repositories
 
 - [ai/nanoid](https://github.com/ai/nanoid) NanoID
 - [CyberAP/nanoid-dictionary](https://github.com/CyberAP/nanoid-dictionary) Predefined character sets to use with nanoid.
@@ -32,7 +34,7 @@ library(dqrng)
 
 ## How to use
 
-Common use case
+### Common use case
 
 ```{r}
 nano <- nanoidr::nanoid()
@@ -43,7 +45,7 @@ nano$generate(size = 16L, dict = "マルチバイト文字を使っても動作�
 nano$nonsecure(size = 27L) # use faster but non-secure version
 ```
 
-Use custom random bytes generator
+### Use custom random bytes generator
 
 ```{r}
 myRndBytesFunc <- function(size) {

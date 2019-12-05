@@ -1,11 +1,11 @@
 Package: nanoidr
 Type: Package
-Title: NanoID on V8
+Title: NanoID on V8 for R
 Version: 0.1.0
 Authors@R: person("Kato", "Akiru", email = "paithiov909@gmail.com", role = c("aut", "cre"))
 Author: paithiov909
 Maintainer: Kato Akiru <paithiov909@gmail.com>
-Description: NanoID (an ID generator for JavaScript) on V8.
+Description: NanoID (an ID generator for JavaScript) on V8 for R.
 Depends:
     R (>= 3.2.0)
 License: MIT + file LICENSE
