@@ -2,14 +2,25 @@
 % Please edit documentation in R/utils.R
 \name{getRandomValues}
 \alias{getRandomValues}
-\title{Partial func stringi::stri_rand_strings()}
+\title{Pseudo window.crypto.getRandomValues() function}
 \usage{
-getRandomValues(seed)
+getRandomValues(seed = NULL, size = 64L)
+}
+\arguments{
+\item{seed}{string.}
+
+\item{size}{integer (size of output).}
 }
 \value{
-function.
+list of integers.
 }
 \description{
-Creates a function that invokes stringi::stri_rand_strings()
-with partials prepended to the arguments it receives.
+The original ai/nanoid generates random strings
+with window.crypto.getRandomValues() on client side environment,
+however, the V8 environment has no crypto object.
+Because of this, this package replaces that function with
+an original random value generator.
+}
+\seealso{
+\url{https://developer.mozilla.org/ja/docs/Web/API/Window/crypto}
 }

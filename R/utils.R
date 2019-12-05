@@ -1,39 +1,41 @@
-#' Random integer generator
+#' Pseudo window.crypto.getRandomValues() function
 #'
-#' @param seed
-#' @param size
-#' @return vector
+#' The original ai/nanoid generates random strings
+#' with window.crypto.getRandomValues() on client side environment,
+#' however, the V8 environment has no crypto object.
+#' Because of this, this package replaces that function with
+#' an original random value generator.
+#'
+#' @param seed string.
+#' @param size integer (size of output).
+#' @return list of integers.
+#'
+#' @seealso \url{https://developer.mozilla.org/ja/docs/Web/API/Window/crypto}
 #'
 #' @import dqrng
 #' @import purrr
 #' @importFrom stringr str_split
 #' @importFrom stringi stri_rand_strings
 #' @export
-getRandomValues <- function(seed = NULL, size = 128L) {
+getRandomValues <- function(seed = NULL, size = 64L) {
     if (typeof(seed) == "character") {
-        len <- length(stringr::str_split(seed, ",", simplify = TRUE))
-        seed <- purrr::reduce(floor(dqrng::dqrunif(len, min = 1, max = 9)), sum, init = 0)
+        range <- length(stringr::str_split(seed, "", simplify = TRUE))
+        seed <- purrr::reduce(dqrng::dqrunif(range, min = -128L, max = 128L), ~ sum(floor(.)), init = 0)
     } else {
-        seed <- purrr::reduce(floor(dqrng::dqrnorm(size, mean = 1, sd = 9)), sum, init = 0)
+        seed <- purrr::reduce(dqrng::dqrunif(size, min = -128L, max = 128L), ~ sum(floor(.)), init = 0)
     }
-    set.seed(seed)
-    bytes <- stringi::stri_rand_strings(n = 1, length = size, pattern = "[0-9]")
-    return(stringr::str_split(bytes, "", simplify = FALSE)[[1]])
+    dqrng::dqset.seed(seed)
+    bytes <- purrr::map(1:size, ~ abs(floor(dqrng::dqrunif(1, min = -128L, max = 128L))))
+    return(bytes)
 }
 
-#' An example of original random strings generator for fomrat()
+#' An example of original random bytes generator for using in fomrat()
 #'
-#' @param ...
-#' @return function(size)
+#' @param size integer passed to `sample(1:64, size, replace = TRUE)`
+#' @return function.
 #'
-#' @import purrr
-#' @importFrom stringi stri_rand_strings
 #' @export
-randomString <- function(size, ...) {
-    return(stringi::stri_rand_strings(
-        n = 1,
-        length = size,
-        pattern = paste0("[", purrr::reduce(list("context", ...), ~ paste0(., collapse = ""), .init = paste0(letters, collapse = "")), "]")
-    ))
+randombytes <- function(size) {
+    return(sample(1:64, size, replace = TRUE))
 }
 

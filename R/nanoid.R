@@ -1,4 +1,4 @@
-#' Nano ID on V8
+#' NanoID on V8
 #'
 #' @docType package
 #' @name nanoidr
