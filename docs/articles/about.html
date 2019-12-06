@@ -63,7 +63,7 @@
       <a href="../articles/about.html">About nanoidr package</a>
     </li>
     <li>
-      <a href="../articles/article.html">Random string generation with nanoidr</a>
+      <a href="../articles/article.html">Random ID string generation with nanoidr</a>
     </li>
   </ul>
 </li>
@@ -134,15 +134,15 @@
 <a href="#common-use-case" class="anchor"></a>Common use case</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/nanoidr/topics/NanoID">nanoid</a></span>()</a>
 <a class="sourceLine" id="cb1-2" title="2">nano<span class="op">$</span><span class="kw">generate</span>() <span class="co"># the simplest use case</span></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="co">#&gt; [1] "JuAuUdhjuRb1TKETlhVzU"</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co">#&gt; [1] "-TETmkEFVzala3Y17d6DO"</span></a>
 <a class="sourceLine" id="cb1-4" title="4">nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 13L, <span class="dt">dict =</span> <span class="st">"numbers"</span>) <span class="co"># generate from built in pattern</span></a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="co">#&gt; [1] "5286971804897"</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co">#&gt; [1] "5547882587672"</span></a>
 <a class="sourceLine" id="cb1-6" title="6">nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"You can use any strings as dictionary!!"</span>)</a>
-<a class="sourceLine" id="cb1-7" title="7"><span class="co">#&gt; [1] "g!ncsyo nt o asn"</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">#&gt; [1] "reoa sYai onndaa"</span></a>
 <a class="sourceLine" id="cb1-8" title="8">nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"マルチバイト文字を使っても動作します"</span>, <span class="dt">init.locales =</span> <span class="st">"ja"</span>)</a>
-<a class="sourceLine" id="cb1-9" title="9"><span class="co">#&gt; [1] "をもルトすイしバをチトチ作す文ま"</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co">#&gt; [1] "てルトをイっまってトっマ動文まて"</span></a>
 <a class="sourceLine" id="cb1-10" title="10">nano<span class="op">$</span><span class="kw">nonsecure</span>(<span class="dt">size =</span> 27L) <span class="co"># use faster but non-secure version</span></a>
-<a class="sourceLine" id="cb1-11" title="11"><span class="co">#&gt; [1] "15QS0YZmIM_0PknLEdiNJgF2U9g"</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-11" title="11"><span class="co">#&gt; [1] "VSuYECCBnzd13yMM5vrSSICd-eC"</span></a></code></pre></div>
 </div>
 <div id="using-custom-random-bytes-generator" class="section level3">
 <h3 class="hasAnchor">
@@ -151,7 +151,7 @@
 <a class="sourceLine" id="cb2-2" title="2">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">sapply</a></span>(<span class="dv">1</span><span class="op">:</span>size, <span class="cf">function</span>(i){ <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/MathFun">abs</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Round">floor</a></span>(dqrng<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/dqrng/topics/dqrng-functions">dqrnorm</a></span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">64</span>))) })</a>
 <a class="sourceLine" id="cb2-3" title="3">}</a>
 <a class="sourceLine" id="cb2-4" title="4">nano<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/format">format</a></span>(<span class="dt">size =</span> 38L, <span class="dt">use_func =</span> <span class="st">"myRndBytesFunc"</span>)</a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="co">#&gt; [1] "-yevcK-sa11WhhgwTW7wMIZcB7yw-ewKPYrbms"</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-5" title="5"><span class="co">#&gt; [1] "Ii7rJeDsqgbreV11xO_myewb51H83HI5Oh4thf"</span></a></code></pre></div>
 </div>
 <div id="customizing-and-reusing-v8-context" class="section level3">
 <h3 class="hasAnchor">
