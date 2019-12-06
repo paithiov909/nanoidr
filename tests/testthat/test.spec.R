@@ -7,7 +7,7 @@ describe("Output Verification", {
             res <- nano$generate()
             len <- length(stringr::str_split(res, "", simplify = TRUE))
             expect_type(res, "character")
-            expect_equivalent(len, 10L)
+            expect_equivalent(len, 21L)
         })
         it("size=32L, dict=\"numbers\"", {
             res <- nano$generate(size = 32L, dict = "numbers")
@@ -32,7 +32,7 @@ describe("Output Verification", {
             res <- nano$nonsecure()
             len <- length(stringr::str_split(res, "", simplify = TRUE))
             expect_type(res, "character")
-            expect_equivalent(len, 10L)
+            expect_equivalent(len, 21L)
         })
         it("size=32L", {
             res <- nano$nonsecure(size = 32L)
@@ -47,7 +47,7 @@ describe("Output Verification", {
             res <- nano$format()
             len <- length(stringr::str_split(res, "", simplify = TRUE))
             expect_type(res, "character")
-            expect_equivalent(len, 10L)
+            expect_equivalent(len, 21L)
         })
         it("size=32L, dict=\"numbers\", use_func=\"myFunc\"", {
             res <- nano$format(size = 32L, dict = "numbers", use_func = "myFunc")
