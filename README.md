@@ -34,7 +34,7 @@ remotes::install_github("paithiov909/nanoidr")
 ``` R
 > nano <- nanoidr::nanoid()
 > nano$generate() # the simplest use case
-[1] "Y9kcnIjps1"
+[1] "aQHQ6CjmGHTQZYDO0Icgl"
 > nano$generate(size = 13L, dict = "numbers") # generate from built in pattern
 [1] "8821644932515"
 > nano$generate(size = 16L, dict = "You can use any strings as dictionary!!")

@@ -60,7 +60,7 @@ myRndBytesFunc <- function(size) {
 nano$format(size = 38L, use_func = "myRndBytesFunc")
 ```
 
-### Cusomizing and reusing V8 context
+### Customizing and reusing V8 context
 
 ``` R
 nano <- nanoidr::nanoid()

@@ -6,6 +6,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Random string generation with nanoidr • nanoidr</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
@@ -31,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nanoidr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.3</span>
       </span>
     </div>
 
@@ -157,7 +163,7 @@
 <a class="sourceLine" id="cb2-7" title="7">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/function">return</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste0</a></span>(id, <span class="dt">collapse =</span> <span class="st">""</span>))</a>
 <a class="sourceLine" id="cb2-8" title="8">}</a>
 <a class="sourceLine" id="cb2-9" title="9"><span class="kw"><a href="../reference/NanoID.html">nanoid</a></span>()</a>
-<a class="sourceLine" id="cb2-10" title="10"><span class="co">#&gt; [1] "ZsoI6C7fvnGBtO2yWG7NB"</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-10" title="10"><span class="co">#&gt; [1] "2be9-9wjGxaglky8lvt5I"</span></a></code></pre></div>
 <p>たぶんこんな感じでも正しく動きます。</p>
 <p>しかし、NanoIDをとにかく手軽に使うのであればJSで使うのがやはり圧倒的に楽なように思われます。JSで使う前提だと、たとえば以下のような便利なライブラリを利用できます。</p>
 <ul>
@@ -271,15 +277,15 @@
 <p>こんな感じです。ちなみに<code>generate()</code>と下で出てくる<code><a href="https://www.rdocumentation.org/packages/base/topics/format">format()</a></code>は<code>init.locales</code>にロケールをリストとして渡すことで、その語における<del>えっちな単語</del>などが生成される文字列中に偶然に含まれることを抑制することができます。</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/nanoidr/topics/NanoID">nanoid</a></span>()</a>
 <a class="sourceLine" id="cb6-2" title="2">nano<span class="op">$</span><span class="kw">generate</span>() <span class="co"># ふつうに使う場合</span></a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="co">#&gt; [1] "OjibZ3YHOn"</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="co">#&gt; [1] "fQkakk4OxT7RFLXIBEmUx"</span></a>
 <a class="sourceLine" id="cb6-4" title="4">nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 13L, <span class="dt">dict =</span> <span class="st">"numbers"</span>) <span class="co"># 予約された文字列をdictに渡すとビルトインされているパターンから生成します</span></a>
-<a class="sourceLine" id="cb6-5" title="5"><span class="co">#&gt; [1] "3011130841227"</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="co">#&gt; [1] "7215934686185"</span></a>
 <a class="sourceLine" id="cb6-6" title="6">nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"You can use any strings as dictionary!!"</span>) <span class="co"># 予約されていない文字列を渡すとそれ自体をパターンとしてそこから生成します</span></a>
-<a class="sourceLine" id="cb6-7" title="7"><span class="co">#&gt; [1] "ngotn uinanitnay"</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="co">#&gt; [1] "sa uig!ydgYoanss"</span></a>
 <a class="sourceLine" id="cb6-8" title="8">nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"パターンにはマルチバイト文字を使ってもふつうに動作します"</span>, <span class="dt">init.locales =</span> <span class="st">"ja"</span>)</a>
-<a class="sourceLine" id="cb6-9" title="9"><span class="co">#&gt; [1] "字作文マはににパチチ文しルつル字"</span></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="co">#&gt; [1] "マしーはふマト字チ文パ作ー字マ使"</span></a>
 <a class="sourceLine" id="cb6-10" title="10">nano<span class="op">$</span><span class="kw">nonsecure</span>(<span class="dt">size =</span> 27L) <span class="co"># 乱数の生成にcrypto.getRandomValuesではなくてJS環境の組み込みのMath.random()を使うバージョンです。すこしだけ速いかもしれません。</span></a>
-<a class="sourceLine" id="cb6-11" title="11"><span class="co">#&gt; [1] "2mc8cHFfYzlyrc-_n5GgOgH3RsJ"</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-11" title="11"><span class="co">#&gt; [1] "BPX35-snJkHOvgk7EGMaPu74Rjy"</span></a></code></pre></div>
 </div>
 <div id="section-7" class="section level3">
 <h3 class="hasAnchor">
@@ -289,7 +295,7 @@
 <a class="sourceLine" id="cb7-2" title="2">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">sapply</a></span>(<span class="dv">1</span><span class="op">:</span>size, <span class="cf">function</span>(i){ <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/MathFun">abs</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Round">floor</a></span>(dqrng<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/dqrng/topics/dqrng-functions">dqrnorm</a></span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">64</span>))) })</a>
 <a class="sourceLine" id="cb7-3" title="3">}</a>
 <a class="sourceLine" id="cb7-4" title="4">nano<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/format">format</a></span>(<span class="dt">size =</span> 38L, <span class="dt">use_func =</span> <span class="st">"myRndBytesFunc"</span>)</a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="co">#&gt; [1] "rlr7bAGJiW-09u1lZcwEMwrtbIWlZbwI1FNix2"</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-5" title="5"><span class="co">#&gt; [1] "uPSpRz-HaGs5F6eNNVflSSPwIszvCsvlV3ojKC"</span></a></code></pre></div>
 <p>これに絡めてV8のコンテキストを自分でも触りたいみたいなケースもあるかもしれません（あるのか？）。<code><a href="../reference/NanoID.html">nanoidr::nanoid()</a></code>が返すのはR6クラスのインスタンスで、V8コンテキストを<code>ctx</code>としてパブリックに持っているため、ふつうにV8コンテキストを取得していじることができます。</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/nanoidr/topics/NanoID">nanoid</a></span>()</a>
 <a class="sourceLine" id="cb8-2" title="2">mycontext &lt;-<span class="st"> </span>nano<span class="op">$</span>ctx</a>

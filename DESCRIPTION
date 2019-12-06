@@ -26,6 +26,5 @@ Suggests:
     knitr,
     rmarkdown,
     testthat,
-    sessionInfo,
     dqrng
 VignetteBuilder: knitr
