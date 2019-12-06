@@ -6,11 +6,17 @@
 
 ## What is {nanoidr}?
 
-[ai/nanoid](https://github.com/ai/nanoid) is a tiny (137 bytes), secure, URL-friendly, unique string ID generator for JavaScript. The {nanoidr} package is a simple R wrapper of NanoID library running on [V8 for R](https://github.com/jeroen/V8).
+[ai/nanoid](https://github.com/ai/nanoid) is a tiny (137 bytes), secure, URL-friendly, unique string ID generator for JavaScript. The {nanoidr} package is a pseudo R wrapper of NanoID library running on [V8 for R](https://github.com/jeroen/V8).
+
+## Disclaimers
+
+> The original NanoID library generates random strings with window.crypto.getRandomValues on client side environment, however, the V8 environment provides no crypto object. Because of this, {nanoidr} package replaces that function with a simple wrapper of openssl::rand_bytes().
+
+So that V8 environment has no crypto API, behaivors between {nanoidr} and the original NanoID library may be different in details. See also [Generating Secure Random Numbers in R](https://cran.r-project.org/web/packages/openssl/vignettes/secure_rng.html) for more details of `openssl::rand_bytes()`.
 
 ## Related repositories
 
-- [ai/nanoid](https://github.com/ai/nanoid) NanoID
+- [ai/nanoid](https://github.com/ai/nanoid) The original NanoID library
 - [CyberAP/nanoid-dictionary](https://github.com/CyberAP/nanoid-dictionary) Predefined character sets to use with nanoid.
 - [y-gagar1n/nanoid-good](https://github.com/y-gagar1n/nanoid-good) Obscene words filter for nanoid.
 - [jeroen/V8](https://github.com/jeroen/V8) Embedded JavaScript Engine for R.
@@ -26,29 +32,28 @@ remotes::install_github("paithiov909/nanoidr")
 ### Common use case
 
 ``` R
-> library(nanoidr)
 > nano <- nanoidr::nanoid()
 > nano$generate() # the simplest use case
-[1] "COQSwRLy0Z"
+[1] "Y9kcnIjps1"
 > nano$generate(size = 13L, dict = "numbers") # generate from built in pattern
-[1] "7679073380816"
+[1] "8821644932515"
 > nano$generate(size = 16L, dict = "You can use any strings as dictionary!!")
-[1] " n yo csn !anos "
+[1] "is oiYoyensns na"
 > nano$generate(size = 16L, dict = "マルチバイト文字を使っても動作します", init.locales = "ja")
-[1] "てマチマトっイル文マっ使を字作バ"
+[1] "ま字すイチトルもイまっイルっても"
 > nano$nonsecure(size = 27L) # use faster but non-secure version
-[1] "iJl1of5I2evR6MsHpPAdv7FhqbE"
+[1] "yrymaq8yZRqFkm_3qGrKtfulHIe"
 ```
 
-### Use custom random bytes generator
+### Using custom random bytes generator
 
 ``` R
 > library(dqrng)
 > myRndBytesFunc <- function(size) {
-+   sapply(1:size, function(i){ floor(dqrng::dqrnorm(1, 3, i)) })
++   sapply(1:size, function(i){ floor(dqrng::dqrnorm(1, i, 64)) })
 + }
 > nano$format(size = 38L, use_func = "myRndBytesFunc")
-[1] "HfCpfcRYo8lL9w4Cmqb4ZwCRyyUKggU1Yj5ark"
+[1] "0B-NnllyBlYVisaUjVXnKhu_PHPwIFhEFKsx5N"
 ```
 
 ## License

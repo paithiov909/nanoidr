@@ -33,7 +33,7 @@ nanoid <- function(ctx = NULL)
                         getRandomValues (Uint8Array) {
                             return console.r.call(
                                 'nanoidr::getRandomValues',
-                                Uint8Array.toString()
+                                Uint8Array.length
                             );
                         }
                     }
@@ -155,7 +155,6 @@ nanoid <- function(ctx = NULL)
 
 
 }
-
 
 
 
