@@ -2,24 +2,26 @@
 % Please edit documentation in R/utils.R
 \name{getRandomValues}
 \alias{getRandomValues}
-\title{Pseudo window.crypto.getRandomValues() function}
+\title{Pseudo crypto.getRandomValues Web API}
 \usage{
-getRandomValues(seed = NULL, size = 64L)
+getRandomValues(size = 64L, seed = 1234L, fix.seed = FALSE)
 }
 \arguments{
-\item{seed}{string.}
-
 \item{size}{integer (size of output).}
+
+\item{seed}{only when fix.seed is true, will be used for set.seed(). Or not, will be used just for dqrng::dqset.seed().}
+
+\item{fix.seed}{default is false.}
 }
 \value{
-list of integers.
+list of buffer.
 }
 \description{
-The original ai/nanoid generates random strings
-with window.crypto.getRandomValues() on client side environment,
-however, the V8 environment has no crypto object.
-Because of this, this package replaces that function with
-an original random value generator.
+The original NanoID library generates random strings
+with window.crypto.getRandomValues on client side environment,
+however, the V8 environment provides no crypto object.
+Because of this, {nanoidr} package replaces that function with
+a simple wrapper of openssl::rand_bytes().
 }
 \seealso{
 \url{https://developer.mozilla.org/ja/docs/Web/API/Window/crypto}
