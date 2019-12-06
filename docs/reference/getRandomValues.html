@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pseudo window.crypto.getRandomValues() function — getRandomValues • nanoidr</title>
+<title>Pseudo crypto.getRandomValues Web API — getRandomValues • nanoidr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,13 +30,13 @@
 
 
 
-<meta property="og:title" content="Pseudo window.crypto.getRandomValues() function — getRandomValues" />
+<meta property="og:title" content="Pseudo crypto.getRandomValues Web API — getRandomValues" />
 
-<meta property="og:description" content="The original ai/nanoid generates random strings
-with window.crypto.getRandomValues() on client side environment,
-however, the V8 environment has no crypto object.
-Because of this, this package replaces that function with
-an original random value generator." />
+<meta property="og:description" content="The original NanoID library generates random strings
+with window.crypto.getRandomValues on client side environment,
+however, the V8 environment provides no crypto object.
+Because of this, nanoidr package replaces that function with
+a simple wrapper of openssl::rand_bytes()." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -67,7 +67,7 @@ an original random value generator." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nanoidr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.2</span>
       </span>
     </div>
 
@@ -115,39 +115,43 @@ an original random value generator." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Pseudo window.crypto.getRandomValues() function</h1>
+    <h1>Pseudo crypto.getRandomValues Web API</h1>
     <small class="dont-index">Source: <a href='https://github.com/paithiov909/nanoidr/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
     <div class="hidden name"><code>getRandomValues.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>The original ai/nanoid generates random strings
-with window.crypto.getRandomValues() on client side environment,
-however, the V8 environment has no crypto object.
-Because of this, this package replaces that function with
-an original random value generator.</p>
+    <p>The original NanoID library generates random strings
+with window.crypto.getRandomValues on client side environment,
+however, the V8 environment provides no crypto object.
+Because of this, nanoidr package replaces that function with
+a simple wrapper of openssl::rand_bytes().</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>getRandomValues</span>(<span class='kw'>seed</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>64L</span>)</pre>
+    <pre class="usage"><span class='fu'>getRandomValues</span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>64L</span>, <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>1234L</span>, <span class='kw'>fix.seed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>seed</th>
-      <td><p>string.</p></td>
-    </tr>
-    <tr>
       <th>size</th>
       <td><p>integer (size of output).</p></td>
+    </tr>
+    <tr>
+      <th>seed</th>
+      <td><p>only when fix.seed is true, will be used for set.seed(). Or not, will be used just for dqrng::dqset.seed().</p></td>
+    </tr>
+    <tr>
+      <th>fix.seed</th>
+      <td><p>default is false.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>list of integers.</p>
+    <p>list of buffer.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

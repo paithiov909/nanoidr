@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">nanoidr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.2</span>
       </span>
     </div>
 
@@ -86,14 +86,22 @@
 <div id="what-is-nanoidr" class="section level2">
 <h2 class="hasAnchor">
 <a href="#what-is-nanoidr" class="anchor"></a>What is {nanoidr}?</h2>
-<p><a href="https://github.com/ai/nanoid">ai/nanoid</a> is a tiny (137 bytes), secure, URL-friendly, unique string ID generator for JavaScript. The {nanoidr} package is a simple R wrapper of NanoID library running on <a href="https://github.com/jeroen/V8">V8 for R</a>.</p>
+<p><a href="https://github.com/ai/nanoid">ai/nanoid</a> is a tiny (137 bytes), secure, URL-friendly, unique string ID generator for JavaScript. The {nanoidr} package is a pseudo R wrapper of NanoID library running on <a href="https://github.com/jeroen/V8">V8 for R</a>.</p>
+</div>
+<div id="disclaimers" class="section level2">
+<h2 class="hasAnchor">
+<a href="#disclaimers" class="anchor"></a>Disclaimers</h2>
+<blockquote>
+<p>The original NanoID library generates random strings with window.crypto.getRandomValues on client side environment, however, the V8 environment provides no crypto object. Because of this, {nanoidr} package replaces that function with a simple wrapper of openssl::rand_bytes().</p>
+</blockquote>
+<p>So that V8 environment has no crypto API, behaivors between {nanoidr} and the original NanoID library may be different in details. See also <a href="https://cran.r-project.org/web/packages/openssl/vignettes/secure_rng.html">Generating Secure Random Numbers in R</a> for more details of <code><a href="https://www.rdocumentation.org/packages/openssl/topics/rand_bytes">openssl::rand_bytes()</a></code>.</p>
 </div>
 <div id="related-repositories" class="section level2">
 <h2 class="hasAnchor">
 <a href="#related-repositories" class="anchor"></a>Related repositories</h2>
 <ul>
 <li>
-<a href="https://github.com/ai/nanoid">ai/nanoid</a> NanoID</li>
+<a href="https://github.com/ai/nanoid">ai/nanoid</a> The original NanoID library</li>
 <li>
 <a href="https://github.com/CyberAP/nanoid-dictionary">CyberAP/nanoid-dictionary</a> Predefined character sets to use with nanoid.</li>
 <li>
@@ -113,28 +121,27 @@
 <div id="common-use-case" class="section level3">
 <h3 class="hasAnchor">
 <a href="#common-use-case" class="anchor"></a>Common use case</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(nanoidr)</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="op">&gt;</span><span class="st"> </span>nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/nanoidr/topics/NanoID">nanoid</a></span>()</a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="op">&gt;</span><span class="st"> </span>nano<span class="op">$</span><span class="kw">generate</span>() <span class="co"># the simplest use case</span></a>
-<a class="sourceLine" id="cb2-4" title="4">[<span class="dv">1</span>] <span class="st">"COQSwRLy0Z"</span></a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="op">&gt;</span><span class="st"> </span>nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 13L, <span class="dt">dict =</span> <span class="st">"numbers"</span>) <span class="co"># generate from built in pattern</span></a>
-<a class="sourceLine" id="cb2-6" title="6">[<span class="dv">1</span>] <span class="st">"7679073380816"</span></a>
-<a class="sourceLine" id="cb2-7" title="7"><span class="op">&gt;</span><span class="st"> </span>nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"You can use any strings as dictionary!!"</span>)</a>
-<a class="sourceLine" id="cb2-8" title="8">[<span class="dv">1</span>] <span class="st">" n yo csn !anos "</span></a>
-<a class="sourceLine" id="cb2-9" title="9"><span class="op">&gt;</span><span class="st"> </span>nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"マルチバイト文字を使っても動作します"</span>, <span class="dt">init.locales =</span> <span class="st">"ja"</span>)</a>
-<a class="sourceLine" id="cb2-10" title="10">[<span class="dv">1</span>] <span class="st">"てマチマトっイル文マっ使を字作バ"</span></a>
-<a class="sourceLine" id="cb2-11" title="11"><span class="op">&gt;</span><span class="st"> </span>nano<span class="op">$</span><span class="kw">nonsecure</span>(<span class="dt">size =</span> 27L) <span class="co"># use faster but non-secure version</span></a>
-<a class="sourceLine" id="cb2-12" title="12">[<span class="dv">1</span>] <span class="st">"iJl1of5I2evR6MsHpPAdv7FhqbE"</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="op">&gt;</span><span class="st"> </span>nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw">nanoid</span>()</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="op">&gt;</span><span class="st"> </span>nano<span class="op">$</span><span class="kw">generate</span>() <span class="co"># the simplest use case</span></a>
+<a class="sourceLine" id="cb2-3" title="3">[<span class="dv">1</span>] <span class="st">"Y9kcnIjps1"</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="op">&gt;</span><span class="st"> </span>nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 13L, <span class="dt">dict =</span> <span class="st">"numbers"</span>) <span class="co"># generate from built in pattern</span></a>
+<a class="sourceLine" id="cb2-5" title="5">[<span class="dv">1</span>] <span class="st">"8821644932515"</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="op">&gt;</span><span class="st"> </span>nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"You can use any strings as dictionary!!"</span>)</a>
+<a class="sourceLine" id="cb2-7" title="7">[<span class="dv">1</span>] <span class="st">"is oiYoyensns na"</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="op">&gt;</span><span class="st"> </span>nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"マルチバイト文字を使っても動作します"</span>, <span class="dt">init.locales =</span> <span class="st">"ja"</span>)</a>
+<a class="sourceLine" id="cb2-9" title="9">[<span class="dv">1</span>] <span class="st">"ま字すイチトルもイまっイルっても"</span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="op">&gt;</span><span class="st"> </span>nano<span class="op">$</span><span class="kw">nonsecure</span>(<span class="dt">size =</span> 27L) <span class="co"># use faster but non-secure version</span></a>
+<a class="sourceLine" id="cb2-11" title="11">[<span class="dv">1</span>] <span class="st">"yrymaq8yZRqFkm_3qGrKtfulHIe"</span></a></code></pre></div>
 </div>
-<div id="use-custom-random-bytes-generator" class="section level3">
+<div id="using-custom-random-bytes-generator" class="section level3">
 <h3 class="hasAnchor">
-<a href="#use-custom-random-bytes-generator" class="anchor"></a>Use custom random bytes generator</h3>
+<a href="#using-custom-random-bytes-generator" class="anchor"></a>Using custom random bytes generator</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dqrng)</a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="op">&gt;</span><span class="st"> </span>myRndBytesFunc &lt;-<span class="st"> </span><span class="cf">function</span>(size) {</a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="op">+</span><span class="st">   </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">sapply</a></span>(<span class="dv">1</span><span class="op">:</span>size, <span class="cf">function</span>(i){ <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Round">floor</a></span>(dqrng<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/dqrng/topics/dqrng-functions">dqrnorm</a></span>(<span class="dv">1</span>, <span class="dv">3</span>, i)) })</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="op">+</span><span class="st">   </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">sapply</a></span>(<span class="dv">1</span><span class="op">:</span>size, <span class="cf">function</span>(i){ <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Round">floor</a></span>(dqrng<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/dqrng/topics/dqrng-functions">dqrnorm</a></span>(<span class="dv">1</span>, i, <span class="dv">64</span>)) })</a>
 <a class="sourceLine" id="cb3-4" title="4"><span class="op">+</span><span class="st"> </span>}</a>
 <a class="sourceLine" id="cb3-5" title="5"><span class="op">&gt;</span><span class="st"> </span>nano<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/format">format</a></span>(<span class="dt">size =</span> 38L, <span class="dt">use_func =</span> <span class="st">"myRndBytesFunc"</span>)</a>
-<a class="sourceLine" id="cb3-6" title="6">[<span class="dv">1</span>] <span class="st">"HfCpfcRYo8lL9w4Cmqb4ZwCRyyUKggU1Yj5ark"</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-6" title="6">[<span class="dv">1</span>] <span class="st">"0B-NnllyBlYVisaUjVXnKhu_PHPwIFhEFKsx5N"</span></a></code></pre></div>
 </div>
 </div>
 </div>
