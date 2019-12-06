@@ -1,10 +1,10 @@
 ---
-title: "Random string generation with nanoidr"
+title: "Random ID string generation with nanoidr"
 author: "Kato Akiru"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Random string generation with nanoidr}
+  %\VignetteIndexEntry{Random ID string generation with nanoidr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -139,9 +139,9 @@ module.exports = {
 
 先程引用したようにai/nanoidのブラウザ向け実装ではPRNGとしてWeb Cryptography APIの[Window.crypto.getRandomValues](https://developer.mozilla.org/ja/docs/Web/API/Window/crypto)を呼ぼうとします。しかし、このあたりが開発してるうえで予想に反してかなり大変だったところなのですが、V8はシンプルなJS実行環境であるためにグローバルが殺伐としていてほとんどオブジェクトが存在しません。依存関係をよしなに解決したうえでバンドルしたJSソースを評価すると、そもそもグローバルにselfがないのでcrypto of undefinedは参照できないと怒られます。
 
-いろいろと調べたり手探りで試したりしたところ、以下のような雰囲気のやり方でできました。ポイントとしては`var __global__ = this;`でグローバル自身への参照をつくったあとでselfを宣言すると期待するように動くらしいこと、`self.crypto.getRandomValues`で`console.r.call('myFunctionName', args)`でR側の`myFunctionName(args)`をトリガーすることでしょうか。
+いろいろと調べたり手探りで試したりしたところ、以下のような雰囲気のやり方でできました。ポイントとしては`var __global__ = this;`でグローバル自身への参照をつくったあとでselfを宣言すると期待するように動くらしいこと、`self.crypto.getRandomValues`内の`console.r.call('myFunctionName', args)`からR側の`myFunctionName(args)`をトリガーすることでしょうか。
 
-なおこれは余談ですが、公式のvignetteだと`V8::v8(typed_arrays = TRUE)`とするとTypedArrayオブジェクトが使える臭いことが書かれていますが、手もとのバージョン2.1の{V8}環境 on Windowsだとそんなものは使えませんでした。原因はよくわかりませんが、ようするに配列の長さがわかればよいので、ここでは渡された配列の長さをとってコールバック先に渡しています。
+なおこれは余談ですが、公式のvignetteだと`V8::v8(typed_arrays = TRUE)`とするとTypedArrayオブジェクトが使える臭いことが書かれていますが、手もとのバージョン2.1の{V8}環境（on Windows）だとそんなものは使えませんでした。原因はよくわかりませんが、ようするに配列の長さがわかればよいので、ここでは渡された配列の長さをとってコールバック先に渡しています。
 
 ``` R
 ctx <- V8::v8()
@@ -188,7 +188,7 @@ ctx$source(file.path(
 
 #### コールバック先の関数の準備
 
-`openssl::rand_bytes(size)`で`size`長のArrayBufferをつくることができます。いわゆるArray of bytesなオブジェクトはR側だとraw vectorとかいうやつで、画像をごにょごにょするときなどにまれによく使わるものです。TypedArrayオブジェクトが使えないV8環境にraw vectorをそのまま持ちこもうとしてもキャストしてくれないので、ここではR側で`as.integer()`しています。とくにひねりはないです。
+`openssl::rand_bytes(size)`で`size`長のArrayBufferをつくることができます。いわゆるArray of bytesなオブジェクトはR側だとraw vectorとかいうやつで、画像をごにょごにょするときなどにまれによく使われるものです。TypedArrayオブジェクトが使えないV8環境にraw vectorをそのまま持ちこもうとしてもキャストしてくれないので、ここではR側で`as.integer()`しています。とくにひねりはないです。
 
 ``` R
 getRandomValues <- function(size = 21L, seed = 1234L, fix.seed = FALSE) {
@@ -208,7 +208,7 @@ getRandomValues <- function(size = 21L, seed = 1234L, fix.seed = FALSE) {
 
 ### よくあるランダム文字列の生成
 
-こんな感じです。ちなみに`generate()`と下で出てくる`format()`は`init.locales`にロケールをリストとして渡すことで、その語における~~えっちな単語~~などが生成される文字列中に偶然に含まれることを抑制することができます。
+こんな感じです。ちなみに`generate()`と下で出てくる`format()`は`init.locales`にロケールをリストとして渡すことで、その言語における~~えっちな単語~~などが文字列中に偶然に含まれることを抑制することができます。
 
 ```{r}
 nano <- nanoidr::nanoid()
@@ -219,9 +219,9 @@ nano$generate(size = 16L, dict = "パターンにはマルチバイト文字を�
 nano$nonsecure(size = 27L) # 乱数の生成にcrypto.getRandomValuesではなくてJS環境の組み込みのMath.random()を使うバージョンです。すこしだけ速いかもしれません。
 ```
 
-### もうすこし発展的な使い方
+### もやや展的な使い方
 
-乱数の生成に使う関数を独自に指定することができます。ただし、この関数は返すべき配列の長さを引数`size`に受け取るのでなければなりません。また、こいつをトリガーする`do.call()`がデフォルトで`parent.frame()`が返す環境を見る仕様なので、手もとの環境にある関数でないと呼べません。
+乱数の生成に使う関数を独自に指定することができます。たの関数は返すべき配列の長さを引数`size`に受け取るのでなければなりません。また、こいつをトリガーする`do.call()`がデフォルトで`parent.frame()`が返す環境を見る仕様なので、手もとの環境にある関数でないと呼べません。
 
 ```{r}
 myRndBytesFunc <- function(size) {

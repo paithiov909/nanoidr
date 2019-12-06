@@ -32,28 +32,27 @@ remotes::install_github("paithiov909/nanoidr")
 ### Common use case
 
 ``` R
-> nano <- nanoidr::nanoid()
-> nano$generate() # the simplest use case
-[1] "aQHQ6CjmGHTQZYDO0Icgl"
-> nano$generate(size = 13L, dict = "numbers") # generate from built in pattern
-[1] "8821644932515"
-> nano$generate(size = 16L, dict = "You can use any strings as dictionary!!")
-[1] "is oiYoyensns na"
-> nano$generate(size = 16L, dict = "マルチバイト文字を使っても動作します", init.locales = "ja")
-[1] "ま字すイチトルもイまっイルっても"
-> nano$nonsecure(size = 27L) # use faster but non-secure version
-[1] "yrymaq8yZRqFkm_3qGrKtfulHIe"
+nano <- nanoidr::nanoid()
+nano$generate() # the simplest use case
+#> [1] "-TETmkEFVzala3Y17d6DO"
+nano$generate(size = 13L, dict = "numbers") # generate from built in pattern
+#> [1] "5547882587672"
+nano$generate(size = 16L, dict = "You can use any strings as dictionary!!")
+#> [1] "reoa sYai onndaa"
+nano$generate(size = 16L, dict = "マルチバイト文字を使っても動作します", init.locales = "ja")
+#> [1] "てルトをイっまってトっマ動文まて"
+nano$nonsecure(size = 27L) # use faster but non-secure version
+#> [1] "VSuYECCBnzd13yMM5vrSSICd-eC"
 ```
 
 ### Using custom random bytes generator
 
 ``` R
-> library(dqrng)
-> myRndBytesFunc <- function(size) {
-+   sapply(1:size, function(i){ floor(dqrng::dqrnorm(1, i, 64)) })
-+ }
-> nano$format(size = 38L, use_func = "myRndBytesFunc")
-[1] "0B-NnllyBlYVisaUjVXnKhu_PHPwIFhEFKsx5N"
+myRndBytesFunc <- function(size) {
+  sapply(1:size, function(i){ abs(floor(dqrng::dqrnorm(1, 0, 64))) })
+}
+nano$format(size = 38L, use_func = "myRndBytesFunc")
+#> [1] "Ii7rJeDsqgbreV11xO_myewb51H83HI5Oh4thf"
 ```
 
 ### Customizing and reusing V8 context
