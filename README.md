@@ -12,11 +12,11 @@
 
 > The original NanoID library generates random strings with window.crypto.getRandomValues on client side environment, however, the V8 environment provides no crypto object. Because of this, {nanoidr} package replaces that function with a simple wrapper of openssl::rand_bytes().
 
-So that V8 environment has no crypto API, behaivors between {nanoidr} and the original NanoID library may be different in details. See also [Generating Secure Random Numbers in R](https://cran.r-project.org/web/packages/openssl/vignettes/secure_rng.html) for more details of `openssl::rand_bytes()`.
+So that V8 environment has no crypto API, behaivors between {nanoidr} and the original NanoID library may be different in details. See also [Generating Secure Random Numbers in R](https://cran.r-project.org/web/packages/openssl/vignettes/secure_rng.html) for more details about `openssl::rand_bytes()`.
 
 ## Related repositories
 
-- [ai/nanoid](https://github.com/ai/nanoid) The original NanoID library
+- [ai/nanoid](https://github.com/ai/nanoid) The original NanoID library.
 - [CyberAP/nanoid-dictionary](https://github.com/CyberAP/nanoid-dictionary) Predefined character sets to use with nanoid.
 - [y-gagar1n/nanoid-good](https://github.com/y-gagar1n/nanoid-good) Obscene words filter for nanoid.
 - [jeroen/V8](https://github.com/jeroen/V8) Embedded JavaScript Engine for R.

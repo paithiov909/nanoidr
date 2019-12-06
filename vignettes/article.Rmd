@@ -1,0 +1,196 @@
+---
+title: "Random string generation in R"
+author: "Kato Akiru"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Random string generation in R}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include = FALSE}
+if(!require(nanoidr)) stop()
+if(!require(dqrng)) stop()
+if(!require(stringr)) stop()
+if(!require(purrr)) stop()
+if(!require(openssl)) stop()
+```
+
+## これは何？
+
+[{nanoidr}](https://github.com/paithiov909/nanoidr)パッケージはランダムな文字列を生成するためのRパッケージです。[ai/nanoid](https://github.com/ai/nanoid)を[{V8}](https://github.com/jeroen/V8)上で無理やり動かしています。
+
+## モチベーション
+
+### Rでのランダム文字列生成の現状
+
+開発のおもなモチベーションは2つあります。
+
+1. NanoIDを使いたいがC/C++はわからん
+2. JS版のライブラリをラップして使いたい
+
+2019年現在にRでランダムな文字列を生成する方法はいくつかあります。以下の記事では{random}あるいは[{passwordrandom}](https://github.com/hrbrmstr/passwordrandom)というパッケージや`stringi::stri_rand_strings()`を使う方法が紹介されています。
+
+- [🍭Rでランダムな文字列や数値を生成する - cucumber flesh](https://uribo.hatenablog.com/entry/2015/08/31/094648)
+
+ユニークなIDを生成する用途であれば、この記事で紹介されているパッケージのほかに、R上でUUIDを生成できる`uuid::UUIDgenerate()`や、この関数のラッパーをはじめとしたユニークなIDの生成機能群を提供する[{ids}](https://github.com/richfitz/ids)パッケージなどもあります。
+
+ふつうにランダムな文字列を生成する用途であれば、おそらく`stringi::stri_rand_strings()`を使っておけば多くの場合は事足りるように思われます。しかし、この関数を使うとするとURLフレンドリーでない文字列の生成を抑制する処理などは自分で用意しなければならないなど、ややめんどうな部分があります。そういうのはできれば既存のライブラリを活用して手軽に済ませたいところです。
+
+### NanoIDを使いたいがC++はわからん
+
+NanoIDはランダムなID文字列を生成するためのJavaScriptライブラリです。以下に本家のブラウザ向けモジュール（[これ](https://github.com/ai/nanoid/blob/master/index.browser.js)）における実装例を引用します。
+
+``` js
+var crypto = self.crypto || self.msCrypto
+
+/*
+ * This alphabet uses a-z A-Z 0-9 _- symbols.
+ * Symbols order was changed for better gzip compression.
+ */
+var url = 'QLUint8ARdomValuesObj0h6345-79BCrypgJzHKTNYDSMkXPZ_FfG1WcqvwxEI2'
+
+module.exports = function (size) {
+  size = size || 21
+  var id = ''
+  var bytes = crypto.getRandomValues(new Uint8Array(size))
+  while (size--) {
+    id += url[bytes[size] & 63]
+  }
+  return id
+}
+```
+
+この例における`self.crypto.getRandomValues()`は[RandomSource.getRandomValues()](https://developer.mozilla.org/ja/docs/Web/API/RandomSource/getRandomValues)として仕様が定義されているものです。NanoIDはUUIDとは異なり一定程度の衝突可能性があって、それは次のサイトで計算することができます。
+
+- [Nano ID CC](https://zelark.github.io/nano-id-cc/)
+
+NanoIDはさまざまな言語に移植されており、header-onlyのC実装などもあります（[NerdyPepper/nanoid](https://github.com/NerdyPepper/nanoid)）。RでNanoIDを利用することを考える場合、これを{Rcpp}経由で呼ぶのが一見するとスマートかもしれません。
+
+しかし、私はC/C++とかよくわからないのでそういうパッケージは書けないです。誰か代わりにやってみてほしい。
+
+### JS版のライブラリをラップして使いたい
+
+NanoID自体は非常にシンプルなのでいろいろな言語に移植されています。というか、非常にシンプルなので私程度の技術でも知っている外部パッケージを使いつつR実装できるんですよね...
+
+```{r}
+url <- stringr::str_split('QLUint8ARdomValuesObj0h6345-79BCrypgJzHKTNYDSMkXPZ_FfG1WcqvwxEI2', "", simplify = TRUE)
+nanoid <- function(size = 21L) {
+    bytes <- purrr::map(as.integer(openssl::rand_bytes(size)), ~ bitwAnd(., 63))
+    id <- purrr::map(bytes, function(elem){
+        return(url[1, elem + 1]) # Rのイテレータは1オリジンなのでurl[1,0]を参照しないように1を足す
+    })
+    return(paste0(id, collapse = ""))
+}
+nanoid()
+```
+
+しかし、NanoIDをとにかく手軽に使うのであればJSで使うのがやはり圧倒的に楽なように思われます。JSで使う前提だと、たとえば以下のような便利なライブラリを利用できます。
+
+- [CyberAP/nanoid-dictionary](https://github.com/CyberAP/nanoid-dictionary)
+- [y-gagar1n/nanoid-good](https://github.com/y-gagar1n/nanoid-good)
+
+このあたりの便利機能までRで自前で実装するのは手間がすごいので、簡単にパッケージを開発するためにJS版を使うことにしました。
+
+## 技術的な話
+
+### 簡単にできると思ったんだ
+
+まずRを書く以前にV8上で動くJSをバンドルする時点で若干詰まりました。
+
+V8はNodeとは異なりモジュールの解決をしてくれないので、読ませたいソースはあらかじめ依存関係を解決してブラウザで動かすような感じにバンドルしておく必要があります。{V8}の[vignette](https://cran.r-project.org/web/packages/V8/vignettes/v8_intro.html)にあるように[browserify](http://browserify.org/)を使えば`require`をよしなに解決して単一のJSファイルにすることができるのですが、今回のnanoidのようなモジュールについてこれをやるとV8にバンドルしたソースを読みこんだときに「reuire文は使えないぞ」みたいに怒られます（怒られました）。
+
+その手の仕様の話は詳しくないのですが、ai/nanoidはNodeライクな環境で読みこむときとブラウザで読みこむときとでエントリーファイルが異なるタイプのモジュールになっています。browserifyはそのあたりがアレなため、素朴に使うとふつうにNodeライクな環境向けのエントリーファイルを参照してくるっぽいのですが、Node向けのai/nanoidではNodeの組み込みモジュールである[crypto](https://nodejs.org/api/crypto.html)をrequireしており、browserifyでこのあたりのrequireをやっつけるためにはオプションをいじる必要があります。
+
+いじる必要があるのですが結局どうやったらブラウザ向けのエントリーファイルを読ませられるのかわからなかったので、一度[webpack](https://webpack.js.org/)でコンパイルしたJSファイルをあらためてbrowserifyすることにしました。webpackの場合、ブラウザ向けのエントリーファイルを優先的に読みに行かせるには`webpack.config.js`内で`resolve: { mainFields: ['browser'] }}`みたいな指定をします。
+
+``` js
+const path = require('path');
+
+module.exports = {
+  mode: 'production',
+  target: 'web',
+  entry: './index.js',
+  output: {
+    filename: 'nanoidr.bundle.js',
+    path: path.resolve(__dirname, 'bundle'),
+    libraryTarget: 'var'
+  },
+  resolve: {
+    mainFields: ['browser', 'module', 'main']
+  }
+};
+
+```
+
+### self.crypto.getRandomValuesをR側にコールバックする
+
+#### V8だとそもそもいろいろ存在しない
+
+先程引用したようにai/nanoidのブラウザ向け実装ではPRNGとしてWeb Cryptography APIの[Window.crypto.getRandomValues](https://developer.mozilla.org/ja/docs/Web/API/Window/crypto)を呼ぼうとします。しかし、このあたりが開発してるうえで予想に反して大変だったところなのですが、V8はシンプルなJS実行環境であるためにグローバルが殺伐としていてほとんどオブジェクトが存在しません。依存関係をよしなに解決したうえでバンドルしたJSソースを評価すると、そもそもグローバルにselfがないのでcrypto of undefinedは参照できないと怒られます。
+
+いろいろと調べたり手探りで試したりしたところ、以下のような雰囲気のやり方でできました。ポイントとしては`var __global__ = this;`でグローバル自身への参照をつくったあとでselfを宣言すると期待するように動くらしいこと、`self.crypto.getRandomValues`で`console.r.call('myFunctionName', args)`でR側のmyFunctionName関数をトリガーできることでしょうか。な
+
+おこれは余談ですが公式のvignetteだと`V8::v8(typed_arrays =TRUE)`とするとTypedArrayが使える臭いことが書かれていますが、手もとのバージョン2.1の{V8}環境だとそんなものは使えませんでした。
+
+``` R
+if (is.null(ctx)) {
+        ctx <- V8::v8()
+        ctx$eval(
+            paste(" // Assign global object
+                  var __global__ = this;"
+            )
+        )
+        ctx$eval(
+            paste(" // Assign self.crypto
+                __global__.self = {
+                    crypto: {
+                        getRandomValues (Uint8Array) {
+                            return console.r.call(
+                                'nanoidr::getRandomValues',
+                                Uint8Array.length
+                            );
+                        }
+                    }
+                }
+            ")
+        )
+        ctx$eval(
+            paste(" // Wrapper of do.call(what = func_name, args = c(size = size))
+                function doCall(func_name) {
+                    return function(size) {
+                        return console.r.call(
+                            'do.call',
+                            {
+                                what: func_name,
+                                args: { size: size }
+                            }
+                        );
+                    }
+                }
+            ")
+        )
+        ctx$source(file.path(
+            system.file(package = "nanoidr"),
+            "js",
+            "nanoidr.bundle.js"
+        ))
+    } else {
+        ctx <- ctx
+    }
+```
+
+
+
+
+
+
+

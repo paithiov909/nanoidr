@@ -71,7 +71,7 @@ nanoid <- function(ctx = NULL)
             initialize = function(ctx) {
                 self$ctx <- ctx
             },
-            format = function(size = 10L,
+            format = function(size = 21L,
                               dict = c("url",
                                        "numbers",
                                        "lowercase",
@@ -99,7 +99,7 @@ nanoid <- function(ctx = NULL)
                     )
                 )
             },
-            generate = function(size = 10L,
+            generate = function(size = 21L,
                                 dict = c("url",
                                          "numbers",
                                          "lowercase",
@@ -121,7 +121,7 @@ nanoid <- function(ctx = NULL)
                     self$ctx$call("func", dict, size)
                 )
             },
-            nonsecure = function(size = 10L,
+            nonsecure = function(size = 21L,
                                  init.locales = c("en", "ja")) {
 
                 size <- as.integer(size)

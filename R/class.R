@@ -23,9 +23,9 @@ NULL
 
 #' Format
 #'
-#' Customizable generator that you can specify your own buffer-creation method.
+#' Customizable generator that you can specify your own bytes-array-creation method.
 #' You can specify any R function that recieves `size` as its argument
-#' and returns a buffer array of wihch length is `size`.
+#' and returns a bytes-array of wihch length is `size`.
 #'
 #' @param size length of output.
 #' @param dict choose one of c("url", "numbers", "lowercase", "uppercase", "nolookalikes") or give acceptable strings set as character.

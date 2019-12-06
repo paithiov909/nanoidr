@@ -17,8 +17,8 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup, include = FALSE}
-library(nanoidr)
-library(dqrng)
+if(!require(nanoidr)) stop()
+if(!require(dqrng)) stop()
 ```
 
 ## What is {nanoidr}?
@@ -55,7 +55,7 @@ nano$nonsecure(size = 27L) # use faster but non-secure version
 
 ```{r}
 myRndBytesFunc <- function(size) {
-  sapply(1:size, function(i){ floor(dqrng::dqrnorm(1, i, 64)) })
+  sapply(1:size, function(i){ abs(floor(dqrng::dqrnorm(1, 0, 64))) })
 }
 nano$format(size = 38L, use_func = "myRndBytesFunc")
 ```
