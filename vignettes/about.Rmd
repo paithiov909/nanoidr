@@ -45,7 +45,7 @@ nano$generate(size = 16L, dict = "マルチバイト文字を使っても動作�
 nano$nonsecure(size = 27L) # use faster but non-secure version
 ```
 
-### Use custom random bytes generator
+### Using custom random bytes generator
 
 ```{r}
 myRndBytesFunc <- function(size) {
