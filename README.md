@@ -1,4 +1,4 @@
-# nanoidr
+# nanoidr <img src='man/figures/logo.png' align="right" height="139" />
 
 [![GitHub last commit](https://img.shields.io/github/last-commit/paithiov909/nanoidr)](#) [![GitHub license](https://img.shields.io/github/license/paithiov909/nanoidr)](https://github.com/paithiov909/nanoidr/blob/master/LICENSE)
 
@@ -55,6 +55,14 @@ remotes::install_github("paithiov909/nanoidr")
 > nano$format(size = 38L, use_func = "myRndBytesFunc")
 [1] "0B-NnllyBlYVisaUjVXnKhu_PHPwIFhEFKsx5N"
 ```
+
+## License
+
+Copyright (c) 2019 Kato Akiru
+
+Released under the MIT license https://github.com/paithiov909/nanoidr/blob/master/LICENSE
+
+Icon made by [Those Icons](https://www.flaticon.com/authors/those-icons) from [www.flaticon.com](https://www.flaticon.com/)
 
 
 
