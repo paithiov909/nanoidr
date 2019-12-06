@@ -1,10 +1,10 @@
 ---
-title: "Random string generation in R"
+title: "Random string generation with nanoidr"
 author: "Kato Akiru"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Random string generation in R}
+  %\VignetteIndexEntry{Random string generation with nanoidr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -26,7 +26,7 @@ if(!require(openssl)) stop()
 
 ## これは何？
 
-[{nanoidr}](https://github.com/paithiov909/nanoidr)パッケージはランダムな文字列を生成するためのRパッケージです。[ai/nanoid](https://github.com/ai/nanoid)を[{V8}](https://github.com/jeroen/V8)上で無理やり動かしています。
+[{nanoidr}](https://github.com/paithiov909/nanoidr)パッケージはランダムかつセキュアな文字列を生成するためのRパッケージです。[ai/nanoid](https://github.com/ai/nanoid)を[{V8}](https://github.com/jeroen/V8)上で無理やり動かしています。
 
 ## モチベーション
 
@@ -41,13 +41,13 @@ if(!require(openssl)) stop()
 
 - [🍭Rでランダムな文字列や数値を生成する - cucumber flesh](https://uribo.hatenablog.com/entry/2015/08/31/094648)
 
-ユニークなIDを生成する用途であれば、この記事で紹介されているパッケージのほかに、R上でUUIDを生成できる`uuid::UUIDgenerate()`や、この関数のラッパーをはじめとしたユニークなIDの生成機能群を提供する[{ids}](https://github.com/richfitz/ids)パッケージなどもあります。
+ユニークなIDを生成する用途であれば、この記事で紹介されているパッケージのほかに、R上でUUIDを生成できる`uuid::UUIDgenerate()`や、この関数のラッパーをはじめとしたユニークなID文字列の生成機能群を提供する[{ids}](https://github.com/richfitz/ids)パッケージなどもあります。
 
-ふつうにランダムな文字列を生成する用途であれば、おそらく`stringi::stri_rand_strings()`を使っておけば多くの場合は事足りるように思われます。しかし、この関数を使うとするとURLフレンドリーでない文字列の生成を抑制する処理などは自分で用意しなければならないなど、ややめんどうな部分があります。そういうのはできれば既存のライブラリを活用して手軽に済ませたいところです。
+ふつうにランダムな文字列を生成する用途であれば、おそらく`stringi::stri_rand_strings()`を使っておけば多くの場合は事足りるように思われます。しかし、この関数を使うとするとURLフレンドリーでない文字列の生成を抑制する処理などは自分で用意しなければならないなど、ややめんどうな課題も残ります。そういうのはできれば既存のライブラリを活用して手軽に済ませたいところです。
 
-### NanoIDを使いたいがC++はわからん
+### NanoIDを使いたいがC/C++はわからん
 
-NanoIDはランダムなID文字列を生成するためのJavaScriptライブラリです。以下に本家のブラウザ向けモジュール（[これ](https://github.com/ai/nanoid/blob/master/index.browser.js)）における実装例を引用します。
+NanoIDはランダムなID文字列を生成するためのJavaScriptライブラリです。以下に本家のブラウザ向けモジュール（[このファイル](https://github.com/ai/nanoid/blob/master/index.browser.js)）における実装例を引用します。
 
 ``` js
 var crypto = self.crypto || self.msCrypto
@@ -73,13 +73,13 @@ module.exports = function (size) {
 
 - [Nano ID CC](https://zelark.github.io/nano-id-cc/)
 
-NanoIDはさまざまな言語に移植されており、header-onlyのC実装などもあります（[NerdyPepper/nanoid](https://github.com/NerdyPepper/nanoid)）。RでNanoIDを利用することを考える場合、これを{Rcpp}経由で呼ぶのが一見するとスマートかもしれません。
+NanoIDはさまざまな言語に移植されており、header-onlyのC実装などもあります（[NerdyPepper/nanoid](https://github.com/NerdyPepper/nanoid)）。RでNanoIDを利用することを考える場合、これを[{Rcpp}](https://github.com/RcppCore/Rcpp)経由で呼ぶのが一見するとスマートかもしれません。
 
-しかし、私はC/C++とかよくわからないのでそういうパッケージは書けないです。誰か代わりにやってみてほしい。
+しかし悲しいかな、私はC/C++とかよくわからないのでそういうパッケージは書けないのです（誰か代わりにチャレンジしてみてください）。
 
 ### JS版のライブラリをラップして使いたい
 
-NanoID自体は非常にシンプルなのでいろいろな言語に移植されています。というか、非常にシンプルなので私程度の技術でも知っている外部パッケージを使いつつR実装できるんですよね...
+NanoID自体は非常にシンプルなのでいろいろな言語に移植されています。というか、非常にシンプルなので私の知っている技術の範囲でもR実装できる気がします。
 
 ```{r}
 url <- stringr::str_split('QLUint8ARdomValuesObj0h6345-79BCrypgJzHKTNYDSMkXPZ_FfG1WcqvwxEI2', "", simplify = TRUE)
@@ -92,6 +92,8 @@ nanoid <- function(size = 21L) {
 }
 nanoid()
 ```
+
+たぶんこんな感じでも正しく動きます。
 
 しかし、NanoIDをとにかく手軽に使うのであればJSで使うのがやはり圧倒的に楽なように思われます。JSで使う前提だと、たとえば以下のような便利なライブラリを利用できます。
 
@@ -108,7 +110,7 @@ nanoid()
 
 V8はNodeとは異なりモジュールの解決をしてくれないので、読ませたいソースはあらかじめ依存関係を解決してブラウザで動かすような感じにバンドルしておく必要があります。{V8}の[vignette](https://cran.r-project.org/web/packages/V8/vignettes/v8_intro.html)にあるように[browserify](http://browserify.org/)を使えば`require`をよしなに解決して単一のJSファイルにすることができるのですが、今回のnanoidのようなモジュールについてこれをやるとV8にバンドルしたソースを読みこんだときに「reuire文は使えないぞ」みたいに怒られます（怒られました）。
 
-その手の仕様の話は詳しくないのですが、ai/nanoidはNodeライクな環境で読みこむときとブラウザで読みこむときとでエントリーファイルが異なるタイプのモジュールになっています。browserifyはそのあたりがアレなため、素朴に使うとふつうにNodeライクな環境向けのエントリーファイルを参照してくるっぽいのですが、Node向けのai/nanoidではNodeの組み込みモジュールである[crypto](https://nodejs.org/api/crypto.html)をrequireしており、browserifyでこのあたりのrequireをやっつけるためにはオプションをいじる必要があります。
+その手の仕様の話は詳しくないのですが、ai/nanoidはNodeライクな環境で読みこむときとブラウザで読みこむときとでエントリーファイルが異なるタイプのモジュールになっています。browserifyはそのあたりがアレなため、素朴に使うとふつうにNodeライクな環境向けのエントリーファイルを参照してくるっぽいのですが、Node向けのai/nanoidではNodeの組み込みモジュールである[crypto](https://nodejs.org/api/crypto.html)を`require`しており、browserifyでこのあたりの`require`をやっつけるためにはオプションをいじる必要があります。
 
 いじる必要があるのですが結局どうやったらブラウザ向けのエントリーファイルを読ませられるのかわからなかったので、一度[webpack](https://webpack.js.org/)でコンパイルしたJSファイルをあらためてbrowserifyすることにしました。webpackの場合、ブラウザ向けのエントリーファイルを優先的に読みに行かせるには`webpack.config.js`内で`resolve: { mainFields: ['browser'] }}`みたいな指定をします。
 
@@ -135,62 +137,111 @@ module.exports = {
 
 #### V8だとそもそもいろいろ存在しない
 
-先程引用したようにai/nanoidのブラウザ向け実装ではPRNGとしてWeb Cryptography APIの[Window.crypto.getRandomValues](https://developer.mozilla.org/ja/docs/Web/API/Window/crypto)を呼ぼうとします。しかし、このあたりが開発してるうえで予想に反して大変だったところなのですが、V8はシンプルなJS実行環境であるためにグローバルが殺伐としていてほとんどオブジェクトが存在しません。依存関係をよしなに解決したうえでバンドルしたJSソースを評価すると、そもそもグローバルにselfがないのでcrypto of undefinedは参照できないと怒られます。
+先程引用したようにai/nanoidのブラウザ向け実装ではPRNGとしてWeb Cryptography APIの[Window.crypto.getRandomValues](https://developer.mozilla.org/ja/docs/Web/API/Window/crypto)を呼ぼうとします。しかし、このあたりが開発してるうえで予想に反してかなり大変だったところなのですが、V8はシンプルなJS実行環境であるためにグローバルが殺伐としていてほとんどオブジェクトが存在しません。依存関係をよしなに解決したうえでバンドルしたJSソースを評価すると、そもそもグローバルにselfがないのでcrypto of undefinedは参照できないと怒られます。
 
-いろいろと調べたり手探りで試したりしたところ、以下のような雰囲気のやり方でできました。ポイントとしては`var __global__ = this;`でグローバル自身への参照をつくったあとでselfを宣言すると期待するように動くらしいこと、`self.crypto.getRandomValues`で`console.r.call('myFunctionName', args)`でR側のmyFunctionName関数をトリガーできることでしょうか。な
+いろいろと調べたり手探りで試したりしたところ、以下のような雰囲気のやり方でできました。ポイントとしては`var __global__ = this;`でグローバル自身への参照をつくったあとでselfを宣言すると期待するように動くらしいこと、`self.crypto.getRandomValues`で`console.r.call('myFunctionName', args)`でR側の`myFunctionName(args)`をトリガーすることでしょうか。
 
-おこれは余談ですが公式のvignetteだと`V8::v8(typed_arrays =TRUE)`とするとTypedArrayが使える臭いことが書かれていますが、手もとのバージョン2.1の{V8}環境だとそんなものは使えませんでした。
+なおこれは余談ですが、公式のvignetteだと`V8::v8(typed_arrays = TRUE)`とするとTypedArrayオブジェクトが使える臭いことが書かれていますが、手もとのバージョン2.1の{V8}環境 on Windowsだとそんなものは使えませんでした。原因はよくわかりませんが、ようするに配列の長さがわかればよいので、ここでは渡された配列の長さをとってコールバック先に渡しています。
 
 ``` R
-if (is.null(ctx)) {
-        ctx <- V8::v8()
-        ctx$eval(
-            paste(" // Assign global object
-                  var __global__ = this;"
-            )
-        )
-        ctx$eval(
-            paste(" // Assign self.crypto
-                __global__.self = {
-                    crypto: {
-                        getRandomValues (Uint8Array) {
-                            return console.r.call(
-                                'nanoidr::getRandomValues',
-                                Uint8Array.length
-                            );
-                        }
-                    }
+ctx <- V8::v8()
+ctx$eval(
+    paste(" // Assign global object
+          var __global__ = this;"
+    )
+)
+ctx$eval(
+    paste(" // Assign self.crypto
+        __global__.self = {
+            crypto: {
+                getRandomValues (Uint8Array) {
+                    return console.r.call(
+                        'nanoidr::getRandomValues',
+                        Uint8Array.length
+                    );
                 }
-            ")
-        )
-        ctx$eval(
-            paste(" // Wrapper of do.call(what = func_name, args = c(size = size))
-                function doCall(func_name) {
-                    return function(size) {
-                        return console.r.call(
-                            'do.call',
-                            {
-                                what: func_name,
-                                args: { size: size }
-                            }
-                        );
+            }
+        }
+    ")
+)
+ctx$eval(
+    paste(" // Wrapper of do.call(what = func_name, args = c(size = size))
+        function doCall(func_name) {
+            return function(size) {
+                return console.r.call(
+                    'do.call',
+                    {
+                        what: func_name,
+                        args: { size: size }
                     }
-                }
-            ")
-        )
-        ctx$source(file.path(
-            system.file(package = "nanoidr"),
-            "js",
-            "nanoidr.bundle.js"
-        ))
-    } else {
-        ctx <- ctx
-    }
+                );
+            }
+        }
+    ")
+)
+ctx$source(file.path(
+    system.file(package = "nanoidr"),
+    "js",
+    "nanoidr.bundle.js"
+))
 ```
 
+#### コールバック先の関数の準備
 
+`openssl::rand_bytes(size)`で`size`長のArrayBufferをつくることができます。いわゆるArray of bytesなオブジェクトはR側だとraw vectorとかいうやつで、画像をごにょごにょするときなどにまれによく使わるものです。TypedArrayオブジェクトが使えないV8環境にraw vectorをそのまま持ちこもうとしてもキャストしてくれないので、ここではR側で`as.integer()`しています。とくにひねりはないです。
 
+``` R
+getRandomValues <- function(size = 21L, seed = 1234L, fix.seed = FALSE) {
+    if (fix.seed) {
+        set.seed(seed)
+    }
+    buf <- openssl::rand_bytes(size)
+    return(as.integer(buf))
+}
+```
 
+## {nanoidr}の使い方
+
+### インストール
+
+`remotes::install_github("paithiov909/nanoidr")`
+
+### よくあるランダム文字列の生成
+
+こんな感じです。ちなみに`generate()`と下で出てくる`format()`は`init.locales`にロケールをリストとして渡すことで、その語における~~えっちな単語~~などが生成される文字列中に偶然に含まれることを抑制することができます。
+
+```{r}
+nano <- nanoidr::nanoid()
+nano$generate() # ふつうに使う場合
+nano$generate(size = 13L, dict = "numbers") # 予約された文字列をdictに渡すとビルトインされているパターンから生成します
+nano$generate(size = 16L, dict = "You can use any strings as dictionary!!") # 予約されていない文字列を渡すとそれ自体をパターンとしてそこから生成します
+nano$generate(size = 16L, dict = "パターンにはマルチバイト文字を使ってもふつうに動作します", init.locales = "ja")
+nano$nonsecure(size = 27L) # 乱数の生成にcrypto.getRandomValuesではなくてJS環境の組み込みのMath.random()を使うバージョンです。すこしだけ速いかもしれません。
+```
+
+### もうすこし発展的な使い方
+
+乱数の生成に使う関数を独自に指定することができます。ただし、この関数は返すべき配列の長さを引数`size`に受け取るのでなければなりません。また、こいつをトリガーする`do.call()`がデフォルトで`parent.frame()`が返す環境を見る仕様なので、手もとの環境にある関数でないと呼べません。
+
+```{r}
+myRndBytesFunc <- function(size) {
+  sapply(1:size, function(i){ abs(floor(dqrng::dqrnorm(1, 0, 64))) })
+}
+nano$format(size = 38L, use_func = "myRndBytesFunc")
+```
+
+これに絡めてV8のコンテキストを自分でも触りたいみたいなケースもあるかもしれません（あるのか？）。`nanoidr::nanoid()`が返すのはR6クラスのインスタンスで、V8コンテキストを`ctx`としてパブリックに持っているため、ふつうにV8コンテキストを取得していじることができます。
+
+``` R
+nano <- nanoidr::nanoid()
+mycontext <- nano$ctx
+mycontext$source("another_awesome_source.js")
+nano2 <- nanoidr::nanoid(ctx = mycontext) # nanoidはctxという引数にコンテキストを与えて初期化できます
+```
+
+## むすび
+
+[{hexSticker}](https://github.com/GuangchuangYu/hexSticker)でつくったステッカーがかわいいので見てください。
 
 
 

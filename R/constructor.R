@@ -7,6 +7,7 @@
 #'   \item format()
 #'   \item generate()
 #'   \item nonsecure()
+#'   \item getContext()
 #' }
 #'
 #' @seealso \url{https://github.com/ai/nanoid/blob/master/README.md}
@@ -16,11 +17,14 @@
 #' @import purrr
 #' @importFrom dplyr case_when
 #' @importFrom stringr str_detect
+#' @importFrom stringr regex
 #' @export
 nanoid <- function(ctx = NULL)
 {
     if (is.null(ctx)) {
+        #### New V8 context ####
         ctx <- V8::v8()
+        #### Assign global objects ####
         ctx$eval(
             paste(" // Assign global object
                   var __global__ = this;"
@@ -64,6 +68,7 @@ nanoid <- function(ctx = NULL)
         ctx <- ctx
     }
 
+    #### Class definiton ####
     NanoID <- R6::R6Class(
         "NanoID",
         public = list(
@@ -150,7 +155,7 @@ nanoid <- function(ctx = NULL)
         )
     )
 
-
+    #### Return instance ####
     return(NanoID$new(ctx))
 
 

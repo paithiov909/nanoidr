@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nonsecure — NanoID$nonsecure() • nanoidr</title>
+<title>Yet another R implementation of NanoID — nanoidAlt • nanoidr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Nonsecure — NanoID$nonsecure()" />
+<meta property="og:title" content="Yet another R implementation of NanoID — nanoidAlt" />
 
-<meta property="og:description" content="Faster but non-secure version of NanoID generator (bigger collision probability)." />
+<meta property="og:description" content="Yet another R implementation of NanoID" />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -116,28 +116,25 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Nonsecure</h1>
-    <small class="dont-index">Source: <a href='https://github.com/paithiov909/nanoidr/blob/master/R/class.R'><code>R/class.R</code></a></small>
-    <div class="hidden name"><code>NanoID-cash-nonsecure-open-paren-close-paren.Rd</code></div>
+    <h1>Yet another R implementation of NanoID</h1>
+    <small class="dont-index">Source: <a href='https://github.com/paithiov909/nanoidr/blob/master/R/nanoidAlt.R'><code>R/nanoidAlt.R</code></a></small>
+    <div class="hidden name"><code>nanoidAlt.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Faster but non-secure version of NanoID generator (bigger collision probability).</p>
+    <p>Yet another R implementation of NanoID</p>
     
     </div>
 
+    <pre class="usage"><span class='fu'>nanoidAlt</span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>21L</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>size</th>
-      <td><p>length of output.</p></td>
-    </tr>
-    <tr>
-      <th>init.locales</th>
-      <td><p>vocabulary sets of obscene words. defaut sets are c("en", "ja").</p></td>
+      <td><p>expected output size.</p></td>
     </tr>
     </table>
     

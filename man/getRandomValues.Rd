@@ -4,22 +4,22 @@
 \alias{getRandomValues}
 \title{Pseudo crypto.getRandomValues Web API}
 \usage{
-getRandomValues(size = 64L, seed = 1234L, fix.seed = FALSE)
+getRandomValues(size = 21L, seed = 1234L, fix.seed = FALSE)
 }
 \arguments{
 \item{size}{integer (size of output).}
 
-\item{seed}{only when fix.seed is true, will be used for set.seed(). Or not, will be used just for dqrng::dqset.seed().}
+\item{seed}{only when fix.seed is true, will be used for set.seed(). Or not, will never used.}
 
 \item{fix.seed}{default is false.}
 }
 \value{
-list of buffer.
+list of bytes.
 }
 \description{
 The original NanoID library generates random strings
 with window.crypto.getRandomValues on client side environment,
-however, the V8 environment provides no crypto object.
+however, the V8 environment provides no window.crypto object.
 Because of this, {nanoidr} package replaces that function with
 a simple wrapper of openssl::rand_bytes().
 }

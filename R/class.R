@@ -10,8 +10,8 @@
 #'   \item nosecure()
 #' }
 #'
-#' especially format() and generate() methods check every generated ID
-#' through a vocabulary of obscene words specified in dict argument.
+#' Especially, format() and generate() methods check every generated ID
+#' through a vocabulary of obscene words specified in `dict` argument.
 #' If any match is found, then ID is generated again and again
 #' until it gets clean ID which is returned.
 #'
@@ -57,6 +57,13 @@ NULL
 #' @return strings output.
 #'
 #' @name NanoID$nonsecure()
+NULL
+
+#' Getter of V8 context itself
+#'
+#' @return V8 context itself.
+#'
+#' @name NanoID$getContext()
 NULL
 
 

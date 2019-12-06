@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">nanoidr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.3</span>
       </span>
     </div>
 
@@ -55,6 +55,12 @@
   <ul class="dropdown-menu" role="menu">
 <li>
       <a href="articles/about.html">About nanoidr package</a>
+    </li>
+    <li>
+      <a href="articles/article.html">Random string generation with nanoidr</a>
+    </li>
+    <li>
+      <a href="articles/env.html">Development environment</a>
     </li>
   </ul>
 </li>
@@ -94,16 +100,16 @@
 <h2 class="hasAnchor">
 <a href="#disclaimers" class="anchor"></a>Disclaimers</h2>
 <blockquote>
-<p>The original NanoID library generates random strings with window.crypto.getRandomValues on client side environment, however, the V8 environment provides no crypto object. Because of this, {nanoidr} package replaces that function with a simple wrapper of openssl::rand_bytes().</p>
+<p>The original NanoID library generates random strings with window.crypto.getRandomValues on client side environment, however, the V8 environment provides no window.crypto object. Because of this, {nanoidr} package replaces that function with a simple wrapper of openssl::rand_bytes().</p>
 </blockquote>
-<p>So that V8 environment has no crypto API, behaivors between {nanoidr} and the original NanoID library may be different in details. See also <a href="https://cran.r-project.org/web/packages/openssl/vignettes/secure_rng.html">Generating Secure Random Numbers in R</a> for more details of <code><a href="https://www.rdocumentation.org/packages/openssl/topics/rand_bytes">openssl::rand_bytes()</a></code>.</p>
+<p>So that V8 environment has no crypto API, behaivors between {nanoidr} and the original NanoID library may be different in details. See also <a href="https://cran.r-project.org/web/packages/openssl/vignettes/secure_rng.html">Generating Secure Random Numbers in R</a> for more details about <code><a href="https://www.rdocumentation.org/packages/openssl/topics/rand_bytes">openssl::rand_bytes()</a></code>.</p>
 </div>
 <div id="related-repositories" class="section level2">
 <h2 class="hasAnchor">
 <a href="#related-repositories" class="anchor"></a>Related repositories</h2>
 <ul>
 <li>
-<a href="https://github.com/ai/nanoid">ai/nanoid</a> The original NanoID library</li>
+<a href="https://github.com/ai/nanoid">ai/nanoid</a> The original NanoID library.</li>
 <li>
 <a href="https://github.com/CyberAP/nanoid-dictionary">CyberAP/nanoid-dictionary</a> Predefined character sets to use with nanoid.</li>
 <li>
@@ -144,6 +150,14 @@
 <a class="sourceLine" id="cb3-4" title="4"><span class="op">+</span><span class="st"> </span>}</a>
 <a class="sourceLine" id="cb3-5" title="5"><span class="op">&gt;</span><span class="st"> </span>nano<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/format">format</a></span>(<span class="dt">size =</span> 38L, <span class="dt">use_func =</span> <span class="st">"myRndBytesFunc"</span>)</a>
 <a class="sourceLine" id="cb3-6" title="6">[<span class="dv">1</span>] <span class="st">"0B-NnllyBlYVisaUjVXnKhu_PHPwIFhEFKsx5N"</span></a></code></pre></div>
+</div>
+<div id="customizing-and-reusing-v8-context" class="section level3">
+<h3 class="hasAnchor">
+<a href="#customizing-and-reusing-v8-context" class="anchor"></a>Customizing and reusing V8 context</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/nanoidr/topics/NanoID">nanoid</a></span>()</a>
+<a class="sourceLine" id="cb4-2" title="2">mycontext &lt;-<span class="st"> </span>nano<span class="op">$</span>ctx</a>
+<a class="sourceLine" id="cb4-3" title="3">mycontext<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/source">source</a></span>(<span class="st">"another_awesome_source.js"</span>)</a>
+<a class="sourceLine" id="cb4-4" title="4">nano2 &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/nanoidr/topics/NanoID">nanoid</a></span>(<span class="dt">ctx =</span> mycontext)</a></code></pre></div>
 </div>
 </div>
 <div id="license" class="section level2">

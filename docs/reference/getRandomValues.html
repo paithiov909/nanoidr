@@ -34,7 +34,7 @@
 
 <meta property="og:description" content="The original NanoID library generates random strings
 with window.crypto.getRandomValues on client side environment,
-however, the V8 environment provides no crypto object.
+however, the V8 environment provides no window.crypto object.
 Because of this, nanoidr package replaces that function with
 a simple wrapper of openssl::rand_bytes()." />
 
@@ -69,7 +69,7 @@ a simple wrapper of openssl::rand_bytes()." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nanoidr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -93,6 +93,9 @@ a simple wrapper of openssl::rand_bytes()." />
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/about.html">About nanoidr package</a>
+    </li>
+    <li>
+      <a href="../articles/article.html">Random string generation with nanoidr</a>
     </li>
   </ul>
 </li>
@@ -126,13 +129,13 @@ a simple wrapper of openssl::rand_bytes()." />
     
     <p>The original NanoID library generates random strings
 with window.crypto.getRandomValues on client side environment,
-however, the V8 environment provides no crypto object.
+however, the V8 environment provides no window.crypto object.
 Because of this, nanoidr package replaces that function with
 a simple wrapper of openssl::rand_bytes().</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>getRandomValues</span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>64L</span>, <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>1234L</span>, <span class='kw'>fix.seed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>getRandomValues</span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>21L</span>, <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>1234L</span>, <span class='kw'>fix.seed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -143,7 +146,7 @@ a simple wrapper of openssl::rand_bytes().</p>
     </tr>
     <tr>
       <th>seed</th>
-      <td><p>only when fix.seed is true, will be used for set.seed(). Or not, will be used just for dqrng::dqset.seed().</p></td>
+      <td><p>only when fix.seed is true, will be used for set.seed(). Or not, will never used.</p></td>
     </tr>
     <tr>
       <th>fix.seed</th>
@@ -153,7 +156,7 @@ a simple wrapper of openssl::rand_bytes().</p>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>list of buffer.</p>
+    <p>list of bytes.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

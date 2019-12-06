@@ -16,7 +16,7 @@
 strings output.
 }
 \description{
-Customizable generator that you can specify your own buffer-creation method.
+Customizable generator that you can specify your own bytes-array-creation method.
 You can specify any R function that recieves `size` as its argument
-and returns a buffer array of wihch length is `size`.
+and returns a bytes-array of wihch length is `size`.
 }
