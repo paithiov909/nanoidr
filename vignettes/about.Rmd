@@ -1,10 +1,10 @@
 ---
-title: "About nanoidr package"
+title: "About package"
 author: "Kato Akiru"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{About nanoidr package}
+  %\VignetteIndexEntry{About package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
