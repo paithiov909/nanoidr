@@ -1,6 +1,6 @@
 # nanoidr <img src='man/figures/logo.png' align="right" height="139" />
 
-[![GitHub last commit](https://img.shields.io/github/last-commit/paithiov909/nanoidr)](#) [![GitHub license](https://img.shields.io/github/license/paithiov909/nanoidr)](https://github.com/paithiov909/nanoidr/blob/master/LICENSE)
+[![GitHub last commit](https://img.shields.io/github/last-commit/paithiov909/nanoidr)](#) [![GitHub license](https://img.shields.io/github/license/paithiov909/nanoidr)](https://github.com/paithiov909/nanoidr/blob/master/LICENSE) [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 > NanoID on V8 for R
 

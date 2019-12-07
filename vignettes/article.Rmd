@@ -108,7 +108,7 @@ nanoid()
 
 まずRを書く以前にV8上で動くJSをバンドルする時点で若干詰まりました。
 
-V8はNodeとは異なりモジュールの解決をしてくれないので、読ませたいソースはあらかじめ依存関係を解決してブラウザで動かすような感じにバンドルしておく必要があります。{V8}の[vignette](https://cran.r-project.org/web/packages/V8/vignettes/v8_intro.html)にあるように[browserify](http://browserify.org/)を使えば`require`をよしなに解決して単一のJSファイルにすることができるのですが、今回のnanoidのようなモジュールについてこれをやるとV8にバンドルしたソースを読みこんだときに「reuire文は使えないぞ」みたいに怒られます（怒られました）。
+V8はNodeとは異なりモジュールの解決をしてくれないので、読ませたいソースはあらかじめ依存関係を解決してブラウザで動かすような感じにバンドルしておく必要があります。{V8}の[vignette](https://cran.r-project.org/web/packages/V8/vignettes/v8_intro.html)にあるように[browserify](http://browserify.org/)を使えば`require`をよしなに解決して単一のJSファイルにすることができるのですが、今回のnanoidのようなモジュールについてこれをやるとV8にバンドルしたソースを読みこんだときに「reuqire文は使えないぞ」みたいに怒られます（怒られました）。
 
 その手の仕様の話は詳しくないのですが、ai/nanoidはNodeライクな環境で読みこむときとブラウザで読みこむときとでエントリーファイルが異なるタイプのモジュールになっています。browserifyはそのあたりがアレなため、素朴に使うとふつうにNodeライクな環境向けのエントリーファイルを参照してくるっぽいのですが、Node向けのai/nanoidではNodeの組み込みモジュールである[crypto](https://nodejs.org/api/crypto.html)を`require`しており、browserifyでこのあたりの`require`をやっつけるためにはオプションをいじる必要があります。
 
