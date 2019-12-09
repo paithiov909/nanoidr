@@ -7,7 +7,6 @@
 #'   \item format()
 #'   \item generate()
 #'   \item nonsecure()
-#'   \item getContext()
 #' }
 #'
 #' @seealso \url{https://github.com/ai/nanoid/blob/master/README.md}

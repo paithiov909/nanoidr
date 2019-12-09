@@ -59,12 +59,3 @@ NULL
 #' @name NanoID$nonsecure()
 NULL
 
-#' Getter of V8 context itself
-#'
-#' @return V8 context itself.
-#'
-#' @name NanoID$getContext()
-NULL
-
-
-

@@ -15,7 +15,6 @@ R6 class object having methods below.
   \item format()
   \item generate()
   \item nonsecure()
-  \item getContext()
 }
 }
 \description{
