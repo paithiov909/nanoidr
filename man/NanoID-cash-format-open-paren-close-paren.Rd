@@ -10,7 +10,7 @@
 
 \item{init.locales}{vocabulary sets of words. defaut sets are c("en", "ja").}
 
-\item{use_func}{function name that will be used for generating buffer array.}
+\item{use_func}{function name that will be used for generating bytes array.}
 }
 \value{
 strings output.

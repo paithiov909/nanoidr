@@ -7,7 +7,7 @@
 #' a simple wrapper of openssl::rand_bytes().
 #'
 #' @param size integer (size of output).
-#' @param seed only when fix.seed is true, will be used for set.seed(). Or not, will never used.
+#' @param seed only when fix.seed is true, will be used for set.seed(). Or not, will never be used.
 #' @param fix.seed default is false.
 #' @return list of bytes.
 #'
@@ -26,7 +26,7 @@ getRandomValues <- function(size = 21L, seed = 1234L, fix.seed = FALSE) {
 }
 
 
-#' An example of original random bytes generator for using in fomrat()
+#' An example of original random bytes generator for using in format()
 #'
 #' @param size integer passed to `sample(1:256, size, replace = TRUE)`
 #' @return function.
