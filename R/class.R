@@ -30,7 +30,7 @@ NULL
 #' @param size length of output.
 #' @param dict choose one of c("url", "numbers", "lowercase", "uppercase", "nolookalikes") or give acceptable strings set as character.
 #' @param init.locales vocabulary sets of words. defaut sets are c("en", "ja").
-#' @param use_func function name that will be used for generating buffer array.
+#' @param use_func function name that will be used for generating bytes array.
 #' @return strings output.
 #'
 #' @name NanoID$format()

@@ -60,7 +60,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/about.html">About package</a>
+      <a href="../articles/about.html">About nanoidr package</a>
     </li>
     <li>
       <a href="../articles/article.html">Random ID string generation with nanoidr</a>
@@ -115,7 +115,7 @@
 <li>NanoIDを使いたいがC/C++はわからん</li>
 <li>JS版のライブラリをラップして使いたい</li>
 </ol>
-<p>2019年現在にRでランダムな文字列を生成する方法はいくつかあります。以下の記事では{random}あるいは<a href="https://github.com/hrbrmstr/passwordrandom">{passwordrandom}</a>というパッケージや<code><a href="https://www.rdocumentation.org/packages/stringi/topics/stri_rand_strings">stringi::stri_rand_strings()</a></code>を使う方法が紹介されています。</p>
+<p>2019年現在にRでランダムな文字列を生成する方法はいくつかあります。以下の記事では<a href="https://www.random.org/">{random}</a>あるいは<a href="https://github.com/hrbrmstr/passwordrandom">{passwordrandom}</a>というパッケージや<code><a href="https://www.rdocumentation.org/packages/stringi/topics/stri_rand_strings">stringi::stri_rand_strings()</a></code>を使う方法が紹介されています。</p>
 <ul>
 <li><a href="https://uribo.hatenablog.com/entry/2015/08/31/094648">🍭Rでランダムな文字列や数値を生成する - cucumber flesh</a></li>
 </ul>
@@ -158,12 +158,12 @@
 <a class="sourceLine" id="cb2-2" title="2">nanoid &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">size =</span> 21L) {</a>
 <a class="sourceLine" id="cb2-3" title="3">    bytes &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/integer">as.integer</a></span>(openssl<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/openssl/topics/rand_bytes">rand_bytes</a></span>(size)), <span class="op">~</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/bitwise">bitwAnd</a></span>(., <span class="dv">63</span>))</a>
 <a class="sourceLine" id="cb2-4" title="4">    id &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span>(bytes, <span class="cf">function</span>(elem){</a>
-<a class="sourceLine" id="cb2-5" title="5">        <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/function">return</a></span>(url[<span class="dv">1</span>, elem <span class="op">+</span><span class="st"> </span><span class="dv">1</span>]) <span class="co"># Rのイテレータは1オリジンなのでurl[1,0]を参照しないように1を足す</span></a>
+<a class="sourceLine" id="cb2-5" title="5">        <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/function">return</a></span>(url[<span class="dv">1</span>, elem  <span class="op">+</span><span class="st"> </span><span class="dv">1</span>]) <span class="co"># Rのイテレータは1オリジンなのでurl[1,0]を参照しないように1を足す</span></a>
 <a class="sourceLine" id="cb2-6" title="6">    })</a>
 <a class="sourceLine" id="cb2-7" title="7">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/function">return</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste0</a></span>(id, <span class="dt">collapse =</span> <span class="st">""</span>))</a>
 <a class="sourceLine" id="cb2-8" title="8">}</a>
 <a class="sourceLine" id="cb2-9" title="9"><span class="kw"><a href="../reference/NanoID.html">nanoid</a></span>()</a>
-<a class="sourceLine" id="cb2-10" title="10"><span class="co">#&gt; [1] "cr93p0cAInQAJHoOW7Nhg"</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-10" title="10"><span class="co">#&gt; [1] "Ya0weDBt6vXg9Ou_vTrfP"</span></a></code></pre></div>
 <p>たぶんこんな感じでも正しく動きます。</p>
 <p>しかし、NanoIDをとにかく手軽に使うのであればJSで使うのがやはり圧倒的に楽なように思われます。JSで使う前提だと、たとえば以下のような便利なライブラリを利用できます。</p>
 <ul>
@@ -180,7 +180,7 @@
 <h3 class="hasAnchor">
 <a href="#section-3" class="anchor"></a>簡単にできると思ったんだ</h3>
 <p>まずRを書く以前にV8上で動くJSをバンドルする時点で若干詰まりました。</p>
-<p>V8はNodeとは異なりモジュールの解決をしてくれないので、読ませたいソースはあらかじめ依存関係を解決してブラウザで動かすような感じにバンドルしておく必要があります。{V8}の<a href="https://cran.r-project.org/web/packages/V8/vignettes/v8_intro.html">vignette</a>にあるように<a href="http://browserify.org/">browserify</a>を使えば<code>require</code>をよしなに解決して単一のJSファイルにすることができるのですが、今回のnanoidのようなモジュールについてこれをやるとV8にバンドルしたソースを読みこんだときに「reuqire文は使えないぞ」みたいに怒られます（怒られました）。</p>
+<p>V8はNodeとは異なりモジュールの解決をしてくれないので、読ませたいソースはあらかじめ依存関係を解決してブラウザで動かすような感じにバンドルしておく必要があります。{V8}の<a href="https://cran.r-project.org/web/packages/V8/vignettes/v8_intro.html">vignette</a>にあるように<a href="http://browserify.org/">browserify</a>を使えば<code>require</code>をよしなに解決して単一のJSファイルにすることができるのですが、今回のnanoidのようなモジュールについてこれをやるとV8にバンドルしたソースを読みこんだときに「reuqqre文は使えないぞ」みたいに怒られます（怒られました）。</p>
 <p>その手の仕様の話は詳しくないのですが、ai/nanoidはNodeライクな環境で読みこむときとブラウザで読みこむときとでエントリーファイルが異なるタイプのモジュールになっています。browserifyはそのあたりがアレなため、素朴に使うとふつうにNodeライクな環境向けのエントリーファイルを参照してくるっぽいのですが、Node向けのai/nanoidではNodeの組み込みモジュールである<a href="https://nodejs.org/api/crypto.html">crypto</a>を<code>require</code>しており、browserifyでこのあたりの<code>require</code>をやっつけるためにはオプションをいじる必要があります。</p>
 <p>いじる必要があるのですが結局どうやったらブラウザ向けのエントリーファイルを読ませられるのかわからなかったので、一度<a href="https://webpack.js.org/">webpack</a>でコンパイルしたJSファイルをあらためてbrowserifyすることにしました。webpackの場合、ブラウザ向けのエントリーファイルを優先的に読みに行かせるには<code>webpack.config.js</code>内で<code>resolve: { mainFields: ['browser'] }}</code>みたいな指定をします。</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> path <span class="op">=</span> <span class="at">require</span>(<span class="st">'path'</span>)<span class="op">;</span></a>
@@ -277,25 +277,25 @@
 <p>こんな感じです。ちなみに<code>generate()</code>と下で出てくる<code><a href="https://www.rdocumentation.org/packages/base/topics/format">format()</a></code>は<code>init.locales</code>にロケールをリストとして渡すことで、その言語における<del>えっちな単語</del>などが文字列中に偶然に含まれることを抑制することができます。</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/nanoidr/topics/NanoID">nanoid</a></span>()</a>
 <a class="sourceLine" id="cb6-2" title="2">nano<span class="op">$</span><span class="kw">generate</span>() <span class="co"># ふつうに使う場合</span></a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="co">#&gt; [1] "x_5mbHTKxkbn3eCm-NFpJ"</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="co">#&gt; [1] "6SASzH-Uw8mhLA7bPTr7d"</span></a>
 <a class="sourceLine" id="cb6-4" title="4">nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 13L, <span class="dt">dict =</span> <span class="st">"numbers"</span>) <span class="co"># 予約された文字列をdictに渡すとビルトインされているパターンから生成します</span></a>
-<a class="sourceLine" id="cb6-5" title="5"><span class="co">#&gt; [1] "4130603251449"</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="co">#&gt; [1] "5831565763157"</span></a>
 <a class="sourceLine" id="cb6-6" title="6">nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"You can use any strings as dictionary!!"</span>) <span class="co"># 予約されていない文字列を渡すとそれ自体をパターンとしてそこから生成します</span></a>
-<a class="sourceLine" id="cb6-7" title="7"><span class="co">#&gt; [1] "rriaeieus y!oi c"</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="co">#&gt; [1] "egion tsnes!aiis"</span></a>
 <a class="sourceLine" id="cb6-8" title="8">nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"パターンにはマルチバイト文字を使ってもふつうに動作します"</span>, <span class="dt">init.locales =</span> <span class="st">"ja"</span>)</a>
-<a class="sourceLine" id="cb6-9" title="9"><span class="co">#&gt; [1] "マトチイイタふうすンすチしン字は"</span></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="co">#&gt; [1] "バンまににすもし字し使作作にに動"</span></a>
 <a class="sourceLine" id="cb6-10" title="10">nano<span class="op">$</span><span class="kw">nonsecure</span>(<span class="dt">size =</span> 27L) <span class="co"># 乱数の生成にcrypto.getRandomValuesではなくてJS環境の組み込みのMath.random()を使うバージョンです。すこしだけ速いかもしれません。</span></a>
-<a class="sourceLine" id="cb6-11" title="11"><span class="co">#&gt; [1] "fzrCBdYA2PwcsxNHIwA7q2QU1vn"</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-11" title="11"><span class="co">#&gt; [1] "xOFp-75IEh_1U7Zp7icXVb2n_Sy"</span></a></code></pre></div>
 </div>
 <div id="section-7" class="section level3">
 <h3 class="hasAnchor">
 <a href="#section-7" class="anchor"></a>やや展発的な使い方</h3>
-<p>乱数の生成に使う関数を独自に指定することができます。たの関数は返すべき配列の長さを引数<code>size</code>に受け取るのでなければなりません。また、こいつをトリガーする<code><a href="https://www.rdocumentation.org/packages/base/topics/do.call">do.call()</a></code>がデフォルトで<code><a href="https://www.rdocumentation.org/packages/base/topics/sys.parent">parent.frame()</a></code>が返す環境を見る仕様なので、手もとの環境にある関数でないと呼べません。</p>
+<p>乱数の生成に使う関数を独自に指定することができます。この関数は返すべき配列の長さを引数<code>size</code>に受け取るのでなければなりません。また、こいつをトリガーする<code><a href="https://www.rdocumentation.org/packages/base/topics/do.call">do.call()</a></code>がデフォルトで<code><a href="https://www.rdocumentation.org/packages/base/topics/sys.parent">parent.frame()</a></code>が返す環境を見る仕様なので、手もとの環境にある関数でないと呼べません。</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">myRndBytesFunc &lt;-<span class="st"> </span><span class="cf">function</span>(size) {</a>
 <a class="sourceLine" id="cb7-2" title="2">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">sapply</a></span>(<span class="dv">1</span><span class="op">:</span>size, <span class="cf">function</span>(i){ <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/MathFun">abs</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Round">floor</a></span>(dqrng<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/dqrng/topics/dqrng-functions">dqrnorm</a></span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">64</span>))) })</a>
 <a class="sourceLine" id="cb7-3" title="3">}</a>
 <a class="sourceLine" id="cb7-4" title="4">nano<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/format">format</a></span>(<span class="dt">size =</span> 38L, <span class="dt">use_func =</span> <span class="st">"myRndBytesFunc"</span>)</a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="co">#&gt; [1] "N9RA_uDTPj3NtcX0hvatxo0b6Eenn-a5QiGbZ6"</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-5" title="5"><span class="co">#&gt; [1] "7O5f0Qr3TisAXL95Xs7Z_at8TzFsm9TOdg65aj"</span></a></code></pre></div>
 <p>これに絡めてV8のコンテキストを自分でも触りたいみたいなケースもあるかもしれません（あるのか？）。<code><a href="../reference/NanoID.html">nanoidr::nanoid()</a></code>が返すのはR6クラスのインスタンスで、V8コンテキストを<code>ctx</code>としてパブリックに持っているため、ふつうにV8コンテキストを取得していじることができます。</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/nanoidr/topics/NanoID">nanoid</a></span>()</a>
 <a class="sourceLine" id="cb8-2" title="2">mycontext &lt;-<span class="st"> </span>nano<span class="op">$</span>ctx</a>
