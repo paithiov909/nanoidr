@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">nanoidr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.4</span>
       </span>
     </div>
 
@@ -60,7 +60,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/about.html">About package</a>
+      <a href="articles/about.html">About nanoidr package</a>
     </li>
     <li>
       <a href="articles/article.html">Random ID string generation with nanoidr</a>
@@ -99,9 +99,9 @@
 <a href="#what-is-nanoidr" class="anchor"></a>What is {nanoidr}?</h2>
 <p><a href="https://github.com/ai/nanoid">ai/nanoid</a> is a tiny (137 bytes), secure, URL-friendly, unique string ID generator for JavaScript. The {nanoidr} package is a pseudo R wrapper of NanoID library running on <a href="https://github.com/jeroen/V8">V8 for R</a>.</p>
 </div>
-<div id="disclaimers" class="section level2">
+<div id="disclaimer" class="section level2">
 <h2 class="hasAnchor">
-<a href="#disclaimers" class="anchor"></a>Disclaimers</h2>
+<a href="#disclaimer" class="anchor"></a>Disclaimer</h2>
 <blockquote>
 <p>The original NanoID library generates random strings with window.crypto.getRandomValues on client side environment, however, the V8 environment provides no window.crypto object. Because of this, {nanoidr} package replaces that function with a simple wrapper of openssl::rand_bytes().</p>
 </blockquote>
@@ -118,7 +118,14 @@
 <li>
 <a href="https://github.com/y-gagar1n/nanoid-good">y-gagar1n/nanoid-good</a> Obscene words filter for nanoid.</li>
 <li>
-<a href="https://github.com/jeroen/V8">jeroen/V8</a> Embedded JavaScript Engine for R.</li>
+<a href="https://github.com/jeroen/V8">jeroen/V8</a> Embedded JavaScript engine for R.</li>
+</ul>
+<p>Seeking more alternatives? These packages may help you.</p>
+<ul>
+<li>
+<a href="https://github.com/richfitz/ids">richfitz/ids</a> A cool way for you to simply generate random identifiers.</li>
+<li>
+<a href="https://github.com/ALShum/hashids-r">ALShum/hashids-r</a> R implementation of <a href="https://hashids.org/r/">Hashids</a>.</li>
 </ul>
 </div>
 <div id="installation" class="section level2">

@@ -2,11 +2,11 @@
 % Please edit documentation in R/data.R
 \name{Locales}
 \alias{Locales}
-\title{List of vocabularies dict}
+\title{List of built in dictionaries}
 \source{
 \url{https://github.com/LDNOOBW/naughty-words-js}
 }
 \description{
-The source of vocabulary comes from LDNOOBW/naughty-words-js.
-You can pass locale `Code` of this list to NanoID$format() and NanoID$generate().
+The source of dictionaries comes from LDNOOBW/naughty-words-js.
+You can pass locale `Code` strings of this list to NanoID$format() and NanoID$generate().
 }

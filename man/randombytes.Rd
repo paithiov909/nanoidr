@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{randombytes}
 \alias{randombytes}
-\title{An example of original random bytes generator for using in fomrat()}
+\title{An example of original random bytes generator for using in format()}
 \usage{
 randombytes(size)
 }
@@ -13,5 +13,5 @@ randombytes(size)
 function.
 }
 \description{
-An example of original random bytes generator for using in fomrat()
+An example of original random bytes generator for using in format()
 }
