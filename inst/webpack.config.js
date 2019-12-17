@@ -6,7 +6,7 @@ module.exports = {
   entry: './index.js',
   output: {
     filename: 'nanoidr.bundle.js',
-    path: path.resolve(__dirname, 'bundle'),
+    path: path.resolve(__dirname, 'js'),
     libraryTarget: 'var'
   },
   resolve: {

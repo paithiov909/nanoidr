@@ -6,9 +6,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "yarn bundle && yarn compile",
+    "build": "yarn format && yarn bundle",
     "bundle": "webpack",
-    "compile": "browserify bundle/nanoidr.bundle.js -o js/nanoidr.bundle.js",
     "format": "prettier --write index.js"
   },
   "dependencies": {
@@ -18,7 +17,6 @@
     "nanoid-good": "^1.3.0"
   },
   "devDependencies": {
-    "browserify": "^16.5.0",
     "jasmine": "^3.5.0",
     "prettier": "^1.19.1",
     "webpack": "^4.41.2",
