@@ -47,13 +47,13 @@ const nonsecure = curry(require("nanoid-good/non-secure"));
  */
 const nanoidr = {
   methods: {
-    cformat (locales) {
+    cformat(locales) {
       return format(locales);
     },
-    cgenerate (locales) {
+    cgenerate(locales) {
       return generate(locales);
     },
-    cnonsecure (locales) {
+    cnonsecure(locales) {
       return nonsecure(locales);
     }
   },
@@ -92,13 +92,8 @@ const nanoidr = {
   }
 };
 
-(function(global){
-
+(function(global) {
   globalObj.nanoidr = nanoidr;
 
   Object.assign(global, globalObj);
-
 })(global);
-
-
-
