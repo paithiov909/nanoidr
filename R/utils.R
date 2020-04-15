@@ -18,11 +18,11 @@
 #' @importFrom openssl rand_bytes
 #' @export
 getRandomValues <- function(size = 21L, seed = 1234L, fix.seed = FALSE) {
-    if (fix.seed) {
-        set.seed(seed)
-    }
-    buf <- openssl::rand_bytes(size)
-    return(as.integer(buf))
+  if (fix.seed) {
+    set.seed(seed)
+  }
+  buf <- openssl::rand_bytes(size)
+  return(as.integer(buf))
 }
 
 
@@ -33,8 +33,5 @@ getRandomValues <- function(size = 21L, seed = 1234L, fix.seed = FALSE) {
 #'
 #' @export
 randombytes <- function(size) {
-    return(sample(1:256, size, replace = TRUE))
+  return(sample(1:256, size, replace = TRUE))
 }
-
-
-
