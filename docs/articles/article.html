@@ -90,7 +90,7 @@
       <h1>Random ID string generation with nanoidr</h1>
                         <h4 class="author">Kato Akiru</h4>
             
-            <h4 class="date">2019-12-17</h4>
+            <h4 class="date">2020-04-21</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/paithiov909/nanoidr/blob/master/vignettes/article.Rmd"><code>vignettes/article.Rmd</code></a></small>
       <div class="hidden name"><code>article.Rmd</code></div>
@@ -154,16 +154,16 @@
 <h3 class="hasAnchor">
 <a href="#js" class="anchor"></a>JS版のライブラリをラップして使いたい</h3>
 <p>NanoID自体は非常にシンプルなのでいろいろな言語に移植されています。というか、非常にシンプルなので私の知っている技術の範囲でもR実装できる気がします。</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">url &lt;-<span class="st"> </span>stringr<span class="op">::</span><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split</a></span>(<span class="st">'QLUint8ARdomValuesObj0h6345-79BCrypgJzHKTNYDSMkXPZ_FfG1WcqvwxEI2'</span>, <span class="st">""</span>, <span class="dt">simplify =</span> <span class="ot">TRUE</span>)</a>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">url &lt;-<span class="st"> </span>stringr<span class="op">::</span><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split</a></span>(<span class="st">"QLUint8ARdomValuesObj0h6345-79BCrypgJzHKTNYDSMkXPZ_FfG1WcqvwxEI2"</span>, <span class="st">""</span>, <span class="dt">simplify =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb2-2" title="2">nanoid &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">size =</span> 21L) {</a>
-<a class="sourceLine" id="cb2-3" title="3">    bytes &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/integer">as.integer</a></span>(openssl<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/openssl/topics/rand_bytes">rand_bytes</a></span>(size)), <span class="op">~</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/bitwise">bitwAnd</a></span>(., <span class="dv">63</span>))</a>
-<a class="sourceLine" id="cb2-4" title="4">    id &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span>(bytes, <span class="cf">function</span>(elem){</a>
-<a class="sourceLine" id="cb2-5" title="5">        <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/function">return</a></span>(url[<span class="dv">1</span>, elem  <span class="op">+</span><span class="st"> </span><span class="dv">1</span>]) <span class="co"># Rのイテレータは1オリジンなのでurl[1,0]を参照しないように1を足す</span></a>
-<a class="sourceLine" id="cb2-6" title="6">    })</a>
-<a class="sourceLine" id="cb2-7" title="7">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/function">return</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste0</a></span>(id, <span class="dt">collapse =</span> <span class="st">""</span>))</a>
+<a class="sourceLine" id="cb2-3" title="3">  bytes &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/integer">as.integer</a></span>(openssl<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/openssl/topics/rand_bytes">rand_bytes</a></span>(size)), <span class="op">~</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/bitwise">bitwAnd</a></span>(., <span class="dv">63</span>))</a>
+<a class="sourceLine" id="cb2-4" title="4">  id &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span>(bytes, <span class="cf">function</span>(elem) {</a>
+<a class="sourceLine" id="cb2-5" title="5">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/function">return</a></span>(url[<span class="dv">1</span>, elem <span class="op">+</span><span class="st"> </span><span class="dv">1</span>]) <span class="co"># Rのイテレータは1オリジンなのでurl[1,0]を参照しないように1を足す</span></a>
+<a class="sourceLine" id="cb2-6" title="6">  })</a>
+<a class="sourceLine" id="cb2-7" title="7">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/function">return</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste0</a></span>(id, <span class="dt">collapse =</span> <span class="st">""</span>))</a>
 <a class="sourceLine" id="cb2-8" title="8">}</a>
 <a class="sourceLine" id="cb2-9" title="9"><span class="kw"><a href="../reference/NanoID.html">nanoid</a></span>()</a>
-<a class="sourceLine" id="cb2-10" title="10"><span class="co">#&gt; [1] "R8VOlO-dCB49iY7_VivJE"</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-10" title="10"><span class="co">#&gt; [1] "D9XKZFRtp0Kyu_0FwAAWN"</span></a></code></pre></div>
 <p>たぶんこんな感じでも正しく動きます。</p>
 <p>しかし、NanoIDをとにかく手軽に使うのであればJSで使うのがやはり圧倒的に楽なように思われます。JSで使う前提だと、たとえば以下のような便利なライブラリを利用できます。</p>
 <ul>
@@ -277,25 +277,27 @@
 <p>こんな感じです。ちなみに<code>generate()</code>と下で出てくる<code><a href="https://www.rdocumentation.org/packages/base/topics/format">format()</a></code>は<code>init.locales</code>にロケールをリストとして渡すことで、その言語における<del>えっちな単語</del>などが文字列中に偶然に含まれることを抑制することができます。</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/nanoidr/topics/NanoID">nanoid</a></span>()</a>
 <a class="sourceLine" id="cb6-2" title="2">nano<span class="op">$</span><span class="kw">generate</span>() <span class="co"># ふつうに使う場合</span></a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="co">#&gt; [1] "BusMkxzH9v5HVP84XOGoK"</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="co">#&gt; [1] "lb4uIs-iZdYF5pNopH5pT"</span></a>
 <a class="sourceLine" id="cb6-4" title="4">nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 13L, <span class="dt">dict =</span> <span class="st">"numbers"</span>) <span class="co"># 予約された文字列をdictに渡すとビルトインされているパターンから生成します</span></a>
-<a class="sourceLine" id="cb6-5" title="5"><span class="co">#&gt; [1] "0298529971250"</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="co">#&gt; [1] "7609319709918"</span></a>
 <a class="sourceLine" id="cb6-6" title="6">nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"You can use any strings as dictionary!!"</span>) <span class="co"># 予約されていない文字列を渡すとそれ自体をパターンとしてそこから生成します</span></a>
-<a class="sourceLine" id="cb6-7" title="7"><span class="co">#&gt; [1] "dscci suoaY!unYt"</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="co">#&gt; [1] "  naununigago sd"</span></a>
 <a class="sourceLine" id="cb6-8" title="8">nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"パターンにはマルチバイト文字を使ってもふつうに動作します"</span>, <span class="dt">init.locales =</span> <span class="st">"ja"</span>)</a>
-<a class="sourceLine" id="cb6-9" title="9"><span class="co">#&gt; [1] "マチトてル使バイはつううつはルチ"</span></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="co">#&gt; [1] "文字マ作まう作動つつをつににふト"</span></a>
 <a class="sourceLine" id="cb6-10" title="10">nano<span class="op">$</span><span class="kw">nonsecure</span>(<span class="dt">size =</span> 27L) <span class="co"># 乱数の生成にcrypto.getRandomValuesではなくてJS環境の組み込みのMath.random()を使うバージョンです。すこしだけ速いかもしれません。</span></a>
-<a class="sourceLine" id="cb6-11" title="11"><span class="co">#&gt; [1] "JppOnnHAouDMN_NualTzUW-NaZY"</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-11" title="11"><span class="co">#&gt; [1] "76kRsD9U1_PJL_h0m11MhkX_vl0"</span></a></code></pre></div>
 </div>
 <div id="section-7" class="section level3">
 <h3 class="hasAnchor">
 <a href="#section-7" class="anchor"></a>やや展発的な使い方</h3>
 <p>乱数の生成に使う関数を独自に指定することができます。この関数は返すべき配列の長さを引数<code>size</code>に受け取るのでなければなりません。また、こいつをトリガーする<code><a href="https://www.rdocumentation.org/packages/base/topics/do.call">do.call()</a></code>がデフォルトで<code><a href="https://www.rdocumentation.org/packages/base/topics/sys.parent">parent.frame()</a></code>が返す環境を見る仕様なので、手もとの環境にある関数でないと呼べません。</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">myRndBytesFunc &lt;-<span class="st"> </span><span class="cf">function</span>(size) {</a>
-<a class="sourceLine" id="cb7-2" title="2">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">sapply</a></span>(<span class="dv">1</span><span class="op">:</span>size, <span class="cf">function</span>(i){ <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/MathFun">abs</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Round">floor</a></span>(dqrng<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/dqrng/topics/dqrng-functions">dqrnorm</a></span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">64</span>))) })</a>
-<a class="sourceLine" id="cb7-3" title="3">}</a>
-<a class="sourceLine" id="cb7-4" title="4">nano<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/format">format</a></span>(<span class="dt">size =</span> 38L, <span class="dt">use_func =</span> <span class="st">"myRndBytesFunc"</span>)</a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="co">#&gt; [1] "Mngn5Zd-sP2HbznOiX3nnzRJLd44O6ua2mUbIj"</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">sapply</a></span>(<span class="dv">1</span><span class="op">:</span>size, <span class="cf">function</span>(i) {</a>
+<a class="sourceLine" id="cb7-3" title="3">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/MathFun">abs</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Round">floor</a></span>(dqrng<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/dqrng/topics/dqrng-functions">dqrnorm</a></span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">64</span>)))</a>
+<a class="sourceLine" id="cb7-4" title="4">  })</a>
+<a class="sourceLine" id="cb7-5" title="5">}</a>
+<a class="sourceLine" id="cb7-6" title="6">nano<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/format">format</a></span>(<span class="dt">size =</span> 38L, <span class="dt">use_func =</span> <span class="st">"myRndBytesFunc"</span>)</a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="co">#&gt; [1] "cGu20PopOxEgmDMS_P6y3L88y4DFO-Y77RjG3F"</span></a></code></pre></div>
 <p>これに絡めてV8のコンテキストを自分でも触りたいみたいなケースもあるかもしれません（あるのか？）。<code><a href="../reference/NanoID.html">nanoidr::nanoid()</a></code>が返すのはR6クラスのインスタンスで、V8コンテキストを<code>ctx</code>としてパブリックに持っているため、ふつうにV8コンテキストを取得していじることができます。</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/nanoidr/topics/NanoID">nanoid</a></span>()</a>
 <a class="sourceLine" id="cb8-2" title="2">mycontext &lt;-<span class="st"> </span>nano<span class="op">$</span>ctx</a>

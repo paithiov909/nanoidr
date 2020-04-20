@@ -2,4 +2,4 @@
 #'
 #' @docType package
 #' @name nanoidr
-NULL
+"_PACKAGE"

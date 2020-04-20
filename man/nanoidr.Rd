@@ -6,5 +6,19 @@
 \alias{nanoidr-package}
 \title{NanoID on V8}
 \description{
-NanoID on V8
+\if{html}{\figure{logo.png}{options: align='right'}}
+
+NanoID (an ID generator for JavaScript) on V8 for R.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/paithiov909/nanoidr}
+  \item Report bugs at \url{https://github.com/paithiov909/nanoidr/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Kato Akiru \email{paithiov909@gmail.com}
+
 }
