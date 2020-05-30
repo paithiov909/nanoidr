@@ -7,7 +7,7 @@
 #' \itemize{
 #'   \item format()
 #'   \item generate()
-#'   \item nosecure()
+#'   \item nonsecure()
 #' }
 #'
 #' Especially, format() and generate() methods check every generated ID
