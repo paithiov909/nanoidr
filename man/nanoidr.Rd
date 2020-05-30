@@ -6,7 +6,7 @@
 \alias{nanoidr-package}
 \title{NanoID on V8}
 \description{
-\if{html}{\figure{logo.png}{options: align='right'}}
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
 NanoID (an ID generator for JavaScript) on V8 for R.
 }

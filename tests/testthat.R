@@ -1,5 +1,4 @@
 library(testthat)
-library(nanoidr)
 library(stringr)
 library(openssl)
 

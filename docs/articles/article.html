@@ -13,8 +13,9 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Random ID string generation with nanoidr">
 <meta property="og:description" content="">
 <meta property="og:image" content="/logo.png">
@@ -37,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nanoidr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -45,7 +46,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -71,7 +72,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/paithiov909/nanoidr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -84,13 +85,14 @@
 <!--/.navbar -->
 
       
-      </header><div class="row">
+
+      </header><script src="article_files/header-attrs-2.1/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Random ID string generation with nanoidr</h1>
                         <h4 class="author">Kato Akiru</h4>
             
-            <h4 class="date">2020-04-21</h4>
+            <h4 class="date">2020-05-30</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/paithiov909/nanoidr/blob/master/vignettes/article.Rmd"><code>vignettes/article.Rmd</code></a></small>
       <div class="hidden name"><code>article.Rmd</code></div>
@@ -99,50 +101,50 @@
 
     
     
-<div id="section" class="section level2">
+<div id="これは何" class="section level2">
 <h2 class="hasAnchor">
-<a href="#section" class="anchor"></a>これは何？</h2>
+<a href="#%E3%81%93%E3%82%8C%E3%81%AF%E4%BD%95" class="anchor"></a>これは何？</h2>
 <p><a href="https://github.com/paithiov909/nanoidr">{nanoidr}</a>パッケージはランダムかつセキュアな文字列を生成するためのRパッケージです。<a href="https://github.com/ai/nanoid">ai/nanoid</a>を<a href="https://github.com/jeroen/V8">{V8}</a>上で無理やり動かしています。</p>
 </div>
-<div id="section-1" class="section level2">
+<div id="モチベーション" class="section level2">
 <h2 class="hasAnchor">
-<a href="#section-1" class="anchor"></a>モチベーション</h2>
-<div id="r" class="section level3">
+<a href="#%E3%83%A2%E3%83%81%E3%83%99%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3" class="anchor"></a>モチベーション</h2>
+<div id="rでのランダム文字列生成の現状" class="section level3">
 <h3 class="hasAnchor">
-<a href="#r" class="anchor"></a>Rでのランダム文字列生成の現状</h3>
+<a href="#r%E3%81%A7%E3%81%AE%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E6%96%87%E5%AD%97%E5%88%97%E7%94%9F%E6%88%90%E3%81%AE%E7%8F%BE%E7%8A%B6" class="anchor"></a>Rでのランダム文字列生成の現状</h3>
 <p>開発のおもなモチベーションは2つあります。</p>
 <ol style="list-style-type: decimal">
 <li>NanoIDを使いたいがC/C++はわからん</li>
 <li>JS版のライブラリをラップして使いたい</li>
 </ol>
-<p>2019年現在にRでランダムな文字列を生成する方法はいくつかあります。以下の記事では<a href="https://www.random.org/">{random}</a>あるいは<a href="https://github.com/hrbrmstr/passwordrandom">{passwordrandom}</a>というパッケージや<code><a href="https://www.rdocumentation.org/packages/stringi/topics/stri_rand_strings">stringi::stri_rand_strings()</a></code>を使う方法が紹介されています。</p>
+<p>2019年現在にRでランダムな文字列を生成する方法はいくつかあります。以下の記事では<a href="https://www.random.org/">{random}</a>あるいは<a href="https://github.com/hrbrmstr/passwordrandom">{passwordrandom}</a>というパッケージや<code><a href="https://rdrr.io/pkg/stringi/man/stri_rand_strings.html">stringi::stri_rand_strings()</a></code>を使う方法が紹介されています。</p>
 <ul>
 <li><a href="https://uribo.hatenablog.com/entry/2015/08/31/094648">🍭Rでランダムな文字列や数値を生成する - cucumber flesh</a></li>
 </ul>
-<p>ユニークなIDを生成する用途であれば、この記事で紹介されているパッケージのほかに、R上でUUIDを生成できる<code>uuid::UUIDgenerate()</code>や、この関数のラッパーをはじめとしたユニークなID文字列の生成機能群を提供する<a href="https://github.com/richfitz/ids">{ids}</a>パッケージなどもあります。</p>
-<p>ふつうにランダムな文字列を生成する用途であれば、おそらく<code><a href="https://www.rdocumentation.org/packages/stringi/topics/stri_rand_strings">stringi::stri_rand_strings()</a></code>を使っておけば多くの場合は事足りるように思われます。しかし、この関数を使うとするとURLフレンドリーでない文字列の生成を抑制する処理などは自分で用意しなければならないなど、ややめんどうな課題も残ります。そういうのはできれば既存のライブラリを活用して手軽に済ませたいところです。</p>
+<p>ユニークなIDを生成する用途であれば、この記事で紹介されているパッケージのほかに、R上でUUIDを生成できる<code><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html">uuid::UUIDgenerate()</a></code>や、この関数のラッパーをはじめとしたユニークなID文字列の生成機能群を提供する<a href="https://github.com/richfitz/ids">{ids}</a>パッケージなどもあります。</p>
+<p>ふつうにランダムな文字列を生成する用途であれば、おそらく<code><a href="https://rdrr.io/pkg/stringi/man/stri_rand_strings.html">stringi::stri_rand_strings()</a></code>を使っておけば多くの場合は事足りるように思われます。しかし、この関数を使うとするとURLフレンドリーでない文字列の生成を抑制する処理などは自分で用意しなければならないなど、ややめんどうな課題も残ります。そういうのはできれば既存のライブラリを活用して手軽に済ませたいところです。</p>
 </div>
-<div id="nanoidcc" class="section level3">
+<div id="nanoidを使いたいがccはわからん" class="section level3">
 <h3 class="hasAnchor">
-<a href="#nanoidcc" class="anchor"></a>NanoIDを使いたいがC/C++はわからん</h3>
+<a href="#nanoid%E3%82%92%E4%BD%BF%E3%81%84%E3%81%9F%E3%81%84%E3%81%8Ccc%E3%81%AF%E3%82%8F%E3%81%8B%E3%82%89%E3%82%93" class="anchor"></a>NanoIDを使いたいがC/C++はわからん</h3>
 <p>NanoIDはランダムなID文字列を生成するためのJavaScriptライブラリです。以下に本家のブラウザ向けモジュール（<a href="https://github.com/ai/nanoid/blob/master/index.browser.js">このファイル</a>）における実装例を引用します。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/cor">var</a></span> crypto <span class="op">=</span> <span class="va">self</span>.<span class="at">crypto</span> <span class="op">||</span> <span class="va">self</span>.<span class="at">msCrypto</span></a>
-<a class="sourceLine" id="cb1-2" title="2"></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="co">/*</span></a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="co"> * This alphabet uses a-z A-Z 0-9 _- symbols.</span></a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="co"> * Symbols order was changed for better gzip compression.</span></a>
-<a class="sourceLine" id="cb1-6" title="6"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb1-7" title="7"><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/cor">var</a></span> url <span class="op">=</span> <span class="st">'QLUint8ARdomValuesObj0h6345-79BCrypgJzHKTNYDSMkXPZ_FfG1WcqvwxEI2'</span></a>
-<a class="sourceLine" id="cb1-8" title="8"></a>
-<a class="sourceLine" id="cb1-9" title="9"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/function">function</a></span> (size) <span class="op">{</span></a>
-<a class="sourceLine" id="cb1-10" title="10">  size <span class="op">=</span> size <span class="op">||</span> <span class="dv">21</span></a>
-<a class="sourceLine" id="cb1-11" title="11">  <span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/cor">var</a></span> id <span class="op">=</span> <span class="st">''</span></a>
-<a class="sourceLine" id="cb1-12" title="12">  <span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/cor">var</a></span> bytes <span class="op">=</span> <span class="va">crypto</span>.<span class="at">getRandomValues</span>(<span class="kw">new</span> <span class="at">Uint8Array</span>(size))</a>
-<a class="sourceLine" id="cb1-13" title="13">  <span class="cf">while</span> (size<span class="op">--</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb1-14" title="14">    id <span class="op">+=</span> url[bytes[size] <span class="op">&amp;</span> <span class="dv">63</span>]</a>
-<a class="sourceLine" id="cb1-15" title="15">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb1-16" title="16">  <span class="cf">return</span> id</a>
-<a class="sourceLine" id="cb1-17" title="17"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/stats/cor.html">var</a></span> crypto <span class="op">=</span> self<span class="op">.</span><span class="at">crypto</span> <span class="op">||</span> self<span class="op">.</span><span class="at">msCrypto</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co">/*</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"> * This alphabet uses a-z A-Z 0-9 _- symbols.</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"> * Symbols order was changed for better gzip compression.</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co"> */</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="kw"><a href="https://rdrr.io/r/stats/cor.html">var</a></span> url <span class="op">=</span> <span class="st">'QLUint8ARdomValuesObj0h6345-79BCrypgJzHKTNYDSMkXPZ_FfG1WcqvwxEI2'</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a>module<span class="op">.</span><span class="at">exports</span> <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/function.html">function</a></span> (size) {</span>
+<span id="cb1-10"><a href="#cb1-10"></a>  size <span class="op">=</span> size <span class="op">||</span> <span class="dv">21</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>  <span class="kw"><a href="https://rdrr.io/r/stats/cor.html">var</a></span> id <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>  <span class="kw"><a href="https://rdrr.io/r/stats/cor.html">var</a></span> bytes <span class="op">=</span> crypto<span class="op">.</span><span class="fu">getRandomValues</span>(<span class="kw">new</span> <span class="bu">Uint8Array</span>(size))</span>
+<span id="cb1-13"><a href="#cb1-13"></a>  <span class="cf">while</span> (size<span class="op">--</span>) {</span>
+<span id="cb1-14"><a href="#cb1-14"></a>    id <span class="op">+=</span> url[bytes[size] <span class="op">&amp;</span> <span class="dv">63</span>]</span>
+<span id="cb1-15"><a href="#cb1-15"></a>  }</span>
+<span id="cb1-16"><a href="#cb1-16"></a>  <span class="cf">return</span> id</span>
+<span id="cb1-17"><a href="#cb1-17"></a>}</span></code></pre></div>
 <p>この例における<code>self.crypto.getRandomValues()</code>は<a href="https://developer.mozilla.org/ja/docs/Web/API/RandomSource/getRandomValues">RandomSource.getRandomValues()</a>として仕様が定義されているものです。NanoIDはUUIDとは異なり一定程度の衝突可能性があって、それは次のサイトで計算することができます。</p>
 <ul>
 <li><a href="https://zelark.github.io/nano-id-cc/">Nano ID CC</a></li>
@@ -150,20 +152,20 @@
 <p>NanoIDはさまざまな言語に移植されており、header-onlyのC実装などもあります（<a href="https://github.com/NerdyPepper/nanoid">NerdyPepper/nanoid</a>）。RでNanoIDを利用することを考える場合、これを<a href="https://github.com/RcppCore/Rcpp">{Rcpp}</a>経由で呼ぶのが一見するとスマートかもしれません。</p>
 <p>しかし悲しいかな、私はC/C++とかよくわからないのでそういうパッケージは書けないのです（誰か代わりにチャレンジしてみてください）。</p>
 </div>
-<div id="js" class="section level3">
+<div id="js版のライブラリをラップして使いたい" class="section level3">
 <h3 class="hasAnchor">
-<a href="#js" class="anchor"></a>JS版のライブラリをラップして使いたい</h3>
+<a href="#js%E7%89%88%E3%81%AE%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%82%92%E3%83%A9%E3%83%83%E3%83%97%E3%81%97%E3%81%A6%E4%BD%BF%E3%81%84%E3%81%9F%E3%81%84" class="anchor"></a>JS版のライブラリをラップして使いたい</h3>
 <p>NanoID自体は非常にシンプルなのでいろいろな言語に移植されています。というか、非常にシンプルなので私の知っている技術の範囲でもR実装できる気がします。</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">url &lt;-<span class="st"> </span>stringr<span class="op">::</span><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split</a></span>(<span class="st">"QLUint8ARdomValuesObj0h6345-79BCrypgJzHKTNYDSMkXPZ_FfG1WcqvwxEI2"</span>, <span class="st">""</span>, <span class="dt">simplify =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb2-2" title="2">nanoid &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">size =</span> 21L) {</a>
-<a class="sourceLine" id="cb2-3" title="3">  bytes &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/integer">as.integer</a></span>(openssl<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/openssl/topics/rand_bytes">rand_bytes</a></span>(size)), <span class="op">~</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/bitwise">bitwAnd</a></span>(., <span class="dv">63</span>))</a>
-<a class="sourceLine" id="cb2-4" title="4">  id &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span>(bytes, <span class="cf">function</span>(elem) {</a>
-<a class="sourceLine" id="cb2-5" title="5">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/function">return</a></span>(url[<span class="dv">1</span>, elem <span class="op">+</span><span class="st"> </span><span class="dv">1</span>]) <span class="co"># Rのイテレータは1オリジンなのでurl[1,0]を参照しないように1を足す</span></a>
-<a class="sourceLine" id="cb2-6" title="6">  })</a>
-<a class="sourceLine" id="cb2-7" title="7">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/function">return</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste0</a></span>(id, <span class="dt">collapse =</span> <span class="st">""</span>))</a>
-<a class="sourceLine" id="cb2-8" title="8">}</a>
-<a class="sourceLine" id="cb2-9" title="9"><span class="kw"><a href="../reference/NanoID.html">nanoid</a></span>()</a>
-<a class="sourceLine" id="cb2-10" title="10"><span class="co">#&gt; [1] "D9XKZFRtp0Kyu_0FwAAWN"</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>url &lt;-<span class="st"> </span>stringr<span class="op">::</span><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split</a></span>(<span class="st">"QLUint8ARdomValuesObj0h6345-79BCrypgJzHKTNYDSMkXPZ_FfG1WcqvwxEI2"</span>, <span class="st">""</span>, <span class="dt">simplify =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>nanoid &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">size =</span> 21L) {</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  bytes &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span>(openssl<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/openssl/man/rand_bytes.html">rand_bytes</a></span>(size)), <span class="op">~</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/bitwise.html">bitwAnd</a></span>(., <span class="dv">63</span>))</span>
+<span id="cb2-4"><a href="#cb2-4"></a>  id &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span>(bytes, <span class="cf">function</span>(elem) {</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span>(url[<span class="dv">1</span>, elem <span class="op">+</span><span class="st"> </span><span class="dv">1</span>]) <span class="co"># Rのイテレータは1オリジンなのでurl[1,0]を参照しないように1を足す</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>  })</span>
+<span id="cb2-7"><a href="#cb2-7"></a>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(id, <span class="dt">collapse =</span> <span class="st">""</span>))</span>
+<span id="cb2-8"><a href="#cb2-8"></a>}</span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="kw"><a href="../reference/NanoID.html">nanoid</a></span>()</span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#&gt; [1] "hDPrlVjkUhDtEByWHyZIt"</span></span></code></pre></div>
 <p>たぶんこんな感じでも正しく動きます。</p>
 <p>しかし、NanoIDをとにかく手軽に使うのであればJSで使うのがやはり圧倒的に楽なように思われます。JSで使う前提だと、たとえば以下のような便利なライブラリを利用できます。</p>
 <ul>
@@ -173,155 +175,156 @@
 <p>このあたりの便利機能までRで自前で実装するのは手間がすごいので、簡単にパッケージを開発するためにJS版を使うことにしました。</p>
 </div>
 </div>
-<div id="section-2" class="section level2">
+<div id="技術的な話" class="section level2">
 <h2 class="hasAnchor">
-<a href="#section-2" class="anchor"></a>技術的な話</h2>
-<div id="section-3" class="section level3">
+<a href="#%E6%8A%80%E8%A1%93%E7%9A%84%E3%81%AA%E8%A9%B1" class="anchor"></a>技術的な話</h2>
+<div id="簡単にできると思ったんだ" class="section level3">
 <h3 class="hasAnchor">
-<a href="#section-3" class="anchor"></a>簡単にできると思ったんだ</h3>
+<a href="#%E7%B0%A1%E5%8D%98%E3%81%AB%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%A8%E6%80%9D%E3%81%A3%E3%81%9F%E3%82%93%E3%81%A0" class="anchor"></a>簡単にできると思ったんだ</h3>
 <p>まずRを書く以前にV8上で動くJSをバンドルする時点で若干詰まりました。</p>
 <p>V8はNodeとは異なりモジュールの解決をしてくれないので、読ませたいソースはあらかじめ依存関係を解決してブラウザで動かすような感じにバンドルしておく必要があります。{V8}の<a href="https://cran.r-project.org/web/packages/V8/vignettes/v8_intro.html">vignette</a>にあるように<a href="http://browserify.org/">browserify</a>を使えば<code>require</code>をよしなに解決して単一のJSファイルにすることができるのですが、今回のnanoidのようなモジュールについてこれをやるとV8にバンドルしたソースを読みこんだときに「require文は使えないぞ」みたいに怒られます（怒られました）。</p>
 <p>その手の仕様の話は詳しくないのですが、ai/nanoidはNodeライクな環境で読みこむときとブラウザで読みこむときとでエントリーファイルが異なるタイプのモジュールになっています。browserifyはそのあたりがアレなため、素朴に使うとふつうにNodeライクな環境向けのエントリーファイルを参照してくるっぽいのですが、Node向けのai/nanoidではNodeの組み込みモジュールである<a href="https://nodejs.org/api/crypto.html">crypto</a>を<code>require</code>しており、browserifyでこのあたりの<code>require</code>をやっつけるためにはオプションをいじる必要があります。</p>
 <p>いじる必要があるのですが結局どうやったらブラウザ向けのエントリーファイルを読ませられるのかわからなかったので、<a href="https://webpack.js.org/">webpack</a>でコンパイルすることにしました。webpackの場合、ブラウザ向けのエントリーファイルを優先的に読みに行かせるには<code>webpack.config.js</code>内で<code>resolve: { mainFields: ['browser'] }}</code>みたいな指定をします。</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> path <span class="op">=</span> <span class="at">require</span>(<span class="st">'path'</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-2" title="2"></a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-4" title="4">  <span class="dt">mode</span><span class="op">:</span> <span class="st">'production'</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb3-5" title="5">  <span class="dt">target</span><span class="op">:</span> <span class="st">'web'</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb3-6" title="6">  <span class="dt">entry</span><span class="op">:</span> <span class="st">'./index.js'</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb3-7" title="7">  <span class="dt">output</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-8" title="8">    <span class="dt">filename</span><span class="op">:</span> <span class="st">'nanoidr.bundle.js'</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb3-9" title="9">    <span class="dt">path</span><span class="op">:</span> <span class="va">path</span>.<span class="at">resolve</span>(__dirname<span class="op">,</span> <span class="st">'bundle'</span>)<span class="op">,</span></a>
-<a class="sourceLine" id="cb3-10" title="10">    <span class="dt">libraryTarget</span><span class="op">:</span> <span class="st">'var'</span></a>
-<a class="sourceLine" id="cb3-11" title="11">  <span class="op">},</span></a>
-<a class="sourceLine" id="cb3-12" title="12">  <span class="dt">resolve</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-13" title="13">    <span class="dt">mainFields</span><span class="op">:</span> [<span class="st">'browser'</span><span class="op">,</span> <span class="st">'module'</span><span class="op">,</span> <span class="st">'main'</span>]</a>
-<a class="sourceLine" id="cb3-14" title="14">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb3-15" title="15"><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">const</span> path <span class="op">=</span> <span class="pp">require</span>(<span class="st">'path'</span>)<span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a>module<span class="op">.</span><span class="at">exports</span> <span class="op">=</span> {</span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="dt">mode</span><span class="op">:</span> <span class="st">'production'</span><span class="op">,</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="dt">target</span><span class="op">:</span> <span class="st">'web'</span><span class="op">,</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="dt">entry</span><span class="op">:</span> <span class="st">'./index.js'</span><span class="op">,</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>  <span class="dt">output</span><span class="op">:</span> {</span>
+<span id="cb3-8"><a href="#cb3-8"></a>    <span class="dt">filename</span><span class="op">:</span> <span class="st">'nanoidr.bundle.js'</span><span class="op">,</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>    <span class="dt">path</span><span class="op">:</span> path<span class="op">.</span><span class="fu">resolve</span>(<span class="bu">__dirname</span><span class="op">,</span> <span class="st">'bundle'</span>)<span class="op">,</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>    <span class="dt">libraryTarget</span><span class="op">:</span> <span class="st">'var'</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>  }<span class="op">,</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a>  <span class="dt">resolve</span><span class="op">:</span> {</span>
+<span id="cb3-13"><a href="#cb3-13"></a>    <span class="dt">mainFields</span><span class="op">:</span> [<span class="st">'browser'</span><span class="op">,</span> <span class="st">'module'</span><span class="op">,</span> <span class="st">'main'</span>]</span>
+<span id="cb3-14"><a href="#cb3-14"></a>  }</span>
+<span id="cb3-15"><a href="#cb3-15"></a>}<span class="op">;</span></span></code></pre></div>
 </div>
-<div id="self-crypto-getrandomvaluesr" class="section level3">
+<div id="self-crypto-getrandomvaluesをr側にコールバックする" class="section level3">
 <h3 class="hasAnchor">
-<a href="#self-crypto-getrandomvaluesr" class="anchor"></a>self.crypto.getRandomValuesをR側にコールバックする</h3>
-<div id="v8" class="section level4">
+<a href="#self-crypto-getrandomvalues%E3%82%92r%E5%81%B4%E3%81%AB%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF%E3%81%99%E3%82%8B" class="anchor"></a>self.crypto.getRandomValuesをR側にコールバックする</h3>
+<div id="v8だとそもそもいろいろ存在しない" class="section level4">
 <h4 class="hasAnchor">
-<a href="#v8" class="anchor"></a>V8だとそもそもいろいろ存在しない</h4>
+<a href="#v8%E3%81%A0%E3%81%A8%E3%81%9D%E3%82%82%E3%81%9D%E3%82%82%E3%81%84%E3%82%8D%E3%81%84%E3%82%8D%E5%AD%98%E5%9C%A8%E3%81%97%E3%81%AA%E3%81%84" class="anchor"></a>V8だとそもそもいろいろ存在しない</h4>
 <p>先程引用したようにai/nanoidのブラウザ向け実装ではPRNGとしてWeb Cryptography APIの<a href="https://developer.mozilla.org/ja/docs/Web/API/Window/crypto">Window.crypto.getRandomValues</a>を呼ぼうとします。しかし、このあたりが開発してるうえで予想に反してかなり大変だったところなのですが、V8はシンプルなJS実行環境であるためにグローバルが殺伐としていてほとんどオブジェクトが存在しません。依存関係をよしなに解決したうえでバンドルしたJSソースを評価すると、そもそもグローバルにselfがないのでcrypto of undefinedは参照できないと怒られます。</p>
 <p>いろいろと調べたり手探りで試したりしたところ、以下のような雰囲気のやり方でできました。ポイントとしては<code>var __global__ = this;</code>でグローバル自身への参照をつくったあとでselfを宣言すると期待するように動くらしいこと、<code>self.crypto.getRandomValues</code>内の<code>console.r.call('myFunctionName', args)</code>からR側の<code>myFunctionName(args)</code>をトリガーすることでしょうか。</p>
-<p>なおこれは余談ですが、公式のvignetteだと<code><a href="https://www.rdocumentation.org/packages/V8/topics/V8">V8::v8(typed_arrays = TRUE)</a></code>とするとTypedArrayオブジェクトが使える臭いことが書かれていますが、手もとのバージョン2.1の{V8}環境（on Windows）だとそんなものは使えませんでした。原因はよくわかりませんが、ようするに配列の長さがわかればよいので、ここでは渡された配列の長さをとってコールバック先に渡しています。</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">ctx &lt;-<span class="st"> </span>V8<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/V8/topics/V8">v8</a></span>()</a>
-<a class="sourceLine" id="cb4-2" title="2">ctx<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/eval">eval</a></span>(</a>
-<a class="sourceLine" id="cb4-3" title="3">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste</a></span>(<span class="st">" // Assign global object</span></a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="st">          var __global__ = this;"</span></a>
-<a class="sourceLine" id="cb4-5" title="5">    )</a>
-<a class="sourceLine" id="cb4-6" title="6">)</a>
-<a class="sourceLine" id="cb4-7" title="7">ctx<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/eval">eval</a></span>(</a>
-<a class="sourceLine" id="cb4-8" title="8">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste</a></span>(<span class="st">" // Assign self.crypto</span></a>
-<a class="sourceLine" id="cb4-9" title="9"><span class="st">        __global__.self = {</span></a>
-<a class="sourceLine" id="cb4-10" title="10"><span class="st">            crypto: {</span></a>
-<a class="sourceLine" id="cb4-11" title="11"><span class="st">                getRandomValues (Uint8Array) {</span></a>
-<a class="sourceLine" id="cb4-12" title="12"><span class="st">                    return console.r.call(</span></a>
-<a class="sourceLine" id="cb4-13" title="13"><span class="st">                        'nanoidr::getRandomValues',</span></a>
-<a class="sourceLine" id="cb4-14" title="14"><span class="st">                        Uint8Array.length</span></a>
-<a class="sourceLine" id="cb4-15" title="15"><span class="st">                    );</span></a>
-<a class="sourceLine" id="cb4-16" title="16"><span class="st">                }</span></a>
-<a class="sourceLine" id="cb4-17" title="17"><span class="st">            }</span></a>
-<a class="sourceLine" id="cb4-18" title="18"><span class="st">        }</span></a>
-<a class="sourceLine" id="cb4-19" title="19"><span class="st">    "</span>)</a>
-<a class="sourceLine" id="cb4-20" title="20">)</a>
-<a class="sourceLine" id="cb4-21" title="21">ctx<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/eval">eval</a></span>(</a>
-<a class="sourceLine" id="cb4-22" title="22">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste</a></span>(<span class="st">" // Wrapper of do.call(what = func_name, args = c(size = size))</span></a>
-<a class="sourceLine" id="cb4-23" title="23"><span class="st">        function doCall(func_name) {</span></a>
-<a class="sourceLine" id="cb4-24" title="24"><span class="st">            return function(size) {</span></a>
-<a class="sourceLine" id="cb4-25" title="25"><span class="st">                return console.r.call(</span></a>
-<a class="sourceLine" id="cb4-26" title="26"><span class="st">                    'do.call',</span></a>
-<a class="sourceLine" id="cb4-27" title="27"><span class="st">                    {</span></a>
-<a class="sourceLine" id="cb4-28" title="28"><span class="st">                        what: func_name,</span></a>
-<a class="sourceLine" id="cb4-29" title="29"><span class="st">                        args: { size: size }</span></a>
-<a class="sourceLine" id="cb4-30" title="30"><span class="st">                    }</span></a>
-<a class="sourceLine" id="cb4-31" title="31"><span class="st">                );</span></a>
-<a class="sourceLine" id="cb4-32" title="32"><span class="st">            }</span></a>
-<a class="sourceLine" id="cb4-33" title="33"><span class="st">        }</span></a>
-<a class="sourceLine" id="cb4-34" title="34"><span class="st">    "</span>)</a>
-<a class="sourceLine" id="cb4-35" title="35">)</a>
-<a class="sourceLine" id="cb4-36" title="36">ctx<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/source">source</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/file.path">file.path</a></span>(</a>
-<a class="sourceLine" id="cb4-37" title="37">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(<span class="dt">package =</span> <span class="st">"nanoidr"</span>),</a>
-<a class="sourceLine" id="cb4-38" title="38">    <span class="st">"js"</span>,</a>
-<a class="sourceLine" id="cb4-39" title="39">    <span class="st">"nanoidr.bundle.js"</span></a>
-<a class="sourceLine" id="cb4-40" title="40">))</a></code></pre></div>
+<p>なおこれは余談ですが、公式のvignetteだと<code><a href="https://jeroen.cran.dev/V8/reference/V8.html">V8::v8(typed_arrays = TRUE)</a></code>とするとTypedArrayオブジェクトが使える臭いことが書かれていますが、手もとのバージョン2.1の{V8}環境（on Windows）だとそんなものは使えませんでした。原因はよくわかりませんが、ようするに配列の長さがわかればよいので、ここでは渡された配列の長さをとってコールバック先に渡しています。</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>ctx &lt;-<span class="st"> </span>V8<span class="op">::</span><span class="kw"><a href="https://jeroen.cran.dev/V8/reference/V8.html">v8</a></span>()</span>
+<span id="cb4-2"><a href="#cb4-2"></a>ctx<span class="op">$</span><span class="kw"><a href="https://rdrr.io/r/base/eval.html">eval</a></span>(</span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="st">" // Assign global object</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="st">          var __global__ = this;"</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>    )</span>
+<span id="cb4-6"><a href="#cb4-6"></a>)</span>
+<span id="cb4-7"><a href="#cb4-7"></a>ctx<span class="op">$</span><span class="kw"><a href="https://rdrr.io/r/base/eval.html">eval</a></span>(</span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="st">" // Assign self.crypto</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="st">        __global__.self = {</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="st">            crypto: {</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="st">                getRandomValues (Uint8Array) {</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="st">                    return console.r.call(</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="st">                        'nanoidr::getRandomValues',</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="st">                        Uint8Array.length</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="st">                    );</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="st">                }</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="st">            }</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="st">        }</span></span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="st">    "</span>)</span>
+<span id="cb4-20"><a href="#cb4-20"></a>)</span>
+<span id="cb4-21"><a href="#cb4-21"></a>ctx<span class="op">$</span><span class="kw"><a href="https://rdrr.io/r/base/eval.html">eval</a></span>(</span>
+<span id="cb4-22"><a href="#cb4-22"></a>    <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="st">" // Wrapper of do.call(what = func_name, args = c(size = size))</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a><span class="st">        function doCall(func_name) {</span></span>
+<span id="cb4-24"><a href="#cb4-24"></a><span class="st">            return function(size) {</span></span>
+<span id="cb4-25"><a href="#cb4-25"></a><span class="st">                return console.r.call(</span></span>
+<span id="cb4-26"><a href="#cb4-26"></a><span class="st">                    'do.call',</span></span>
+<span id="cb4-27"><a href="#cb4-27"></a><span class="st">                    {</span></span>
+<span id="cb4-28"><a href="#cb4-28"></a><span class="st">                        what: func_name,</span></span>
+<span id="cb4-29"><a href="#cb4-29"></a><span class="st">                        args: { size: size }</span></span>
+<span id="cb4-30"><a href="#cb4-30"></a><span class="st">                    }</span></span>
+<span id="cb4-31"><a href="#cb4-31"></a><span class="st">                );</span></span>
+<span id="cb4-32"><a href="#cb4-32"></a><span class="st">            }</span></span>
+<span id="cb4-33"><a href="#cb4-33"></a><span class="st">        }</span></span>
+<span id="cb4-34"><a href="#cb4-34"></a><span class="st">    "</span>)</span>
+<span id="cb4-35"><a href="#cb4-35"></a>)</span>
+<span id="cb4-36"><a href="#cb4-36"></a>ctx<span class="op">$</span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(</span>
+<span id="cb4-37"><a href="#cb4-37"></a>    <span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="dt">package =</span> <span class="st">"nanoidr"</span>),</span>
+<span id="cb4-38"><a href="#cb4-38"></a>    <span class="st">"js"</span>,</span>
+<span id="cb4-39"><a href="#cb4-39"></a>    <span class="st">"nanoidr.bundle.js"</span></span>
+<span id="cb4-40"><a href="#cb4-40"></a>))</span></code></pre></div>
 </div>
-<div id="section-4" class="section level4">
+<div id="コールバック先の関数の準備" class="section level4">
 <h4 class="hasAnchor">
-<a href="#section-4" class="anchor"></a>コールバック先の関数の準備</h4>
-<p><code><a href="https://www.rdocumentation.org/packages/openssl/topics/rand_bytes">openssl::rand_bytes(size)</a></code>で<code>size</code>長のArrayBufferをつくることができます。いわゆるArray of bytesなオブジェクトはR側だとraw vectorとかいうやつで、画像をごにょごにょするときなどにまれによく使われるものです。TypedArrayオブジェクトが使えないV8環境にraw vectorをそのまま持ちこもうとしてもキャストしてくれないので、ここではR側で<code><a href="https://www.rdocumentation.org/packages/base/topics/integer">as.integer()</a></code>しています。とくにひねりはないです。</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">getRandomValues &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">size =</span> 21L, <span class="dt">seed =</span> 1234L, <span class="dt">fix.seed =</span> <span class="ot">FALSE</span>) {</a>
-<a class="sourceLine" id="cb5-2" title="2">    <span class="cf">if</span> (fix.seed) {</a>
-<a class="sourceLine" id="cb5-3" title="3">        <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Random">set.seed</a></span>(seed)</a>
-<a class="sourceLine" id="cb5-4" title="4">    }</a>
-<a class="sourceLine" id="cb5-5" title="5">    buf &lt;-<span class="st"> </span>openssl<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/openssl/topics/rand_bytes">rand_bytes</a></span>(size)</a>
-<a class="sourceLine" id="cb5-6" title="6">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/function">return</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/integer">as.integer</a></span>(buf))</a>
-<a class="sourceLine" id="cb5-7" title="7">}</a></code></pre></div>
+<a href="#%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF%E5%85%88%E3%81%AE%E9%96%A2%E6%95%B0%E3%81%AE%E6%BA%96%E5%82%99" class="anchor"></a>コールバック先の関数の準備</h4>
+<p><code><a href="https://rdrr.io/pkg/openssl/man/rand_bytes.html">openssl::rand_bytes(size)</a></code>で<code>size</code>長のArrayBufferをつくることができます。いわゆるArray of bytesなオブジェクトはR側だとraw vectorとかいうやつで、画像をごにょごにょするときなどにまれによく使われるものです。TypedArrayオブジェクトが使えないV8環境にraw vectorをそのまま持ちこもうとしてもキャストしてくれないので、ここではR側で<code><a href="https://rdrr.io/r/base/integer.html">as.integer()</a></code>しています。とくにひねりはないです。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>getRandomValues &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">size =</span> 21L, <span class="dt">seed =</span> 1234L, <span class="dt">fix.seed =</span> <span class="ot">FALSE</span>) {</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="cf">if</span> (fix.seed) {</span>
+<span id="cb5-3"><a href="#cb5-3"></a>        <span class="kw"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(seed)</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    }</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    buf &lt;-<span class="st"> </span>openssl<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/openssl/man/rand_bytes.html">rand_bytes</a></span>(size)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span>(buf))</span>
+<span id="cb5-7"><a href="#cb5-7"></a>}</span></code></pre></div>
 </div>
 </div>
 </div>
-<div id="nanoidr" class="section level2">
+<div id="nanoidrの使い方" class="section level2">
 <h2 class="hasAnchor">
-<a href="#nanoidr" class="anchor"></a>{nanoidr}の使い方</h2>
-<div id="section-5" class="section level3">
+<a href="#nanoidr%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9" class="anchor"></a>{nanoidr}の使い方</h2>
+<div id="インストール" class="section level3">
 <h3 class="hasAnchor">
-<a href="#section-5" class="anchor"></a>インストール</h3>
-<p><code><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">remotes::install_github("paithiov909/nanoidr")</a></code></p>
+<a href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB" class="anchor"></a>インストール</h3>
+<p><code><a href="https://remotes.r-lib.org/reference/install_github.html">remotes::install_github("paithiov909/nanoidr")</a></code></p>
 </div>
-<div id="section-6" class="section level3">
+<div id="よくあるランダム文字列の生成" class="section level3">
 <h3 class="hasAnchor">
-<a href="#section-6" class="anchor"></a>よくあるランダム文字列の生成</h3>
-<p>こんな感じです。ちなみに<code>generate()</code>と下で出てくる<code><a href="https://www.rdocumentation.org/packages/base/topics/format">format()</a></code>は<code>init.locales</code>にロケールをリストとして渡すことで、その言語における<del>えっちな単語</del>などが文字列中に偶然に含まれることを抑制することができます。</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/nanoidr/topics/NanoID">nanoid</a></span>()</a>
-<a class="sourceLine" id="cb6-2" title="2">nano<span class="op">$</span><span class="kw">generate</span>() <span class="co"># ふつうに使う場合</span></a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="co">#&gt; [1] "lb4uIs-iZdYF5pNopH5pT"</span></a>
-<a class="sourceLine" id="cb6-4" title="4">nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 13L, <span class="dt">dict =</span> <span class="st">"numbers"</span>) <span class="co"># 予約された文字列をdictに渡すとビルトインされているパターンから生成します</span></a>
-<a class="sourceLine" id="cb6-5" title="5"><span class="co">#&gt; [1] "7609319709918"</span></a>
-<a class="sourceLine" id="cb6-6" title="6">nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"You can use any strings as dictionary!!"</span>) <span class="co"># 予約されていない文字列を渡すとそれ自体をパターンとしてそこから生成します</span></a>
-<a class="sourceLine" id="cb6-7" title="7"><span class="co">#&gt; [1] "  naununigago sd"</span></a>
-<a class="sourceLine" id="cb6-8" title="8">nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"パターンにはマルチバイト文字を使ってもふつうに動作します"</span>, <span class="dt">init.locales =</span> <span class="st">"ja"</span>)</a>
-<a class="sourceLine" id="cb6-9" title="9"><span class="co">#&gt; [1] "文字マ作まう作動つつをつににふト"</span></a>
-<a class="sourceLine" id="cb6-10" title="10">nano<span class="op">$</span><span class="kw">nonsecure</span>(<span class="dt">size =</span> 27L) <span class="co"># 乱数の生成にcrypto.getRandomValuesではなくてJS環境の組み込みのMath.random()を使うバージョンです。すこしだけ速いかもしれません。</span></a>
-<a class="sourceLine" id="cb6-11" title="11"><span class="co">#&gt; [1] "76kRsD9U1_PJL_h0m11MhkX_vl0"</span></a></code></pre></div>
+<a href="#%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E6%96%87%E5%AD%97%E5%88%97%E3%81%AE%E7%94%9F%E6%88%90" class="anchor"></a>よくあるランダム文字列の生成</h3>
+<p>こんな感じです。ちなみに<code>generate()</code>と下で出てくる<code><a href="https://rdrr.io/r/base/format.html">format()</a></code>は<code>init.locales</code>にロケールをリストとして渡すことで、その言語における<del>えっちな単語</del>などが文字列中に偶然に含まれることを抑制することができます。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/nanoidr/man/NanoID.html">nanoid</a></span>()</span>
+<span id="cb6-2"><a href="#cb6-2"></a>nano<span class="op">$</span><span class="kw">generate</span>() <span class="co"># ふつうに使う場合</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co">#&gt; [1] "GV9qtInTn9ZPTMBz0AfMF"</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 13L, <span class="dt">dict =</span> <span class="st">"numbers"</span>) <span class="co"># 予約された文字列をdictに渡すとビルトインされているパターンから生成します</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">#&gt; [1] "7118841183256"</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"You can use any strings as dictionary!!"</span>) <span class="co"># 予約されていない文字列を渡すとそれ自体をパターンとしてそこから生成します</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#&gt; [1] "nydri a ttdss ye"</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"パターンにはマルチバイト文字を使ってもふつうに動作します"</span>, <span class="dt">init.locales =</span> <span class="st">"ja"</span>)</span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co">#&gt; [1] "すっす文トもチ使マっしンしっをト"</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a>nano<span class="op">$</span><span class="kw">nonsecure</span>(<span class="dt">size =</span> 27L) <span class="co"># 乱数の生成にcrypto.getRandomValuesではなくてJS環境の組み込みのMath.random()を使うバージョンです。すこしだけ速いかもしれません。</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">#&gt; [1] "GwhTOOjzW6jm4OHN_rOGl-cpaTy"</span></span></code></pre></div>
 </div>
-<div id="section-7" class="section level3">
+<div id="やや展発的な使い方" class="section level3">
 <h3 class="hasAnchor">
-<a href="#section-7" class="anchor"></a>やや展発的な使い方</h3>
-<p>乱数の生成に使う関数を独自に指定することができます。この関数は返すべき配列の長さを引数<code>size</code>に受け取るのでなければなりません。また、こいつをトリガーする<code><a href="https://www.rdocumentation.org/packages/base/topics/do.call">do.call()</a></code>がデフォルトで<code><a href="https://www.rdocumentation.org/packages/base/topics/sys.parent">parent.frame()</a></code>が返す環境を見る仕様なので、手もとの環境にある関数でないと呼べません。</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">myRndBytesFunc &lt;-<span class="st"> </span><span class="cf">function</span>(size) {</a>
-<a class="sourceLine" id="cb7-2" title="2">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">sapply</a></span>(<span class="dv">1</span><span class="op">:</span>size, <span class="cf">function</span>(i) {</a>
-<a class="sourceLine" id="cb7-3" title="3">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/MathFun">abs</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Round">floor</a></span>(dqrng<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/dqrng/topics/dqrng-functions">dqrnorm</a></span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">64</span>)))</a>
-<a class="sourceLine" id="cb7-4" title="4">  })</a>
-<a class="sourceLine" id="cb7-5" title="5">}</a>
-<a class="sourceLine" id="cb7-6" title="6">nano<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/format">format</a></span>(<span class="dt">size =</span> 38L, <span class="dt">use_func =</span> <span class="st">"myRndBytesFunc"</span>)</a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="co">#&gt; [1] "cGu20PopOxEgmDMS_P6y3L88y4DFO-Y77RjG3F"</span></a></code></pre></div>
+<a href="#%E3%82%84%E3%82%84%E5%B1%95%E7%99%BA%E7%9A%84%E3%81%AA%E4%BD%BF%E3%81%84%E6%96%B9" class="anchor"></a>やや展発的な使い方</h3>
+<p>乱数の生成に使う関数を独自に指定することができます。この関数は返すべき配列の長さを引数<code>size</code>に受け取るのでなければなりません。また、こいつをトリガーする<code><a href="https://rdrr.io/r/base/do.call.html">do.call()</a></code>がデフォルトで<code><a href="https://rdrr.io/r/base/sys.parent.html">parent.frame()</a></code>が返す環境を見る仕様なので、手もとの環境にある関数でないと呼べません。</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>myRndBytesFunc &lt;-<span class="st"> </span><span class="cf">function</span>(size) {</span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="kw"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span>(<span class="dv">1</span><span class="op">:</span>size, <span class="cf">function</span>(i) {</span>
+<span id="cb7-3"><a href="#cb7-3"></a>    <span class="kw"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/Round.html">floor</a></span>(dqrng<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/dqrng/man/dqrng-functions.html">dqrnorm</a></span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">64</span>)))</span>
+<span id="cb7-4"><a href="#cb7-4"></a>  })</span>
+<span id="cb7-5"><a href="#cb7-5"></a>}</span>
+<span id="cb7-6"><a href="#cb7-6"></a>nano<span class="op">$</span><span class="kw"><a href="https://rdrr.io/r/base/format.html">format</a></span>(<span class="dt">size =</span> 38L, <span class="dt">use_func =</span> <span class="st">"myRndBytesFunc"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt; [1] "7_0hRtRNXTs3oomn1v2Z92y1uqwOjW8RtargZo"</span></span></code></pre></div>
 <p>これに絡めてV8のコンテキストを自分でも触りたいみたいなケースもあるかもしれません（あるのか？）。<code><a href="../reference/NanoID.html">nanoidr::nanoid()</a></code>が返すのはR6クラスのインスタンスで、V8コンテキストを<code>ctx</code>としてパブリックに持っているため、ふつうにV8コンテキストを取得していじることができます。</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/nanoidr/topics/NanoID">nanoid</a></span>()</a>
-<a class="sourceLine" id="cb8-2" title="2">mycontext &lt;-<span class="st"> </span>nano<span class="op">$</span>ctx</a>
-<a class="sourceLine" id="cb8-3" title="3">mycontext<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/source">source</a></span>(<span class="st">"another_awesome_source.js"</span>)</a>
-<a class="sourceLine" id="cb8-4" title="4">nano2 &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/nanoidr/topics/NanoID">nanoid</a></span>(<span class="dt">ctx =</span> mycontext) <span class="co"># nanoidはctxという引数にコンテキストを与えて初期化できます</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/nanoidr/man/NanoID.html">nanoid</a></span>()</span>
+<span id="cb8-2"><a href="#cb8-2"></a>mycontext &lt;-<span class="st"> </span>nano<span class="op">$</span>ctx</span>
+<span id="cb8-3"><a href="#cb8-3"></a>mycontext<span class="op">$</span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span>(<span class="st">"another_awesome_source.js"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4"></a>nano2 &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/nanoidr/man/NanoID.html">nanoid</a></span>(<span class="dt">ctx =</span> mycontext) <span class="co"># nanoidはctxという引数にコンテキストを与えて初期化できます</span></span></code></pre></div>
 </div>
 </div>
-<div id="section-8" class="section level2">
+<div id="むすび" class="section level2">
 <h2 class="hasAnchor">
-<a href="#section-8" class="anchor"></a>むすび</h2>
+<a href="#%E3%82%80%E3%81%99%E3%81%B3" class="anchor"></a>むすび</h2>
 <p><a href="https://github.com/GuangchuangYu/hexSticker">{hexSticker}</a>でつくったステッカーがかわいいので見てください。</p>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+
         <div id="tocnav">
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#section">これは何？</a></li>
-      <li><a href="#section-1">モチベーション</a></li>
-      <li><a href="#section-2">技術的な話</a></li>
-      <li><a href="#nanoidr">{nanoidr}の使い方</a></li>
-      <li><a href="#section-8">むすび</a></li>
+<li><a href="#%E3%81%93%E3%82%8C%E3%81%AF%E4%BD%95">これは何？</a></li>
+      <li><a href="#%E3%83%A2%E3%83%81%E3%83%99%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3">モチベーション</a></li>
+      <li><a href="#%E6%8A%80%E8%A1%93%E7%9A%84%E3%81%AA%E8%A9%B1">技術的な話</a></li>
+      <li><a href="#nanoidr%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9">{nanoidr}の使い方</a></li>
+      <li><a href="#%E3%82%80%E3%81%99%E3%81%B3">むすび</a></li>
       </ul>
 </div>
       </div>
@@ -329,17 +332,20 @@
 </div>
 
 
+
       <footer><div class="copyright">
   <p>Developed by Kato Akiru.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
