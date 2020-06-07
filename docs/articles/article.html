@@ -18,7 +18,7 @@
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Random ID string generation with nanoidr">
 <meta property="og:description" content="">
-<meta property="og:image" content="/logo.png">
+<meta property="og:image" content="https://paithiov909.github.io/nanoidr/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -165,7 +165,7 @@
 <span id="cb2-7"><a href="#cb2-7"></a>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(id, <span class="dt">collapse =</span> <span class="st">""</span>))</span>
 <span id="cb2-8"><a href="#cb2-8"></a>}</span>
 <span id="cb2-9"><a href="#cb2-9"></a><span class="kw"><a href="../reference/NanoID.html">nanoid</a></span>()</span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#&gt; [1] "1TLjcOhu6LVGALCNGCJnB"</span></span></code></pre></div>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#&gt; [1] "owTNg0JXC1RzO-LznF1FN"</span></span></code></pre></div>
 <p>たぶんこんな感じでも正しく動きます。</p>
 <p>しかし、NanoIDをとにかく手軽に使うのであればJSで使うのがやはり圧倒的に楽なように思われます。JSで使う前提だと、たとえば以下のような便利なライブラリを利用できます。</p>
 <ul>
@@ -279,15 +279,15 @@
 <p>こんな感じです。ちなみに<code>generate()</code>と下で出てくる<code><a href="https://rdrr.io/r/base/format.html">format()</a></code>は<code>init.locales</code>にロケールをリストとして渡すことで、その言語における<del>えっちな単語</del>などが文字列中に偶然に含まれることを抑制することができます。</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/nanoidr/man/NanoID.html">nanoid</a></span>()</span>
 <span id="cb6-2"><a href="#cb6-2"></a>nano<span class="op">$</span><span class="kw">generate</span>() <span class="co"># ふつうに使う場合</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co">#&gt; [1] "5X2JLky9RlclNigVgHrTB"</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co">#&gt; [1] "XSw7uMS_fetxcZNJrh8nO"</span></span>
 <span id="cb6-4"><a href="#cb6-4"></a>nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 13L, <span class="dt">dict =</span> <span class="st">"numbers"</span>) <span class="co"># 予約された文字列をdictに渡すとビルトインされているパターンから生成します</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="co">#&gt; [1] "3672732556136"</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">#&gt; [1] "0532542666312"</span></span>
 <span id="cb6-6"><a href="#cb6-6"></a>nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"You can use any strings as dictionary!!"</span>) <span class="co"># 予約されていない文字列を渡すとそれ自体をパターンとしてそこから生成します</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#&gt; [1] "anoas ssnn u! ai"</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#&gt; [1] "rYsrsenyanagin a"</span></span>
 <span id="cb6-8"><a href="#cb6-8"></a>nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"パターンにはマルチバイト文字を使ってもふつうに動作します"</span>, <span class="dt">init.locales =</span> <span class="st">"ja"</span>)</span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="co">#&gt; [1] "もすもチすまてイルしをはつにま使"</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co">#&gt; [1] "動ふしトて字をもンうしマふイまう"</span></span>
 <span id="cb6-10"><a href="#cb6-10"></a>nano<span class="op">$</span><span class="kw">nonsecure</span>(<span class="dt">size =</span> 27L) <span class="co"># 乱数の生成にcrypto.getRandomValuesではなくてJS環境の組み込みのMath.random()を使うバージョンです。すこしだけ速いかもしれません。</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="co">#&gt; [1] "G7R8b9etWrqQCtGUBP89Mq0tTKf"</span></span></code></pre></div>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">#&gt; [1] "Cw23HZ1ZuMavS_VUAl_sguGQGPv"</span></span></code></pre></div>
 </div>
 <div id="やや展発的な使い方" class="section level3">
 <h3 class="hasAnchor">
@@ -299,7 +299,7 @@
 <span id="cb7-4"><a href="#cb7-4"></a>  })</span>
 <span id="cb7-5"><a href="#cb7-5"></a>}</span>
 <span id="cb7-6"><a href="#cb7-6"></a>nano<span class="op">$</span><span class="kw"><a href="https://rdrr.io/r/base/format.html">format</a></span>(<span class="dt">size =</span> 38L, <span class="dt">use_func =</span> <span class="st">"myRndBytesFunc"</span>)</span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt; [1] "jIZdRIusK-y6PvXt_RxAKlhXCe3xgKHGNxaYjZ"</span></span></code></pre></div>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt; [1] "_DEsOzUWUaEfiWH-xqRnBOq_TWxYjSkDuphlwA"</span></span></code></pre></div>
 <p>これに絡めてV8のコンテキストを自分でも触りたいみたいなケースもあるかもしれません（あるのか？）。<code><a href="../reference/NanoID.html">nanoidr::nanoid()</a></code>が返すのはR6クラスのインスタンスで、V8コンテキストを<code>ctx</code>としてパブリックに持っているため、ふつうにV8コンテキストを取得していじることができます。</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/nanoidr/man/NanoID.html">nanoid</a></span>()</span>
 <span id="cb8-2"><a href="#cb8-2"></a>mycontext &lt;-<span class="st"> </span>nano<span class="op">$</span>ctx</span>
