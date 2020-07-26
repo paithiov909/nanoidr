@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • nanoidr</title>
+<title>Nonsecure — nonsecure() • nanoidr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,7 +42,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Nonsecure — nonsecure()" />
+<meta property="og:description" content="Faster but non-secure version of NanoID generator (bigger collision probability)." />
 <meta property="og:image" content="https://paithiov909.github.io/nanoidr/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -63,7 +64,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -125,90 +126,43 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Nonsecure</h1>
+    <small class="dont-index">Source: <a href='https://github.com/paithiov909/nanoidr/blob/master/R/class.R'><code>R/class.R</code></a></small>
+    <div class="hidden name"><code>nonsecure-open-paren-close-paren.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Faster but non-secure version of NanoID generator (bigger collision probability).</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="format-open-paren-close-paren.html">format()</a></code> </p>
-        </td>
-        <td><p>Format</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="generate-open-paren-close-paren.html">generate()</a></code> </p>
-        </td>
-        <td><p>Generate</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="getRandomValues.html">getRandomValues()</a></code> </p>
-        </td>
-        <td><p>Pseudo crypto.getRandomValues Web API</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Locales.html">Locales</a></code> </p>
-        </td>
-        <td><p>List of built in dictionaries</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="NanoID.html">nanoid()</a></code> </p>
-        </td>
-        <td><p>Get ready to use NanoID</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nanoidAlt.html">nanoidAlt()</a></code> </p>
-        </td>
-        <td><p>Yet another R implementation of NanoID</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nanoidr.html">nanoidr</a></code> </p>
-        </td>
-        <td><p>NanoID on V8</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nonsecure-open-paren-close-paren.html">nonsecure()</a></code> </p>
-        </td>
-        <td><p>Nonsecure</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="randombytes.html">randombytes()</a></code> </p>
-        </td>
-        <td><p>An example of original random bytes generator for using in format()</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>size</th>
+      <td><p>length of output.</p></td>
+    </tr>
+    <tr>
+      <th>init.locales</th>
+      <td><p>vocabulary sets of obscene words. defaut sets are c("en", "ja").</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>strings output.</p>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
     </ul>
+
   </div>
 </div>
 

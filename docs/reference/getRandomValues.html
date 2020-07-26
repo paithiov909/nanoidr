@@ -47,7 +47,7 @@
 with window.crypto.getRandomValues on client side environment,
 however, the V8 environment provides no window.crypto object.
 Because of this, nanoidr package replaces that function with
-a simple wrapper of openssl::rand_bytes()." />
+a simple wrapper of `openssl::rand_bytes()`." />
 <meta property="og:image" content="https://paithiov909.github.io/nanoidr/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -81,7 +81,7 @@ a simple wrapper of openssl::rand_bytes()." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nanoidr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
       </span>
     </div>
 
@@ -142,7 +142,7 @@ a simple wrapper of openssl::rand_bytes()." />
 with window.crypto.getRandomValues on client side environment,
 however, the V8 environment provides no window.crypto object.
 Because of this, nanoidr package replaces that function with
-a simple wrapper of openssl::rand_bytes().</p>
+a simple wrapper of `openssl::rand_bytes()`.</p>
     </div>
 
     <pre class="usage"><span class='fu'>getRandomValues</span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>21L</span>, <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>1234L</span>, <span class='kw'>fix.seed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
@@ -156,7 +156,7 @@ a simple wrapper of openssl::rand_bytes().</p>
     </tr>
     <tr>
       <th>seed</th>
-      <td><p>only when fix.seed is true, will be used for set.seed(). Or not, will never be used.</p></td>
+      <td><p>only when fix.seed is true, will be used for `base::set.seed()`. Or not, will never be used.</p></td>
     </tr>
     <tr>
       <th>fix.seed</th>
