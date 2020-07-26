@@ -10,7 +10,7 @@
 #'   \item nonsecure()
 #' }
 #'
-#' Especially, format() and generate() methods check every generated ID
+#' Especially, `format()` and `generate()` methods check every generated ID
 #' through a vocabulary of obscene words specified in `dict` argument.
 #' If any match is found, then ID is generated again and again
 #' until it gets clean ID which is returned.
@@ -33,7 +33,7 @@ NULL
 #' @param use_func function name that will be used for generating bytes array.
 #' @return strings output.
 #'
-#' @name NanoID$format()
+#' @name format()
 NULL
 
 
@@ -44,7 +44,7 @@ NULL
 #' @param init.locales vocabulary sets of obscene words. defaut sets are c("en", "ja").
 #' @return strings output.
 #'
-#' @name NanoID$generate()
+#' @name generate()
 NULL
 
 
@@ -56,5 +56,5 @@ NULL
 #' @param init.locales vocabulary sets of obscene words. defaut sets are c("en", "ja").
 #' @return strings output.
 #'
-#' @name NanoID$nonsecure()
+#' @name nonsecure()
 NULL

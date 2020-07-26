@@ -4,10 +4,10 @@
 #' with window.crypto.getRandomValues on client side environment,
 #' however, the V8 environment provides no window.crypto object.
 #' Because of this, {nanoidr} package replaces that function with
-#' a simple wrapper of openssl::rand_bytes().
+#' a simple wrapper of `openssl::rand_bytes()`.
 #'
 #' @param size integer (size of output).
-#' @param seed only when fix.seed is true, will be used for set.seed(). Or not, will never be used.
+#' @param seed only when fix.seed is true, will be used for `base::set.seed()`. Or not, will never be used.
 #' @param fix.seed default is false.
 #' @return list of bytes.
 #'

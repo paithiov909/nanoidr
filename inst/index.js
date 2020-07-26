@@ -94,6 +94,5 @@ const nanoidr = {
 
 (function(global) {
   globalObj.nanoidr = nanoidr;
-
   Object.assign(global, globalObj);
 })(global);

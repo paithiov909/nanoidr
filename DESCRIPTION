@@ -1,7 +1,7 @@
 Package: nanoidr
 Type: Package
 Title: NanoID on V8 for R
-Version: 0.1.2
+Version: 0.1.3
 Authors@R: person("Kato", "Akiru", email = "paithiov909@gmail.com", role = c("aut", "cre"))
 Author: paithiov909
 Maintainer: Kato Akiru <paithiov909@gmail.com>
@@ -21,7 +21,7 @@ Imports:
     stringr,
     stringi,
     openssl
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Suggests: 
     knitr,
     rmarkdown,
