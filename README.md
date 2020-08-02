@@ -77,5 +77,3 @@ Released under the MIT license https://github.com/paithiov909/nanoidr/blob/maste
 
 Icon made by [Those Icons](https://www.flaticon.com/authors/those-icons) from [www.flaticon.com](https://www.flaticon.com/)
 
-
-

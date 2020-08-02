@@ -244,5 +244,3 @@ nano2 <- nanoidr::nanoid(ctx = mycontext) # nanoidはctxという引数にコン
 
 [{hexSticker}](https://github.com/GuangchuangYu/hexSticker)でつくったステッカーがかわいいので見てください。
 
-
-
