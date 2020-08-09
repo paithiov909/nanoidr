@@ -69,6 +69,10 @@ mycontext$source("another_awesome_source.js")
 nano2 <- nanoidr::nanoid(ctx = mycontext)
 ```
 
+## Code of Conduct
+
+Please note that the nanoidr project is released with a [Contributor Code of Conduct](https://paithiov909.github.io/nanoidr/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+
 ## License
 
 Copyright (c) 2019 Kato Akiru
