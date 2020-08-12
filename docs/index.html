@@ -61,9 +61,6 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/about.html">About nanoidr package</a>
-    </li>
-    <li>
       <a href="articles/article.html">Random ID string generation with nanoidr</a>
     </li>
   </ul>
@@ -92,7 +89,9 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#nanoidr-" class="anchor"></a>nanoidr <img src="reference/figures/logo.png" align="right" height="139">
 </h1></div>
+<!-- badges: start -->
 
+<!-- badges: end -->
 <blockquote>
 <p>NanoID on V8 for R</p>
 </blockquote>
@@ -143,24 +142,26 @@
 <a href="#common-use-case" class="anchor"></a>Common use case</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>nano &lt;-<span class="st"> </span>nanoidr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/nanoidr/man/NanoID.html">nanoid</a></span>()</span>
 <span id="cb2-2"><a href="#cb2-2"></a>nano<span class="op">$</span><span class="kw">generate</span>() <span class="co"># the simplest use case</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#&gt; [1] "-TETmkEFVzala3Y17d6DO"</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#&gt; [1] "cLF-mt0f9WiMozMMBE5a9"</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a>nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 13L, <span class="dt">dict =</span> <span class="st">"numbers"</span>) <span class="co"># generate from built in pattern</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#&gt; [1] "5547882587672"</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#&gt; [1] "5709273229949"</span></span>
 <span id="cb2-6"><a href="#cb2-6"></a>nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"You can use any strings as dictionary!!"</span>)</span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="co">#&gt; [1] "reoa sYai onndaa"</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">#&gt; [1] "r  inyygasd u ss"</span></span>
 <span id="cb2-8"><a href="#cb2-8"></a>nano<span class="op">$</span><span class="kw">generate</span>(<span class="dt">size =</span> 16L, <span class="dt">dict =</span> <span class="st">"マルチバイト文字を使っても動作します"</span>, <span class="dt">init.locales =</span> <span class="st">"ja"</span>)</span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="co">#&gt; [1] "てルトをイっまってトっマ動文まて"</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co">#&gt; [1] "ルっをル字字をっ動作を文トっまバ"</span></span>
 <span id="cb2-10"><a href="#cb2-10"></a>nano<span class="op">$</span><span class="kw">nonsecure</span>(<span class="dt">size =</span> 27L) <span class="co"># use faster but non-secure version</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="co">#&gt; [1] "VSuYECCBnzd13yMM5vrSSICd-eC"</span></span></code></pre></div>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">#&gt; [1] "WjXEc-LIFTZi5UAfuTs_gSx_d8H"</span></span></code></pre></div>
 </div>
 <div id="using-custom-random-bytes-generator" class="section level3">
 <h3 class="hasAnchor">
 <a href="#using-custom-random-bytes-generator" class="anchor"></a>Using custom random bytes generator</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>myRndBytesFunc &lt;-<span class="st"> </span><span class="cf">function</span>(size) {</span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="kw"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span>(<span class="dv">1</span><span class="op">:</span>size, <span class="cf">function</span>(i){ <span class="kw"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/Round.html">floor</a></span>(dqrng<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/dqrng/man/dqrng-functions.html">dqrnorm</a></span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">64</span>))) })</span>
-<span id="cb3-3"><a href="#cb3-3"></a>}</span>
-<span id="cb3-4"><a href="#cb3-4"></a>nano<span class="op">$</span><span class="kw"><a href="https://rdrr.io/r/base/format.html">format</a></span>(<span class="dt">size =</span> 38L, <span class="dt">use_func =</span> <span class="st">"myRndBytesFunc"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#&gt; [1] "Ii7rJeDsqgbreV11xO_myewb51H83HI5Oh4thf"</span></span></code></pre></div>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="kw"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span>(<span class="dv">1</span><span class="op">:</span>size, <span class="cf">function</span>(i) {</span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="kw"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/Round.html">floor</a></span>(dqrng<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/dqrng/man/dqrng-functions.html">dqrnorm</a></span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">64</span>)))</span>
+<span id="cb3-4"><a href="#cb3-4"></a>  })</span>
+<span id="cb3-5"><a href="#cb3-5"></a>}</span>
+<span id="cb3-6"><a href="#cb3-6"></a>nano<span class="op">$</span><span class="kw"><a href="https://rdrr.io/r/base/format.html">format</a></span>(<span class="dt">size =</span> 38L, <span class="dt">use_func =</span> <span class="st">"myRndBytesFunc"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt; [1] "CR8RkOJQ4XuyMJxDNedlwYJhrUa5a7q24TPLta"</span></span></code></pre></div>
 </div>
 <div id="customizing-and-reusing-v8-context" class="section level3">
 <h3 class="hasAnchor">
@@ -223,7 +224,6 @@
 <ul class="list-unstyled">
 <li><a href="#"><img src="https://img.shields.io/github/last-commit/paithiov909/nanoidr" alt="GitHub last commit"></a></li>
 <li><a href="https://github.com/paithiov909/nanoidr/blob/master/LICENSE"><img src="https://img.shields.io/github/license/paithiov909/nanoidr" alt="GitHub license"></a></li>
-<li><a href="https://github.com/ellerbrock/open-source-badges/"><img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" alt="Open Source Love"></a></li>
 </ul>
 </div>
 </div>

@@ -1,26 +1,32 @@
 ---
-title: "About nanoidr package"
-author: "Kato Akiru"
-date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{About nanoidr package}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+output: github_document
 ---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   tidy = "styler",
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
 )
-```
 
-```{r setup, include = FALSE}
 if(!require(nanoidr)) stop()
 if(!require(dqrng)) stop()
 ```
+
+# nanoidr <img src='man/figures/logo.png' align="right" height="139" />
+
+<!-- badges: start -->
+
+[![GitHub last commit](https://img.shields.io/github/last-commit/paithiov909/nanoidr)](#)
+[![GitHub license](https://img.shields.io/github/license/paithiov909/nanoidr)](https://github.com/paithiov909/nanoidr/blob/master/LICENSE)
+
+<!-- badges: end -->
+
+> NanoID on V8 for R
 
 ## What is {nanoidr}?
 
@@ -28,9 +34,9 @@ if(!require(dqrng)) stop()
 
 ## Disclaimer
 
-> The original NanoID library generates random strings with window.crypto.getRandomValues on client side environment, however, the V8 environment provides no crypto object. Because of this, {nanoidr} package replaces that function with a simple wrapper of `openssl::rand_bytes()`.
+> The original NanoID library generates random strings with window.crypto.getRandomValues on client side environment, however, the V8 environment provides no window.crypto object. Because of this, {nanoidr} package replaces that function with a simple wrapper of `openssl::rand_bytes()`.
 
-So that V8 environment has no crypto API, behaivors between {nanoidr} and the original NanoID library may be different in details. See also [Generating Secure Random Numbers in R](https://cran.r-project.org/web/packages/openssl/vignettes/secure_rng.html) for more details of `openssl::rand_bytes()`.
+So that V8 environment has no crypto API, behaivors between {nanoidr} and the original NanoID library may be different in details. See also [Generating Secure Random Numbers in R](https://cran.r-project.org/web/packages/openssl/vignettes/secure_rng.html) for more details about `openssl::rand_bytes()`.
 
 ## Related repositories
 
@@ -44,11 +50,17 @@ Seeking more alternatives? These packages may help you.
 - [richfitz/ids](https://github.com/richfitz/ids) A cool way for you to simply generate random identifiers.
 - [ALShum/hashids-r](https://github.com/ALShum/hashids-r)  R implementation of [Hashids](https://hashids.org/r/).
 
+## Installation
+
+``` R
+remotes::install_github("paithiov909/nanoidr")
+```
+
 ## How to use
 
 ### Common use case
 
-```{r}
+```{r use_case_1}
 nano <- nanoidr::nanoid()
 nano$generate() # the simplest use case
 nano$generate(size = 13L, dict = "numbers") # generate from built in pattern
@@ -59,7 +71,7 @@ nano$nonsecure(size = 27L) # use faster but non-secure version
 
 ### Using custom random bytes generator
 
-```{r}
+```{r use_case_2}
 myRndBytesFunc <- function(size) {
   sapply(1:size, function(i){ abs(floor(dqrng::dqrnorm(1, 0, 64))) })
 }
@@ -74,4 +86,16 @@ mycontext <- nano$ctx
 mycontext$source("another_awesome_source.js")
 nano2 <- nanoidr::nanoid(ctx = mycontext)
 ```
+
+## Code of Conduct
+
+Please note that the nanoidr project is released with a [Contributor Code of Conduct](https://paithiov909.github.io/nanoidr/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+
+## License
+
+Copyright (c) 2019 Kato Akiru
+
+Released under the MIT license https://github.com/paithiov909/nanoidr/blob/master/LICENSE
+
+Icon made by [Those Icons](https://www.flaticon.com/authors/those-icons) from [www.flaticon.com](https://www.flaticon.com/)
 

@@ -7,7 +7,7 @@
 randombytes(size)
 }
 \arguments{
-\item{size}{integer passed to `sample(1:256, size, replace = TRUE)`}
+\item{size}{integer passed to \code{sample(1:256, size, replace = TRUE)}}
 }
 \value{
 function.

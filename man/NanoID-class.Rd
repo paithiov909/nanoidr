@@ -2,7 +2,7 @@
 % Please edit documentation in R/NanoidGood.R
 \name{NanoID-class}
 \alias{NanoID-class}
-\alias{NanoID}
+\alias{NanoIdGood}
 \title{NanoID class}
 \description{
 R6 class definition of NanoID-class.
@@ -17,11 +17,11 @@ R6 class definition of NanoID-class.
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{NanoID$new()}}
-\item \href{#method-format}{\code{NanoID$format()}}
-\item \href{#method-generate}{\code{NanoID$generate()}}
-\item \href{#method-nonsecure}{\code{NanoID$nonsecure()}}
-\item \href{#method-clone}{\code{NanoID$clone()}}
+\item \href{#method-new}{\code{NanoIdGood$new()}}
+\item \href{#method-format}{\code{NanoIdGood$format()}}
+\item \href{#method-generate}{\code{NanoIdGood$generate()}}
+\item \href{#method-nonsecure}{\code{NanoIdGood$nonsecure()}}
+\item \href{#method-clone}{\code{NanoIdGood$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
@@ -30,7 +30,7 @@ R6 class definition of NanoID-class.
 \subsection{Method \code{new()}}{
 Constructor
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{NanoID$new(ctx)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{NanoIdGood$new(ctx)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -47,7 +47,7 @@ Constructor
 \subsection{Method \code{format()}}{
 Format
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{NanoID$format(
+\if{html}{\out{<div class="r">}}\preformatted{NanoIdGood$format(
   size = 21L,
   dict = c("url", "numbers", "lowercase", "uppercase", "nolookalikes"),
   init.locales = c("en", "ja"),
@@ -62,7 +62,7 @@ Format
 
 \item{\code{dict}}{choose one of c("url", "numbers", "lowercase", "uppercase", "nolookalikes") or give acceptable strings set as character.}
 
-\item{\code{init.locales}}{vocabulary sets of words. defaut sets are c("en", "ja").}
+\item{\code{init.locales}}{vocabulary sets of words. default sets are c("en", "ja").}
 
 \item{\code{use_func}}{function name that will be used for generating bytes array.}
 }
@@ -70,8 +70,8 @@ Format
 }
 \subsection{Details}{
 Customizable generator that you can specify your own bytes-array-creation method.
-You can specify any R function that recieves `size` as its argument
-and returns a bytes-array of wihch length is `size`.
+You can specify any R function that receives `size` as its argument
+and returns a bytes-array of which length is `size`.
 }
 
 \subsection{Returns}{
@@ -84,7 +84,7 @@ strings output.
 \subsection{Method \code{generate()}}{
 Generate
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{NanoID$generate(
+\if{html}{\out{<div class="r">}}\preformatted{NanoIdGood$generate(
   size = 21L,
   dict = c("url", "numbers", "lowercase", "uppercase", "nolookalikes"),
   init.locales = c("en", "ja")
@@ -98,7 +98,7 @@ Generate
 
 \item{\code{dict}}{choose one of c("url", "numbers", "lowercase", "uppercase", "nolookalikes") or give acceptable strings set as character.}
 
-\item{\code{init.locales}}{vocabulary sets of obscene words. defaut sets are c("en", "ja").}
+\item{\code{init.locales}}{vocabulary sets of obscene words. default sets are c("en", "ja").}
 }
 \if{html}{\out{</div>}}
 }
@@ -112,7 +112,7 @@ strings output.
 \subsection{Method \code{nonsecure()}}{
 Nonsecure
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{NanoID$nonsecure(size = 21L, init.locales = c("en", "ja"))}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{NanoIdGood$nonsecure(size = 21L, init.locales = c("en", "ja"))}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -120,7 +120,7 @@ Nonsecure
 \describe{
 \item{\code{size}}{length of output.}
 
-\item{\code{init.locales}}{vocabulary sets of obscene words. defaut sets are c("en", "ja").}
+\item{\code{init.locales}}{vocabulary sets of obscene words. default sets are c("en", "ja").}
 }
 \if{html}{\out{</div>}}
 }
@@ -138,7 +138,7 @@ strings output.
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{NanoID$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{NanoIdGood$clone(deep = FALSE)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{

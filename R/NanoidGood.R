@@ -1,8 +1,8 @@
 #' NanoID class
 #' @description R6 class definition of NanoID-class.
 #' @name NanoID-class
-NanoID <- R6::R6Class(
-  "NanoID",
+NanoIdGood <- R6::R6Class(
+  "NanoIdGood",
   public = list(
     #' @field ctx V8 context.
     ctx = NULL,
@@ -14,11 +14,11 @@ NanoID <- R6::R6Class(
     #' @description Format
     #' @details
     #' Customizable generator that you can specify your own bytes-array-creation method.
-    #' You can specify any R function that recieves `size` as its argument
-    #' and returns a bytes-array of wihch length is `size`.
+    #' You can specify any R function that receives `size` as its argument
+    #' and returns a bytes-array of which length is `size`.
     #' @param size length of output.
     #' @param dict choose one of c("url", "numbers", "lowercase", "uppercase", "nolookalikes") or give acceptable strings set as character.
-    #' @param init.locales vocabulary sets of words. defaut sets are c("en", "ja").
+    #' @param init.locales vocabulary sets of words. default sets are c("en", "ja").
     #' @param use_func function name that will be used for generating bytes array.
     #' @return strings output.
     format = function(size = 21L,
@@ -54,7 +54,7 @@ NanoID <- R6::R6Class(
     #'
     #' @param size length of output.
     #' @param dict choose one of c("url", "numbers", "lowercase", "uppercase", "nolookalikes") or give acceptable strings set as character.
-    #' @param init.locales vocabulary sets of obscene words. defaut sets are c("en", "ja").
+    #' @param init.locales vocabulary sets of obscene words. default sets are c("en", "ja").
     #' @return strings output.
     generate = function(size = 21L,
                         dict = c(
@@ -84,7 +84,7 @@ NanoID <- R6::R6Class(
     #' Faster but non-secure version of NanoID generator (bigger collision probability).
     #'
     #' @param size length of output.
-    #' @param init.locales vocabulary sets of obscene words. defaut sets are c("en", "ja").
+    #' @param init.locales vocabulary sets of obscene words. default sets are c("en", "ja").
     #' @return strings output.
     nonsecure = function(size = 21L,
                          init.locales = c("en", "ja")) {
@@ -195,5 +195,5 @@ nanoid <- function(ctx = NULL) {
   }
 
   #### Return instance ####
-  return(NanoID$new(ctx))
+  return(NanoIdGood$new(ctx))
 }
