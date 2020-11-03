@@ -8,5 +8,6 @@
 }
 \description{
 The source of dictionaries comes from LDNOOBW/naughty-words-js.
-You can pass locale `Code` strings of this list to NanoID$format() and NanoID$generate().
+You can pass locale `Code` strings of this list to NanoID$format()
+and NanoID$generate().
 }

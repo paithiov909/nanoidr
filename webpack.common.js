@@ -1,12 +1,13 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'production',
   target: 'web',
-  entry: './index.js',
+  entry: './srcjs/index.js',
   output: {
+    library: 'nanoidr',
     filename: 'nanoidr.bundle.js',
-    path: path.resolve(__dirname, 'js'),
+    path: path.resolve(__dirname, 'inst/packer'),
+    libraryExport: "default",
     libraryTarget: 'var'
   },
   resolve: {

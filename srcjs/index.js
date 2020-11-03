@@ -1,4 +1,4 @@
-let globalObj = require("get-global");
+// let globalObj = require("get-global");
 
 // nanoid-good locales
 const ar = require("nanoid-good/locale/ar");
@@ -41,8 +41,6 @@ const nonsecure = curry(require("nanoid-good/non-secure"));
 
 /**
  * nanoidr
- * @alias global.nanoidr
- * @global
  * @namespace
  */
 const nanoidr = {
@@ -92,7 +90,4 @@ const nanoidr = {
   }
 };
 
-(function(global) {
-  globalObj.nanoidr = nanoidr;
-  Object.assign(global, globalObj);
-})(global);
+export default nanoidr;

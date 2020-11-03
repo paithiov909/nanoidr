@@ -9,19 +9,16 @@
 commit](https://img.shields.io/github/last-commit/paithiov909/nanoidr)](#)
 [![GitHub
 license](https://img.shields.io/github/license/paithiov909/nanoidr)](https://github.com/paithiov909/nanoidr/blob/master/LICENSE)
-
 <!-- badges: end -->
 
 > NanoID on V8 for R
 
-## What is {nanoidr}?
+## About
 
 [ai/nanoid](https://github.com/ai/nanoid) is a tiny (137 bytes), secure,
 URL-friendly, unique string ID generator for JavaScript. The {nanoidr}
 package is a pseudo R wrapper of NanoID library running on [V8 for
 R](https://github.com/jeroen/V8).
-
-## Disclaimer
 
 > The original NanoID library generates random strings with
 > window.crypto.getRandomValues on client side environment, however, the
@@ -29,13 +26,13 @@ R](https://github.com/jeroen/V8).
 > {nanoidr} package replaces that function with a simple wrapper of
 > `openssl::rand_bytes()`.
 
-So that V8 environment has no crypto API, behaivors between {nanoidr}
+So that V8 environment has no crypto API, behaviors between {nanoidr}
 and the original NanoID library may be different in details. See also
 [Generating Secure Random Numbers in
 R](https://cran.r-project.org/web/packages/openssl/vignettes/secure_rng.html)
 for more details about `openssl::rand_bytes()`.
 
-## Related repositories
+## Related Repositories
 
   - [ai/nanoid](https://github.com/ai/nanoid) The original NanoID
     library.
@@ -59,22 +56,22 @@ Seeking more alternatives? These packages may help you.
 remotes::install_github("paithiov909/nanoidr")
 ```
 
-## How to use
+## How to Use
 
 ### Common use case
 
 ``` r
 nano <- nanoidr::nanoid()
 nano$generate() # the simplest use case
-#> [1] "cLF-mt0f9WiMozMMBE5a9"
+#> [1] "wrbIdcAo3H8VCzECDiAWo"
 nano$generate(size = 13L, dict = "numbers") # generate from built in pattern
-#> [1] "5709273229949"
+#> [1] "5805275820470"
 nano$generate(size = 16L, dict = "You can use any strings as dictionary!!")
-#> [1] "r  inyygasd u ss"
+#> [1] "csoY ia adasgod "
 nano$generate(size = 16L, dict = "マルチバイト文字を使っても動作します", init.locales = "ja")
-#> [1] "ルっをル字字をっ動作を文トっまバ"
+#> [1] "て使をま動字ル文イて文作っバルイ"
 nano$nonsecure(size = 27L) # use faster but non-secure version
-#> [1] "WjXEc-LIFTZi5UAfuTs_gSx_d8H"
+#> [1] "evyz9E3THwbRVQqHcn_nMndBjkW"
 ```
 
 ### Using custom random bytes generator
@@ -86,7 +83,7 @@ myRndBytesFunc <- function(size) {
   })
 }
 nano$format(size = 38L, use_func = "myRndBytesFunc")
-#> [1] "CR8RkOJQ4XuyMJxDNedlwYJhrUa5a7q24TPLta"
+#> [1] "BLOsdXPuPrL_xKwMxNSY_uLY3P2AIla9fZLJBy"
 ```
 
 ### Customizing and reusing V8 context
@@ -107,10 +104,7 @@ contributing to this project, you agree to abide by its terms.
 
 ## License
 
-Copyright (c) 2019 Kato Akiru
-
-Released under the MIT license
-<https://github.com/paithiov909/nanoidr/blob/master/LICENSE>
+Released under the MIT license.
 
 Icon made by [Those Icons](https://www.flaticon.com/authors/those-icons)
-from [www.flaticon.com](https://www.flaticon.com/)
+from [www.flaticon.com](https://www.flaticon.com/).

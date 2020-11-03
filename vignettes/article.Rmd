@@ -18,11 +18,13 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup, include = FALSE}
-if(!require(nanoidr)) stop()
-if(!require(dqrng)) stop()
-if(!require(stringr)) stop()
-if(!require(purrr)) stop()
-if(!require(openssl)) stop()
+stopifnot(
+  require(nanoidr),
+  require(dqrng),
+  require(stringr),
+  require(purrr),
+  require(openssl)
+)
 ```
 
 ## これは何？
@@ -114,25 +116,6 @@ V8はNodeとは異なりモジュールの解決をしてくれないので、�
 その手の仕様の話は詳しくないのですが、ai/nanoidはNodeライクな環境で読みこむときとブラウザで読みこむときとでエントリーファイルが異なるタイプのモジュールになっています。browserifyはそのあたりがアレなため、素朴に使うとふつうにNodeライクな環境向けのエントリーファイルを参照してくるっぽいのですが、Node向けのai/nanoidではNodeの組み込みモジュールである[crypto](https://nodejs.org/api/crypto.html)を`require`しており、browserifyでこのあたりの`require`をやっつけるためにはオプションをいじる必要があります。
 
 いじる必要があるのですが結局どうやったらブラウザ向けのエントリーファイルを読ませられるのかわからなかったので、[webpack](https://webpack.js.org/)でコンパイルすることにしました。webpackの場合、ブラウザ向けのエントリーファイルを優先的に読みに行かせるには`webpack.config.js`内で`resolve: { mainFields: ['browser'] }}`みたいな指定をします。
-
-``` js
-const path = require('path');
-
-module.exports = {
-  mode: 'production',
-  target: 'web',
-  entry: './index.js',
-  output: {
-    filename: 'nanoidr.bundle.js',
-    path: path.resolve(__dirname, 'bundle'),
-    libraryTarget: 'var'
-  },
-  resolve: {
-    mainFields: ['browser', 'module', 'main']
-  }
-};
-
-```
 
 ### self.crypto.getRandomValuesをR側にコールバックする
 

@@ -60,9 +60,11 @@ Format
 \describe{
 \item{\code{size}}{length of output.}
 
-\item{\code{dict}}{choose one of c("url", "numbers", "lowercase", "uppercase", "nolookalikes") or give acceptable strings set as character.}
+\item{\code{dict}}{choose one of c("url", "numbers", "lowercase", "uppercase", "nolookalikes")
+or give acceptable strings set as character.}
 
-\item{\code{init.locales}}{vocabulary sets of words. default sets are c("en", "ja").}
+\item{\code{init.locales}}{vocabulary sets of words.
+default sets are c("en", "ja").}
 
 \item{\code{use_func}}{function name that will be used for generating bytes array.}
 }
@@ -96,9 +98,11 @@ Generate
 \describe{
 \item{\code{size}}{length of output.}
 
-\item{\code{dict}}{choose one of c("url", "numbers", "lowercase", "uppercase", "nolookalikes") or give acceptable strings set as character.}
+\item{\code{dict}}{choose one of c("url", "numbers", "lowercase", "uppercase", "nolookalikes")
+or give acceptable strings set as a character.}
 
-\item{\code{init.locales}}{vocabulary sets of obscene words. default sets are c("en", "ja").}
+\item{\code{init.locales}}{vocabulary sets of obscene words.
+default sets are c("en", "ja").}
 }
 \if{html}{\out{</div>}}
 }
@@ -120,12 +124,14 @@ Nonsecure
 \describe{
 \item{\code{size}}{length of output.}
 
-\item{\code{init.locales}}{vocabulary sets of obscene words. default sets are c("en", "ja").}
+\item{\code{init.locales}}{vocabulary sets of obscene words.
+default sets are c("en", "ja").}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Faster but non-secure version of NanoID generator (bigger collision probability).
+Faster but non-secure version of NanoID generator
+(bigger collision probability).
 }
 
 \subsection{Returns}{
