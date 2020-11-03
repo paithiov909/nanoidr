@@ -7,7 +7,8 @@
 #' a simple wrapper of \code{openssl::rand_bytes()}.
 #'
 #' @param size integer (size of output).
-#' @param seed only when fix.seed is true, will be used for \code{base::set.seed()}. Or not, will never be used.
+#' @param seed only when fix.seed is true, used for \code{base::set.seed()}.
+#' Or not, never be used.
 #' @param fix.seed default is false.
 #' @return list of bytes.
 #'

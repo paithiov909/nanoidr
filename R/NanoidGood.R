@@ -17,8 +17,10 @@ NanoIdGood <- R6::R6Class(
     #' You can specify any R function that receives `size` as its argument
     #' and returns a bytes-array of which length is `size`.
     #' @param size length of output.
-    #' @param dict choose one of c("url", "numbers", "lowercase", "uppercase", "nolookalikes") or give acceptable strings set as character.
-    #' @param init.locales vocabulary sets of words. default sets are c("en", "ja").
+    #' @param dict choose one of c("url", "numbers", "lowercase", "uppercase", "nolookalikes")
+    #' or give acceptable strings set as character.
+    #' @param init.locales vocabulary sets of words.
+    #' default sets are c("en", "ja").
     #' @param use_func function name that will be used for generating bytes array.
     #' @return strings output.
     format = function(size = 21L,
@@ -53,8 +55,10 @@ NanoIdGood <- R6::R6Class(
     #' @description Generate
     #'
     #' @param size length of output.
-    #' @param dict choose one of c("url", "numbers", "lowercase", "uppercase", "nolookalikes") or give acceptable strings set as character.
-    #' @param init.locales vocabulary sets of obscene words. default sets are c("en", "ja").
+    #' @param dict choose one of c("url", "numbers", "lowercase", "uppercase", "nolookalikes")
+    #' or give acceptable strings set as a character.
+    #' @param init.locales vocabulary sets of obscene words.
+    #' default sets are c("en", "ja").
     #' @return strings output.
     generate = function(size = 21L,
                         dict = c(
@@ -81,10 +85,12 @@ NanoIdGood <- R6::R6Class(
     },
     #' @description Nonsecure
     #' @details
-    #' Faster but non-secure version of NanoID generator (bigger collision probability).
+    #' Faster but non-secure version of NanoID generator
+    #' (bigger collision probability).
     #'
     #' @param size length of output.
-    #' @param init.locales vocabulary sets of obscene words. default sets are c("en", "ja").
+    #' @param init.locales vocabulary sets of obscene words.
+    #' default sets are c("en", "ja").
     #' @return strings output.
     nonsecure = function(size = 21L,
                          init.locales = c("en", "ja")) {
@@ -137,7 +143,7 @@ NanoIdGood <- R6::R6Class(
 #' @seealso \url{https://github.com/ai/nanoid/blob/master/README.md}
 #' @seealso \url{https://github.com/y-gagar1n/nanoid-good/blob/master/README.md}
 #'
-#' @param ctx Your own V8 context if any.
+#' @param ctx your own V8 context if any.
 #' @return R6 class object
 #'
 #' @import R6
@@ -187,7 +193,7 @@ nanoid <- function(ctx = NULL) {
     )
     ctx$source(file.path(
       system.file(package = "nanoidr"),
-      "js",
+      "packer",
       "nanoidr.bundle.js"
     ))
   } else {

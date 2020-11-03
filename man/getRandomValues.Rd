@@ -9,7 +9,8 @@ getRandomValues(size = 21L, seed = 1234L, fix.seed = FALSE)
 \arguments{
 \item{size}{integer (size of output).}
 
-\item{seed}{only when fix.seed is true, will be used for \code{base::set.seed()}. Or not, will never be used.}
+\item{seed}{only when fix.seed is true, used for \code{base::set.seed()}.
+Or not, never be used.}
 
 \item{fix.seed}{default is false.}
 }

@@ -1,0 +1,7 @@
+/**
+ * @license get-global https://github.com/cosmosio/get-global
+ *
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2014 Olivier Scherrer <pode.fr@gmail.com>
+ */

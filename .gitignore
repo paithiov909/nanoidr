@@ -37,5 +37,5 @@ rsconnect/
 
 *.log
 
-inst/node_modules/
 inst/doc
+node_modules

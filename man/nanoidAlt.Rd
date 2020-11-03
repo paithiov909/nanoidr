@@ -10,7 +10,7 @@ nanoidAlt(size = 21L)
 \item{size}{expected output size.}
 }
 \value{
-strings output.
+character scalar.
 }
 \description{
 Yet another R implementation of NanoID

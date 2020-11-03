@@ -1,9 +1,9 @@
 Package: nanoidr
 Type: Package
 Title: NanoID on V8 for R
-Version: 0.1.3-2
-Authors@R: person("Kato", "Akiru", email = "paithiov909@gmail.com", role = c("aut", "cre"))
-Author: paithiov909 [aut, cre]
+Version: 0.2.0
+Authors@R: c(
+    person("Kato", "Akiru", email = "paithiov909@gmail.com", role = c("aut", "cre")))
 Maintainer: Kato Akiru <paithiov909@gmail.com>
 Description: NanoID (an ID generator for JavaScript) on V8 for R.
 Depends:
@@ -20,7 +20,8 @@ Imports:
     dplyr,
     stringr,
     stringi,
-    openssl
+    openssl,
+    shiny
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,
