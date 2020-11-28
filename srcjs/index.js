@@ -1,5 +1,3 @@
-// let globalObj = require("get-global");
-
 // nanoid-good locales
 const ar = require("nanoid-good/locale/ar");
 const cs = require("nanoid-good/locale/cs");

@@ -450,11 +450,6 @@ function-bind@^1.1.1:
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
   integrity sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
 
-get-global@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/get-global/-/get-global-0.0.1.tgz#32dbe9acf2cb3522e68e57cdb91a997577249fb8"
-  integrity sha1-MtvprPLLNSLmjlfNuRqZdXckn7g=
-
 get-stream@^5.0.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-5.2.0.tgz#4966a1795ee5ace65e706c4b7beb71257d6e22d3"
