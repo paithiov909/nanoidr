@@ -2,6 +2,7 @@
 ^\.Rproj\.user$
 ^\.github$
 ^docs$
+^pkgdown$
 ^_pkgdown\.yml$
 ^CODE_OF_CONDUCT\.md$
 ^README\.Rmd$
