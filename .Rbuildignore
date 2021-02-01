@@ -1,12 +1,11 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^_pkgdown\.yml$
-^docs$
-^pkgdown$
 ^\.github$
-^\.yarnclean
+^docs$
+^_pkgdown\.yml$
 ^CODE_OF_CONDUCT\.md$
 ^README\.Rmd$
+^\.yarnclean
 ^srcjs$
 ^node_modules$
 ^package\.json$

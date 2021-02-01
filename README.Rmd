@@ -26,17 +26,13 @@ stopifnot(
 [![GitHub license](https://img.shields.io/github/license/paithiov909/nanoidr)](https://github.com/paithiov909/nanoidr/blob/master/LICENSE)
 <!-- badges: end -->
 
-> NanoID on V8 for R
-
-## About
-
 [ai/nanoid](https://github.com/ai/nanoid) is a tiny (137 bytes), secure, URL-friendly, unique string ID generator for JavaScript. The {nanoidr} package is a pseudo R wrapper of NanoID library running on [V8 for R](https://github.com/jeroen/V8).
 
 > The original NanoID library generates random strings with window.crypto.getRandomValues on client side environment, however, the V8 environment provides no window.crypto object. Because of this, {nanoidr} package replaces that function with a simple wrapper of `openssl::rand_bytes()`.
 
 So that V8 environment has no crypto API, behaviors between {nanoidr} and the original NanoID library may be different in details. See also [Generating Secure Random Numbers in R](https://cran.r-project.org/web/packages/openssl/vignettes/secure_rng.html) for more details about `openssl::rand_bytes()`.
 
-## Related Repositories
+## Related Products
 
 - [ai/nanoid](https://github.com/ai/nanoid) The original NanoID library.
 - [CyberAP/nanoid-dictionary](https://github.com/CyberAP/nanoid-dictionary) Predefined character sets to use with nanoid.
@@ -50,7 +46,7 @@ Seeking more alternatives? These packages may help you.
 
 ## Installation
 
-``` R
+``` r
 remotes::install_github("paithiov909/nanoidr")
 ```
 
@@ -78,7 +74,7 @@ nano$format(size = 38L, use_func = "myRndBytesFunc")
 
 ### Customizing and reusing V8 context
 
-``` R
+``` r
 nano <- nanoidr::nanoid()
 mycontext <- nano$ctx
 mycontext$source("another_awesome_source.js")

@@ -1,2 +1,7 @@
 destination: docs
+
 url: https://paithiov909.github.io/nanoidr
+
+template:
+  params:
+    ganalytics: UA-73417314-25

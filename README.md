@@ -11,10 +11,6 @@ commit](https://img.shields.io/github/last-commit/paithiov909/nanoidr)](#)
 license](https://img.shields.io/github/license/paithiov909/nanoidr)](https://github.com/paithiov909/nanoidr/blob/master/LICENSE)
 <!-- badges: end -->
 
-> NanoID on V8 for R
-
-## About
-
 [ai/nanoid](https://github.com/ai/nanoid) is a tiny (137 bytes), secure,
 URL-friendly, unique string ID generator for JavaScript. The {nanoidr}
 package is a pseudo R wrapper of NanoID library running on [V8 for
@@ -32,22 +28,22 @@ and the original NanoID library may be different in details. See also
 R](https://cran.r-project.org/web/packages/openssl/vignettes/secure_rng.html)
 for more details about `openssl::rand_bytes()`.
 
-## Related Repositories
+## Related Products
 
-  - [ai/nanoid](https://github.com/ai/nanoid) The original NanoID
+-   [ai/nanoid](https://github.com/ai/nanoid) The original NanoID
     library.
-  - [CyberAP/nanoid-dictionary](https://github.com/CyberAP/nanoid-dictionary)
+-   [CyberAP/nanoid-dictionary](https://github.com/CyberAP/nanoid-dictionary)
     Predefined character sets to use with nanoid.
-  - [y-gagar1n/nanoid-good](https://github.com/y-gagar1n/nanoid-good)
+-   [y-gagar1n/nanoid-good](https://github.com/y-gagar1n/nanoid-good)
     Obscene words filter for nanoid.
-  - [jeroen/V8](https://github.com/jeroen/V8) Embedded JavaScript engine
+-   [jeroen/V8](https://github.com/jeroen/V8) Embedded JavaScript engine
     for R.
 
 Seeking more alternatives? These packages may help you.
 
-  - [richfitz/ids](https://github.com/richfitz/ids) A cool way for you
+-   [richfitz/ids](https://github.com/richfitz/ids) A cool way for you
     to simply generate random identifiers.
-  - [ALShum/hashids-r](https://github.com/ALShum/hashids-r) R
+-   [ALShum/hashids-r](https://github.com/ALShum/hashids-r) R
     implementation of [Hashids](https://hashids.org/r/).
 
 ## Installation
@@ -63,15 +59,15 @@ remotes::install_github("paithiov909/nanoidr")
 ``` r
 nano <- nanoidr::nanoid()
 nano$generate() # the simplest use case
-#> [1] "wrbIdcAo3H8VCzECDiAWo"
+#> [1] "_1o9W7NYwSi3VEEi1lhkR"
 nano$generate(size = 13L, dict = "numbers") # generate from built in pattern
-#> [1] "5805275820470"
+#> [1] "5513694619431"
 nano$generate(size = 16L, dict = "You can use any strings as dictionary!!")
-#> [1] "csoY ia adasgod "
+#> [1] "uaatsroad!!YeeYy"
 nano$generate(size = 16L, dict = "マルチバイト文字を使っても動作します", init.locales = "ja")
-#> [1] "て使をま動字ル文イて文作っバルイ"
+#> [1] "を使ま動トトイまて作すイマイバっ"
 nano$nonsecure(size = 27L) # use faster but non-secure version
-#> [1] "evyz9E3THwbRVQqHcn_nMndBjkW"
+#> [1] "XjslTr9KD_gh3JieB0c5JjbujZ1"
 ```
 
 ### Using custom random bytes generator
@@ -83,7 +79,7 @@ myRndBytesFunc <- function(size) {
   })
 }
 nano$format(size = 38L, use_func = "myRndBytesFunc")
-#> [1] "BLOsdXPuPrL_xKwMxNSY_uLY3P2AIla9fZLJBy"
+#> [1] "Oj6gvXnGhdPwZn3-Me0ab36VUKtks1Px-_IaKm"
 ```
 
 ### Customizing and reusing V8 context

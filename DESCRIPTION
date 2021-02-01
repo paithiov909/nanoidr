@@ -6,8 +6,7 @@ Authors@R: c(
     person("Kato", "Akiru", email = "paithiov909@gmail.com", role = c("aut", "cre")))
 Maintainer: Kato Akiru <paithiov909@gmail.com>
 Description: NanoID (an ID generator for JavaScript) on V8 for R.
-Depends:
-    R (>= 3.2.0)
+Depends: R (>= 3.2.0)
 License: MIT + file LICENSE
 URL: https://github.com/paithiov909/nanoidr
 BugReports: https://github.com/paithiov909/nanoidr/issues 
