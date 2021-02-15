@@ -59,15 +59,15 @@ remotes::install_github("paithiov909/nanoidr")
 ``` r
 nano <- nanoidr::nanoid()
 nano$generate() # the simplest use case
-#> [1] "_1o9W7NYwSi3VEEi1lhkR"
+#> [1] "7gpDUvbjahkrzevyAXzqO"
 nano$generate(size = 13L, dict = "numbers") # generate from built in pattern
-#> [1] "5513694619431"
+#> [1] "7958439549276"
 nano$generate(size = 16L, dict = "You can use any strings as dictionary!!")
-#> [1] "uaatsroad!!YeeYy"
+#> [1] " n!a acscac y ! "
 nano$generate(size = 16L, dict = "マルチバイト文字を使っても動作します", init.locales = "ja")
-#> [1] "を使ま動トトイまて作すイマイバっ"
+#> [1] "チ字を使ルしってイしてルす使マ使"
 nano$nonsecure(size = 27L) # use faster but non-secure version
-#> [1] "XjslTr9KD_gh3JieB0c5JjbujZ1"
+#> [1] "jaoh_jNnQeprxfVeUh6sHaG7uZ8"
 ```
 
 ### Using custom random bytes generator
@@ -79,7 +79,7 @@ myRndBytesFunc <- function(size) {
   })
 }
 nano$format(size = 38L, use_func = "myRndBytesFunc")
-#> [1] "Oj6gvXnGhdPwZn3-Me0ab36VUKtks1Px-_IaKm"
+#> [1] "lYTJ7QzCShkGZYgTyRTaJPftk9iKwZZPhkUzdq"
 ```
 
 ### Customizing and reusing V8 context
@@ -100,7 +100,7 @@ contributing to this project, you agree to abide by its terms.
 
 ## License
 
-Released under the MIT license.
+MIT license.
 
 Icon made by [Those Icons](https://www.flaticon.com/authors/those-icons)
 from [www.flaticon.com](https://www.flaticon.com/).

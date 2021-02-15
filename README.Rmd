@@ -87,7 +87,7 @@ Please note that the nanoidr project is released with a [Contributor Code of Con
 
 ## License
 
-Released under the MIT license.
+MIT license.
 
 Icon made by [Those Icons](https://www.flaticon.com/authors/those-icons) from [www.flaticon.com](https://www.flaticon.com/).
 

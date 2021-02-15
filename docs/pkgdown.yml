@@ -3,7 +3,7 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   article: article.html
-last_built: 2021-02-01T21:31Z
+last_built: 2021-02-15T17:27Z
 urls:
   reference: https://paithiov909.github.io/nanoidr/reference
   article: https://paithiov909.github.io/nanoidr/articles

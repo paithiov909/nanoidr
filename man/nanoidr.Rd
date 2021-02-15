@@ -19,7 +19,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Kato Akiru \email{paithiov909@gmail.com}
+\strong{Maintainer}: Akiru Kato \email{paithiov909@gmail.com}
 
 }
 \keyword{internal}
