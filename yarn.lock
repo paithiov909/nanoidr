@@ -522,20 +522,20 @@ nanoid-dictionary@4.2.0:
   resolved "https://registry.yarnpkg.com/nanoid-dictionary/-/nanoid-dictionary-4.2.0.tgz#a90d36069905d825efc9bbad7fc7d6c7ffd5d135"
   integrity sha512-mLeTWGvp9jHbw6mXsHCGHKdJpGzy2gjF1ouS3tZER1DCZhXN/8Ks1w8fxLlIOn/8JhQmRBL1Y40q8kCPay6wNA==
 
-nanoid-good@1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/nanoid-good/-/nanoid-good-1.3.0.tgz#7045a4f4d0bd7bb9ed9eb6831b07fef1cd56b7bd"
-  integrity sha512-jvgRKefz9VhOEN6phKMIoa32RdqRPALo+ybVKLhOZxv4+veIBXsENv8q62/z1nMGmLnUUSChnO+4PSNYSOor3A==
+nanoid-good@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/nanoid-good/-/nanoid-good-3.1.0.tgz#76f2ac7f4d3ca60f8b6c771a70c386b3dc56aa4e"
+  integrity sha512-gG9D+AVHAZ+t2mAk3sw+Bx08VzOBc8fc+JylIzCLbEoRYakvQK9RiI3U+bXjdlMc5Ec4W9zUQsZZKngjifv7Vw==
   dependencies:
-    nanoid "^2.0.0"
-    naughty-words "^1.0.2"
+    nanoid "^3.1.2"
+    naughty-words "^1.2.0"
 
-nanoid@^2.0.0:
-  version "2.1.11"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-2.1.11.tgz#ec24b8a758d591561531b4176a01e3ab4f0f0280"
-  integrity sha512-s/snB+WGm6uwi0WjsZdaVcuf3KJXlfGl2LcxgwkEwJF0D/BWzVWAZW/XY4bFaiR7s0Jk3FPvlnepg1H1b1UwlA==
+nanoid@^3.1.2:
+  version "3.1.20"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.20.tgz#badc263c6b1dcf14b71efaa85f6ab4c1d6cfc788"
+  integrity sha512-a1cQNyczgKbLX9jwbS/+d7W8fX/RfgYR7lVWwWOGIPNgK2m0MWvrGF6/m4kk6U3QcFMnZf3RIhL0v2Jgh/0Uxw==
 
-naughty-words@^1.0.2:
+naughty-words@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/naughty-words/-/naughty-words-1.2.0.tgz#255f60bad94b430fb1216d05a3f4eec3e1061d64"
   integrity sha512-0iadX6fN+3NsfvIRtWmmpEX9VsoIQ6n9FwyIxmew9w5yzFNqMgs/Ky0eAC/z5xXSHtqlVoByiovdROikwH9SXQ==
