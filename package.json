@@ -28,7 +28,7 @@
     "webpack-merge": "5.7.3"
   },
   "dependencies": {
-    "lodash": "4.17.20",
+    "lodash": "4.17.21",
     "nanoid-dictionary": "4.2.0",
     "nanoid-good": "3.1.0"
   }
