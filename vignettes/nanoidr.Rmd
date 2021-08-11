@@ -18,13 +18,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup, include = FALSE}
-stopifnot(
-  require(nanoidr),
-  require(dqrng),
-  require(stringr),
-  require(purrr),
-  require(openssl)
-)
+pkgload::load_all()
 ```
 
 ## これは何？
@@ -223,7 +217,7 @@ mycontext$source("another_awesome_source.js")
 nano2 <- nanoidr::nanoid(ctx = mycontext) # nanoidはctxという引数にコンテキストを与えて初期化できます
 ```
 
-## むすび
+## さいごに
 
 [{hexSticker}](https://github.com/GuangchuangYu/hexSticker)でつくったステッカーがかわいいので見てください。
 

@@ -115,9 +115,9 @@ NanoIdGood <- R6::R6Class(
       )
     },
     locales = function(init.locales) {
-      purrr::map_chr(init.locales, function(x) {
+      sapply(init.locales, function(x) {
         paste0("nanoidr.locales", ".", x)
-      })
+      }, USE.NAMES = FALSE)
     }
   )
 )
@@ -146,12 +146,6 @@ NanoIdGood <- R6::R6Class(
 #' @param ctx your own V8 context if any.
 #' @return R6 class object
 #'
-#' @import R6
-#' @import V8
-#' @import purrr
-#' @importFrom dplyr case_when
-#' @importFrom stringr str_detect
-#' @importFrom stringr regex
 #' @export
 nanoid <- function(ctx = NULL) {
   if (is.null(ctx)) {

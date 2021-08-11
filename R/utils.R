@@ -14,9 +14,6 @@
 #'
 #' @seealso \url{https://developer.mozilla.org/ja/docs/Web/API/Window/crypto}
 #'
-#' @import purrr
-#' @importFrom stringi stri_rand_strings
-#' @importFrom openssl rand_bytes
 #' @export
 getRandomValues <- function(size = 21L, seed = 1234L, fix.seed = FALSE) {
   if (fix.seed) {
@@ -25,7 +22,6 @@ getRandomValues <- function(size = 21L, seed = 1234L, fix.seed = FALSE) {
   buf <- openssl::rand_bytes(size)
   return(as.integer(buf))
 }
-
 
 #' An example of original random bytes generator for using in format()
 #'

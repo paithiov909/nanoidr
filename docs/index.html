@@ -23,13 +23,7 @@
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-73417314-25"></script><script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-73417314-25');
-</script>
+<![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
     <div class="container template-home">
@@ -44,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">nanoidr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -57,19 +51,10 @@
   </a>
 </li>
 <li>
-  <a href="reference/index.html">Reference</a>
+  <a href="articles/nanoidr.html">Get started</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/article.html">Random ID string generation with nanoidr</a>
-    </li>
-  </ul>
+  <a href="reference/index.html">Reference</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -138,15 +123,15 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">nano</span> <span class="op">&lt;-</span> <span class="fu">nanoidr</span><span class="fu">::</span><span class="fu"><a href="reference/nanoid.html">nanoid</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">nano</span><span class="op">$</span><span class="fu">generate</span><span class="op">(</span><span class="op">)</span> <span class="co"># the simplest use case</span>
-<span class="co">#&gt; [1] "7gpDUvbjahkrzevyAXzqO"</span>
+<span class="co">#&gt; [1] "po-PoA5qxs0zqAInDS3U-"</span>
 <span class="va">nano</span><span class="op">$</span><span class="fu">generate</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">13L</span>, dict <span class="op">=</span> <span class="st">"numbers"</span><span class="op">)</span> <span class="co"># generate from built in pattern</span>
-<span class="co">#&gt; [1] "7958439549276"</span>
+<span class="co">#&gt; [1] "8481238364687"</span>
 <span class="va">nano</span><span class="op">$</span><span class="fu">generate</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">16L</span>, dict <span class="op">=</span> <span class="st">"You can use any strings as dictionary!!"</span><span class="op">)</span>
-<span class="co">#&gt; [1] " n!a acscac y ! "</span>
+<span class="co">#&gt; [1] "nona erus!st!inr"</span>
 <span class="va">nano</span><span class="op">$</span><span class="fu">generate</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">16L</span>, dict <span class="op">=</span> <span class="st">"マルチバイト文字を使っても動作します"</span>, init.locales <span class="op">=</span> <span class="st">"ja"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "チ字を使ルしってイしてルす使マ使"</span>
+<span class="co">#&gt; [1] "字てチも字文もト使マすイて文もも"</span>
 <span class="va">nano</span><span class="op">$</span><span class="fu">nonsecure</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">27L</span><span class="op">)</span> <span class="co"># use faster but non-secure version</span>
-<span class="co">#&gt; [1] "jaoh_jNnQeprxfVeUh6sHaG7uZ8"</span></code></pre></div>
+<span class="co">#&gt; [1] "cUqT2d9dVaqHNCAHKqFQXDZa0am"</span></code></pre></div>
 </div>
 <div id="using-custom-random-bytes-generator" class="section level3">
 <h3 class="hasAnchor">
@@ -154,11 +139,11 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">myRndBytesFunc</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">size</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="va">size</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="fu">dqrng</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/dqrng/man/dqrng-functions.html">dqrnorm</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">64</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="fu">dqrng</span><span class="fu">::</span><span class="fu"><a href="https://daqana.github.io/dqrng/reference/dqrng-functions.html">dqrnorm</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">64</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
 <span class="op">}</span>
 <span class="va">nano</span><span class="op">$</span><span class="fu">format</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">38L</span>, use_func <span class="op">=</span> <span class="st">"myRndBytesFunc"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "lYTJ7QzCShkGZYgTyRTaJPftk9iKwZZPhkUzdq"</span></code></pre></div>
+<span class="co">#&gt; [1] "FimxBX6gBDIQ0Ot7H0wtmIbyTiFz_XOtuYThGL"</span></code></pre></div>
 </div>
 <div id="customizing-and-reusing-v8-context" class="section level3">
 <h3 class="hasAnchor">
@@ -169,11 +154,6 @@
 <span class="va">mycontext</span><span class="op">$</span><span class="kw">source</span><span class="op">(</span><span class="st">"another_awesome_source.js"</span><span class="op">)</span>
 <span class="va">nano2</span> <span class="op">&lt;-</span> <span class="fu">nanoidr</span><span class="fu">::</span><span class="fu"><a href="reference/nanoid.html">nanoid</a></span><span class="op">(</span>ctx <span class="op">=</span> <span class="va">mycontext</span><span class="op">)</span></code></pre></div>
 </div>
-</div>
-<div id="code-of-conduct" class="section level2">
-<h2 class="hasAnchor">
-<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
-<p>Please note that the nanoidr project is released with a <a href="https://paithiov909.github.io/nanoidr/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 <div id="license" class="section level2">
 <h2 class="hasAnchor">

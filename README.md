@@ -59,15 +59,15 @@ remotes::install_github("paithiov909/nanoidr")
 ``` r
 nano <- nanoidr::nanoid()
 nano$generate() # the simplest use case
-#> [1] "7gpDUvbjahkrzevyAXzqO"
+#> [1] "po-PoA5qxs0zqAInDS3U-"
 nano$generate(size = 13L, dict = "numbers") # generate from built in pattern
-#> [1] "7958439549276"
+#> [1] "8481238364687"
 nano$generate(size = 16L, dict = "You can use any strings as dictionary!!")
-#> [1] " n!a acscac y ! "
+#> [1] "nona erus!st!inr"
 nano$generate(size = 16L, dict = "マルチバイト文字を使っても動作します", init.locales = "ja")
-#> [1] "チ字を使ルしってイしてルす使マ使"
+#> [1] "字てチも字文もト使マすイて文もも"
 nano$nonsecure(size = 27L) # use faster but non-secure version
-#> [1] "jaoh_jNnQeprxfVeUh6sHaG7uZ8"
+#> [1] "cUqT2d9dVaqHNCAHKqFQXDZa0am"
 ```
 
 ### Using custom random bytes generator
@@ -79,7 +79,7 @@ myRndBytesFunc <- function(size) {
   })
 }
 nano$format(size = 38L, use_func = "myRndBytesFunc")
-#> [1] "lYTJ7QzCShkGZYgTyRTaJPftk9iKwZZPhkUzdq"
+#> [1] "FimxBX6gBDIQ0Ot7H0wtmIbyTiFz_XOtuYThGL"
 ```
 
 ### Customizing and reusing V8 context
@@ -90,13 +90,6 @@ mycontext <- nano$ctx
 mycontext$source("another_awesome_source.js")
 nano2 <- nanoidr::nanoid(ctx = mycontext)
 ```
-
-## Code of Conduct
-
-Please note that the nanoidr project is released with a [Contributor
-Code of
-Conduct](https://paithiov909.github.io/nanoidr/CODE_OF_CONDUCT.html). By
-contributing to this project, you agree to abide by its terms.
 
 ## License
 
