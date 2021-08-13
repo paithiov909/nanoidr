@@ -26,7 +26,7 @@
 
 #' Predefined character sets
 #'
-#' Return a predefined character set port of the 'nanoid-dictionary'.
+#' Return a predefined character set ported of the 'nanoid-dictionary'.
 #' This function supports 2 patterns; "nolookalikes" or "nolookalikesSafe".
 #'
 #' @param pattern Choice one of `nolookalikes` or `nolookalikessafe`.

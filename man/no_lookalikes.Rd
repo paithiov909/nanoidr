@@ -13,7 +13,7 @@ no_lookalikes(pattern = c("nolookalikes", "nolookalikessafe"))
 Character vectors.
 }
 \description{
-Return a predefined character set port of the 'nanoid-dictionary'.
+Return a predefined character set ported of the 'nanoid-dictionary'.
 This function supports 2 patterns; "nolookalikes" or "nolookalikesSafe".
 }
 \examples{
