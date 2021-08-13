@@ -1,6 +1,0 @@
-{
-  "ignorePaths": ["docs/**"],
-  "extends": [
-    "config:base"
-  ]
-}

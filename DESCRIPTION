@@ -1,11 +1,11 @@
 Package: nanoidr
 Type: Package
-Title: NanoID on V8 for R
-Version: 0.2.1
+Title: NanoID for R
+Version: 1.0.0
 Authors@R: c(
     person("Akiru", "Kato", email = "paithiov909@gmail.com", role = c("aut", "cre")))
 Maintainer: Kato Akiru <paithiov909@gmail.com>
-Description: NanoID (an ID generator for JavaScript) on V8 for R.
+Description: An R implementation of NanoID.
 Depends: R (>= 3.2.0)
 License: MIT + file LICENSE
 URL: https://github.com/paithiov909/nanoidr
@@ -13,17 +13,13 @@ BugReports: https://github.com/paithiov909/nanoidr/issues
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    R6,
-    V8,
-    dplyr,
-    stringr,
+    bitops,
     openssl
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,
     rmarkdown,
-    testthat,
-    spelling,
-    dqrng
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
 Language: en-US
+Config/testthat/edition: 3

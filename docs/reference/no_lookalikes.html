@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>An example of original random bytes generator for using in format() — randombytes • nanoidr</title>
+<title>Predefined character sets — no_lookalikes • nanoidr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,9 @@
 
 
 
-<meta property="og:title" content="An example of original random bytes generator for using in format() — randombytes" />
-<meta property="og:description" content="An example of original random bytes generator for using in format()" />
+<meta property="og:title" content="Predefined character sets — no_lookalikes" />
+<meta property="og:description" content="Return a predefined character set port of the 'nanoid-dictionary'.
+This function supports 2 patterns; &quot;nolookalikes&quot; or &quot;nolookalikesSafe&quot;." />
 <meta property="og:image" content="https://paithiov909.github.io/nanoidr/logo.png" />
 
 
@@ -80,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nanoidr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -91,9 +92,6 @@
     <span class="fas fa-home fa-lg"></span>
      
   </a>
-</li>
-<li>
-  <a href="../articles/nanoidr.html">Get started</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
@@ -119,30 +117,38 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>An example of original random bytes generator for using in format()</h1>
-    <small class="dont-index">Source: <a href='https://github.com/paithiov909/nanoidr/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
-    <div class="hidden name"><code>randombytes.Rd</code></div>
+    <h1>Predefined character sets</h1>
+    <small class="dont-index">Source: <a href='https://github.com/paithiov909/nanoidr/blob/master/R/misc.R'><code>R/misc.R</code></a></small>
+    <div class="hidden name"><code>no_lookalikes.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>An example of original random bytes generator for using in format()</p>
+    <p>Return a predefined character set port of the 'nanoid-dictionary'.
+This function supports 2 patterns; "nolookalikes" or "nolookalikesSafe".</p>
     </div>
 
-    <pre class="usage"><span class='fu'>randombytes</span><span class='op'>(</span><span class='va'>size</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>no_lookalikes</span><span class='op'>(</span>pattern <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nolookalikes"</span>, <span class='st'>"nolookalikessafe"</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>size</th>
-      <td><p>integer passed to <code><a href='https://rdrr.io/r/base/sample.html'>sample(1:256, size, replace = TRUE)</a></code></p></td>
+      <th>pattern</th>
+      <td><p>Choice one of `nolookalikes` or `nolookalikessafe`.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>function.</p>
+    <p>Character vectors.</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>no_lookalikes</span><span class='op'>(</span><span class='st'>"nolookalikes"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] "3" "4" "6" "7" "8" "9" "A" "B" "C" "D" "E" "F" "G" "H" "J" "K" "L" "M" "N"
+#&gt; [20] "P" "Q" "R" "T" "U" "V" "W" "X" "Y" "a" "b" "c" "d" "e" "f" "g" "h" "i" "j"
+#&gt; [39] "k" "m" "n" "p" "q" "r" "t" "w" "x" "y" "z"</div><div class='input'><span class='fu'>no_lookalikes</span><span class='op'>(</span><span class='st'>"nolookalikessafe"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] "6" "7" "8" "9" "B" "C" "D" "F" "G" "H" "J" "K" "L" "M" "N" "P" "Q" "R" "T"
+#&gt; [20] "W" "b" "c" "d" "f" "g" "h" "j" "k" "m" "n" "p" "q" "r" "t" "w" "z"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

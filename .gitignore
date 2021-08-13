@@ -36,6 +36,4 @@ vignettes/*.pdf
 rsconnect/
 
 *.log
-
 inst/doc
-node_modules

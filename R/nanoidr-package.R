@@ -1,10 +1,7 @@
-#' NanoID on V8
+#' NanoID for R
 #' @docType package
-#' @import R6
-#' @import V8
-#' @importFrom dplyr case_when
+#' @import bitops
 #' @importFrom openssl rand_bytes
-#' @importFrom stringr str_detect regex
-#' @keywords internal
 #' @name nanoidr
+#' @keywords internal
 "_PACKAGE"

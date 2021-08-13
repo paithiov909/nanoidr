@@ -4,13 +4,7 @@
     <loc>https://paithiov909.github.io/nanoidr/index.html</loc>
   </url>
   <url>
-    <loc>https://paithiov909.github.io/nanoidr/reference/getRandomValues.html</loc>
-  </url>
-  <url>
-    <loc>https://paithiov909.github.io/nanoidr/reference/Locales.html</loc>
-  </url>
-  <url>
-    <loc>https://paithiov909.github.io/nanoidr/reference/NanoID-class.html</loc>
+    <loc>https://paithiov909.github.io/nanoidr/reference/bitmask.html</loc>
   </url>
   <url>
     <loc>https://paithiov909.github.io/nanoidr/reference/nanoid.html</loc>
@@ -19,9 +13,9 @@
     <loc>https://paithiov909.github.io/nanoidr/reference/nanoidr.html</loc>
   </url>
   <url>
-    <loc>https://paithiov909.github.io/nanoidr/reference/randombytes.html</loc>
+    <loc>https://paithiov909.github.io/nanoidr/reference/nanoid_impl.html</loc>
   </url>
   <url>
-    <loc>https://paithiov909.github.io/nanoidr/articles/nanoidr.html</loc>
+    <loc>https://paithiov909.github.io/nanoidr/reference/no_lookalikes.html</loc>
   </url>
 </urlset>

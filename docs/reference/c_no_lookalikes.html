@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Yet another R implementation of NanoID — nanoidAlt • nanoidr</title>
+<title>Predefined character sets — c_no_lookalikes • nanoidr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,9 @@
 
 
 
-<meta property="og:title" content="Yet another R implementation of NanoID — nanoidAlt" />
-<meta property="og:description" content="Yet another R implementation of NanoID" />
+<meta property="og:title" content="Predefined character sets — c_no_lookalikes" />
+<meta property="og:description" content="Return a predefined character set port of the 'nanoid-dictionary'.
+This function supports 2 patterns; &quot;nolookalikes&quot; or &quot;nolookalikesSafe&quot;." />
 <meta property="og:image" content="https://paithiov909.github.io/nanoidr/logo.png" />
 
 
@@ -62,16 +63,6 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-73417314-25"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-73417314-25');
-</script>
 
 
   </head>
@@ -90,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nanoidr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -104,18 +95,6 @@
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/article.html">Random ID string generation with nanoidr</a>
-    </li>
-  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -138,30 +117,38 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Yet another R implementation of NanoID</h1>
-    <small class="dont-index">Source: <a href='https://github.com/paithiov909/nanoidr/blob/master/R/nanoidAlt.R'><code>R/nanoidAlt.R</code></a></small>
-    <div class="hidden name"><code>nanoidAlt.Rd</code></div>
+    <h1>Predefined character sets</h1>
+    <small class="dont-index">Source: <a href='https://github.com/paithiov909/nanoidr/blob/master/R/misc.R'><code>R/misc.R</code></a></small>
+    <div class="hidden name"><code>c_no_lookalikes.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Yet another R implementation of NanoID</p>
+    <p>Return a predefined character set port of the 'nanoid-dictionary'.
+This function supports 2 patterns; "nolookalikes" or "nolookalikesSafe".</p>
     </div>
 
-    <pre class="usage"><span class='fu'>nanoidAlt</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>21L</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>c_no_lookalikes</span><span class='op'>(</span>pattern <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nolookalikes"</span>, <span class='st'>"nolookalikessafe"</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>size</th>
-      <td><p>expected output size.</p></td>
+      <th>pattern</th>
+      <td><p>Choice one of `nolookalikes` or `nolookalikessafe`.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>character scalar.</p>
+    <p>Character vectors.</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>c_no_lookalikes</span><span class='op'>(</span><span class='st'>"nolookalikes"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] "3" "4" "6" "7" "8" "9" "A" "B" "C" "D" "E" "F" "G" "H" "J" "K" "L" "M" "N"
+#&gt; [20] "P" "Q" "R" "T" "U" "V" "W" "X" "Y" "a" "b" "c" "d" "e" "f" "g" "h" "i" "j"
+#&gt; [39] "k" "m" "n" "p" "q" "r" "t" "w" "x" "y" "z"</div><div class='input'><span class='fu'>c_no_lookalikes</span><span class='op'>(</span><span class='st'>"nolookalikessafe"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] "6" "7" "8" "9" "B" "C" "D" "F" "G" "H" "J" "K" "L" "M" "N" "P" "Q" "R" "T"
+#&gt; [20] "W" "b" "c" "d" "f" "g" "h" "j" "k" "m" "n" "p" "q" "r" "t" "w" "z"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

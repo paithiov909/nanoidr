@@ -4,11 +4,11 @@
 \name{nanoidr}
 \alias{nanoidr}
 \alias{nanoidr-package}
-\title{NanoID on V8}
+\title{NanoID for R}
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-NanoID (an ID generator for JavaScript) on V8 for R.
+An R implementation of NanoID.
 }
 \seealso{
 Useful links:
