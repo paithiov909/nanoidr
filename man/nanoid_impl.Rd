@@ -14,7 +14,7 @@ nanoid_impl(size, alphabet, func)
 \item{step}{Integer.}
 }
 \value{
-String.
+Character vector.
 }
 \description{
 An R implementation of NanoID.

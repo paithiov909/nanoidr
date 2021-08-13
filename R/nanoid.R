@@ -21,7 +21,7 @@ bitmask <- function(v) {
 #' @param step Integer.
 #' @param alphabet Character vector.
 #' @param func Function.
-#' @return String.
+#' @return Character vector.
 #'
 #' @keywords internal
 nanoid_impl <- function(size, alphabet, func) {
