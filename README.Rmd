@@ -22,7 +22,7 @@ pkgload::load_all()
 [![GitHub license](https://img.shields.io/github/license/paithiov909/nanoidr)](https://github.com/paithiov909/nanoidr/blob/master/LICENSE)
 <!-- badges: end -->
 
-[ai/nanoid](https://github.com/ai/nanoid) is a tiny (137 bytes), secure, URL-friendly, unique string ID generator for JavaScript. The nanoidr package is an R implementation of NanoID. 
+[ai/nanoid](https://github.com/ai/nanoid) is a tiny, secure, URL-friendly, unique string ID generator for JavaScript. The nanoidr package is an R implementation of NanoID. 
 
 The original NanoID library generates random strings using crypto API, which is replaced with `openssl::rand_bytes` in nanoidr package.
 See also [Generating Secure Random Numbers in R](https://cran.r-project.org/web/packages/openssl/vignettes/secure_rng.html) for more details about `openssl::rand_bytes`.

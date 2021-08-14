@@ -11,7 +11,7 @@ commit](https://img.shields.io/github/last-commit/paithiov909/nanoidr)](#)
 license](https://img.shields.io/github/license/paithiov909/nanoidr)](https://github.com/paithiov909/nanoidr/blob/master/LICENSE)
 <!-- badges: end -->
 
-[ai/nanoid](https://github.com/ai/nanoid) is a tiny (137 bytes), secure,
+[ai/nanoid](https://github.com/ai/nanoid) is a tiny, secure,
 URL-friendly, unique string ID generator for JavaScript. The nanoidr
 package is an R implementation of NanoID.
 
@@ -31,7 +31,7 @@ remotes::install_github("paithiov909/nanoidr")
 
 ``` r
 nanoidr::nanoid()
-#> [1] "Y5py9kCWuVQ0BXwZeQ4oj"
+#> [1] "8Iuwr8q1bF368Kttz-bnF"
 ```
 
 ## Alternatives
