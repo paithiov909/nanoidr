@@ -15,14 +15,14 @@ knitr::opts_chunk$set(
 pkgload::load_all()
 ```
 
-# nanoidr <img src='man/figures/logo.png' align="right" height="139" />
+# nanoidr <a href="https://paithiov909.github.io/nanoidr/" rel="noopener"><img src="man/figures/logo.png" align="right" height="139" /></a>
 
 <!-- badges: start -->
 [![GitHub last commit](https://img.shields.io/github/last-commit/paithiov909/nanoidr)](#)
 [![GitHub license](https://img.shields.io/github/license/paithiov909/nanoidr)](https://github.com/paithiov909/nanoidr/blob/master/LICENSE)
 <!-- badges: end -->
 
-[ai/nanoid](https://github.com/ai/nanoid) is a tiny, secure, URL-friendly, unique string ID generator for JavaScript. The nanoidr package is an R implementation of NanoID. 
+[ai/nanoid](https://github.com/ai/nanoid) is a tiny, secure, URL-friendly, unique string ID generator for JavaScript. The nanoidr package is an R port of NanoID.
 
 The original NanoID library generates random strings using crypto API, which is replaced with `openssl::rand_bytes` in nanoidr package.
 See also [Generating Secure Random Numbers in R](https://cran.r-project.org/web/packages/openssl/vignettes/secure_rng.html) for more details about `openssl::rand_bytes`.
@@ -36,7 +36,10 @@ remotes::install_github("paithiov909/nanoidr")
 ## Usage
 
 ```{r usage}
+## Basic usage.
 nanoidr::nanoid()
+## You can use your own random number generator.
+nanoidr::nanoid(29, func = function(size) { runif(size, 0, 255) } )
 ```
 
 ## Alternatives

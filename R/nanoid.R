@@ -45,8 +45,8 @@ nanoid_impl <- function(size, alphabet, func) {
 #' Generate NanoID
 #'
 #' @param size Integer.
-#' @param alphabet Character vector or NULL.
-#' @param func Function or NULL.
+#' @param alphabet Character vector.
+#' @param func Function.
 #' @return String.
 #'
 #' @export

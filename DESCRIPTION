@@ -5,7 +5,8 @@ Version: 1.0.0
 Authors@R: c(
     person("Akiru", "Kato", email = "paithiov909@gmail.com", role = c("aut", "cre")))
 Maintainer: Kato Akiru <paithiov909@gmail.com>
-Description: An R implementation of NanoID.
+Description: An R port of NanoID that is a tiny, secure,
+    URL-friendly, unique string ID generator for JavaScript.
 Depends: R (>= 3.2.0)
 License: MIT + file LICENSE
 URL: https://github.com/paithiov909/nanoidr

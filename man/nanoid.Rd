@@ -9,9 +9,9 @@ nanoid(size = 21L, alphabet = NULL, func = NULL)
 \arguments{
 \item{size}{Integer.}
 
-\item{alphabet}{Character vector or NULL.}
+\item{alphabet}{Character vector.}
 
-\item{func}{Function or NULL.}
+\item{func}{Function.}
 }
 \value{
 String.

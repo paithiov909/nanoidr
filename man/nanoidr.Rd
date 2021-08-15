@@ -6,9 +6,11 @@
 \alias{nanoidr-package}
 \title{NanoID for R}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+An R port of NanoID that is a tiny, secure,
+ URL-friendly, unique string ID generator for JavaScript.
 
-An R implementation of NanoID.
+ The original NanoID library generates random strings using crypto API,
+ which is replaced with openssl::rand_bytes in nanoidr package.
 }
 \seealso{
 Useful links:
