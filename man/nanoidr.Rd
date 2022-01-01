@@ -16,6 +16,7 @@ An R port of NanoID that is a tiny, secure,
 Useful links:
 \itemize{
   \item \url{https://github.com/paithiov909/nanoidr}
+  \item \url{https://paithiov909.github.io/nanoidr/}
   \item Report bugs at \url{https://github.com/paithiov909/nanoidr/issues}
 }
 
