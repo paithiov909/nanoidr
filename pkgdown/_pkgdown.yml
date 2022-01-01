@@ -1,3 +1,6 @@
 destination: docs
 
-url: https://paithiov909.github.io/nanoidr
+url: https://paithiov909.github.io/nanoidr/
+
+template:
+  bootstrap: 5

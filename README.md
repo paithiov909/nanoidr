@@ -7,6 +7,7 @@
 
 [![GitHub last
 commit](https://img.shields.io/github/last-commit/paithiov909/nanoidr)](#)
+[![nanoidr status badge](https://paithiov909.r-universe.dev/badges/nanoidr)](https://paithiov909.r-universe.dev)
 [![GitHub
 license](https://img.shields.io/github/license/paithiov909/nanoidr)](https://github.com/paithiov909/nanoidr/blob/master/LICENSE)
 <!-- badges: end -->
