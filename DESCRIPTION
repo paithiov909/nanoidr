@@ -1,7 +1,7 @@
 Type: Package
 Package: nanoidr
 Title: NanoID for R
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: 
     person("Akiru", "Kato", , "paithiov909@gmail.com", role = c("aut", "cre"))
 Maintainer: Akiru Kato <paithiov909@gmail.com>
@@ -23,4 +23,4 @@ Suggests:
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.2

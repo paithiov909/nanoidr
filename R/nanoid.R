@@ -39,7 +39,7 @@ nanoid_impl <- function(size, alphabet, func) {
   # trick that equivalent to `Math.ceil` (i.e. `ceiling`)
   step <- bitwNot((1.6 * mask * size) / length(alphabet)) * (-1L)
   bytes <- bitAnd(as.integer(get_random(step)), mask)
-  return(Filter(Negate(is.na), alphabet[bytes]))
+  return(subset(alphabet[bytes], !is.na(alphabet[bytes])))
 }
 
 #' Generate NanoID
