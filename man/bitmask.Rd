@@ -10,8 +10,6 @@ bitmask(v)
 \item{v}{Character vector.}
 }
 \value{
-Integer scalar.
-
 Numeric.
 }
 \description{

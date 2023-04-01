@@ -1,7 +1,6 @@
 #' Bitmask
 #'
 #' @param v Character vector.
-#' @return Integer scalar.
 #' @return Numeric.
 #'
 #' @keywords internal
