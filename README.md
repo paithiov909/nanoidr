@@ -7,8 +7,6 @@
 
 [![GitHub last
 commit](https://img.shields.io/github/last-commit/paithiov909/nanoidr)](#)
-[![GitHub
-license](https://img.shields.io/github/license/paithiov909/nanoidr)](https://github.com/paithiov909/nanoidr/blob/master/LICENSE)
 <!-- badges: end -->
 
 [ai/nanoid](https://github.com/ai/nanoid) is a tiny, secure,
@@ -32,16 +30,18 @@ remotes::install_github("paithiov909/nanoidr")
 ``` r
 ## Basic usage.
 nanoidr::nanoid()
-#> [1] "eCds8xPSGyf-u7AoAaOVW"
+#> [1] "uyfyn3rUgFu0vuho4YUK2"
 ## You can use your own random number generator.
 nanoidr::nanoid(29, func = function(size) {
   runif(size, 0, 255)
 })
-#> [1] "TlLb2P0Hj5ehmBTnm3JnpDpy4W1MK"
+#> [1] "sSShxYv1UCtr5yfU9WPSotUgRewlZ"
 ```
 
 ## Alternatives
 
+- [hrbrmstr/nanoid: Tools to Generate Short, Secure, URL-friendly, and
+  Unique String Identifiers](https://github.com/hrbrmstr/nanoid)
 - [reside-ic/ids: :information_source: Simple random
   identifiers](https://github.com/reside-ic/ids)
 - [sqids/sqids-r: Official R port of Sqids. Generate short unique IDs
