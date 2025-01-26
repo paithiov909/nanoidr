@@ -85,17 +85,18 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Basic usage.</span></span>
 <span><span class="fu">nanoidr</span><span class="fu">::</span><span class="fu"><a href="reference/nanoid.html">nanoid</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "eCds8xPSGyf-u7AoAaOVW"</span></span>
+<span><span class="co">#&gt; [1] "uyfyn3rUgFu0vuho4YUK2"</span></span>
 <span><span class="co">## You can use your own random number generator.</span></span>
 <span><span class="fu">nanoidr</span><span class="fu">::</span><span class="fu"><a href="reference/nanoid.html">nanoid</a></span><span class="op">(</span><span class="fl">29</span>, func <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">size</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="va">size</span>, <span class="fl">0</span>, <span class="fl">255</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "TlLb2P0Hj5ehmBTnm3JnpDpy4W1MK"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "sSShxYv1UCtr5yfU9WPSotUgRewlZ"</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="alternatives">Alternatives<a class="anchor" aria-label="anchor" href="#alternatives"></a>
 </h2>
 <ul>
+<li><a href="https://github.com/hrbrmstr/nanoid" class="external-link">hrbrmstr/nanoid: Tools to Generate Short, Secure, URL-friendly, and Unique String Identifiers</a></li>
 <li><a href="https://github.com/reside-ic/ids" class="external-link">reside-ic/ids: <span class="emoji" data-emoji="information_source">ℹ️</span> Simple random identifiers</a></li>
 <li><a href="https://github.com/sqids/sqids-r" class="external-link">sqids/sqids-r: Official R port of Sqids. Generate short unique IDs from numbers.</a></li>
 <li><a href="https://stringi.gagolewski.com/rapi/stri_rand_strings.html" class="external-link">stri_rand_strings: Generate Random Strings - R Package stringi</a></li>
@@ -144,7 +145,6 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="#"><img src="https://img.shields.io/github/last-commit/paithiov909/nanoidr" alt="GitHub last commit"></a></li>
-<li><a href="https://github.com/paithiov909/nanoidr/blob/master/LICENSE" class="external-link"><img src="https://img.shields.io/github/license/paithiov909/nanoidr" alt="GitHub license"></a></li>
 </ul>
 </div>
 
