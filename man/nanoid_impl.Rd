@@ -4,14 +4,14 @@
 \alias{nanoid_impl}
 \title{NanoID generator}
 \usage{
-nanoid_impl(size, alphabet, func)
+nanoid_impl(step, alphabet, func)
 }
 \arguments{
+\item{step}{Integer.}
+
 \item{alphabet}{Character vector.}
 
 \item{func}{Function.}
-
-\item{step}{Integer.}
 }
 \value{
 Character vector.

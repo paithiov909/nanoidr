@@ -1,7 +1,7 @@
 #' Bitmask
 #'
 #' @param v Character vector.
-#' @return Numeric.
+#' @returns Numeric.
 #'
 #' @keywords internal
 bitmask <- function(v) {
@@ -20,10 +20,10 @@ bitmask <- function(v) {
 #' @param step Integer.
 #' @param alphabet Character vector.
 #' @param func Function.
-#' @return Character vector.
+#' @returns Character vector.
 #'
 #' @keywords internal
-nanoid_impl <- function(size, alphabet, func) {
+nanoid_impl <- function(step, alphabet, func) {
   get_random <- ifelse(
     is.null(func),
     rand_bytes,
@@ -36,7 +36,7 @@ nanoid_impl <- function(size, alphabet, func) {
     mask <- 63L
   }
   # trick that equivalent to `Math.ceil` (i.e. `ceiling`)
-  step <- bitwNot((1.6 * mask * size) / length(alphabet)) * (-1L)
+  step <- bitwNot((1.6 * mask * step) / length(alphabet)) * (-1L)
   bytes <- bitAnd(as.integer(get_random(step)), mask)
   return(subset(alphabet[bytes], !is.na(alphabet[bytes])))
 }
@@ -46,7 +46,7 @@ nanoid_impl <- function(size, alphabet, func) {
 #' @param size Integer.
 #' @param alphabet Character vector.
 #' @param func Function.
-#' @return String.
+#' @returns String.
 #'
 #' @export
 nanoid <- function(size = 21L, alphabet = NULL, func = NULL) {

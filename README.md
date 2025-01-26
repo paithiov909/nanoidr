@@ -7,7 +7,6 @@
 
 [![GitHub last
 commit](https://img.shields.io/github/last-commit/paithiov909/nanoidr)](#)
-[![nanoidr status badge](https://paithiov909.r-universe.dev/badges/nanoidr)](https://paithiov909.r-universe.dev)
 [![GitHub
 license](https://img.shields.io/github/license/paithiov909/nanoidr)](https://github.com/paithiov909/nanoidr/blob/master/LICENSE)
 <!-- badges: end -->
@@ -33,21 +32,24 @@ remotes::install_github("paithiov909/nanoidr")
 ``` r
 ## Basic usage.
 nanoidr::nanoid()
-#> [1] "NYDFZXD0izQRJ4EVYRQP-"
+#> [1] "eCds8xPSGyf-u7AoAaOVW"
 ## You can use your own random number generator.
 nanoidr::nanoid(29, func = function(size) {
   runif(size, 0, 255)
 })
-#> [1] "J-UfZP7ThuHKx5QZaIEr0vJF97G0K"
+#> [1] "TlLb2P0Hj5ehmBTnm3JnpDpy4W1MK"
 ```
 
 ## Alternatives
 
-Seeking more alternatives?
-
-For random string generation, `stringi::stri_rand_strings` function or
-the [richfitz/ids](https://github.com/richfitz/ids) package may help
-you.
+- [reside-ic/ids: :information_source: Simple random
+  identifiers](https://github.com/reside-ic/ids)
+- [sqids/sqids-r: Official R port of Sqids. Generate short unique IDs
+  from numbers.](https://github.com/sqids/sqids-r)
+- [stri_rand_strings: Generate Random Strings - R Package
+  stringi](https://stringi.gagolewski.com/rapi/stri_rand_strings.html)
+- [random_strings: random_strings in stringfish: Alt String
+  Implementation](https://rdrr.io/cran/stringfish/man/random_strings.html)
 
 ## License
 
