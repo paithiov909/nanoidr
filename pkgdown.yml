@@ -1,9 +1,8 @@
-pandoc: 2.19.2
-pkgdown: 2.0.7
+pandoc: 3.1.11
+pkgdown: 2.1.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2023-04-01T09:09Z
+last_built: 2025-01-26T08:18Z
 urls:
   reference: https://paithiov909.github.io/nanoidr/reference
   article: https://paithiov909.github.io/nanoidr/articles
-
